@@ -34,6 +34,7 @@ function count(callback) {
               } else if (ckyActiveLaw === "ccpa") {
                   var showOnlyInCalifornia = cliConfig.options.geoTarget["ccpa"].california;
                   var showOnlyInUs = cliConfig.options.geoTarget["ccpa"].us;
+                  cookieYes.unblock();
               }
               switch (true) {
                   case (ckyActiveLaw === "gdpr" && showOnlyInEu && in_EU === false) ||
@@ -72,6 +73,7 @@ function count(callback) {
               }
           }
           function disableBanner() {
+              console.log('1');
               categoryScripts.forEach(function (item) {
                   Array.prototype.push.apply(window.CKY_WHITELIST, item.list);
                   Array.prototype.push.apply(patterns.whitelist, item.list);
@@ -88,6 +90,7 @@ function count(callback) {
           }
 
           function displayBanner() {
+            console.log('2');
               if (document.getElementById("cky-consent")) {
                   document.getElementById("cky-consent").style.display = "block";
               }
