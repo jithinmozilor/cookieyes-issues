@@ -1,3 +1,15 @@
+// SAMPLE SCRIPT OF A USER WITH 
+// GDPR - CLASSIC TYPE - DARK THEME
+
+// SCRIPT IS DIDVIDED INTO 3 PARTS
+
+// 1 COMES FROM WEBSITE.PHP
+// 2 COMES FROM CLI-SCRIPT ( V- 1, 2, 3 ,4 )
+// 3 COMES FROM SCRRIPT-BLOCKER FILE
+
+
+// PART -1
+
 try {
   bannerActiveCheck();
 } catch (err) {
@@ -31,6 +43,7 @@ function count(callback) {
               if (ckyActiveLaw === "gdpr") {
                   var showOnlyInEu = cliConfig.options.geoTarget["gdpr"].eu;
               } else if (ckyActiveLaw === "ccpa") {
+                  cookieYes.unblock();
                   var showOnlyInCalifornia = cliConfig.options.geoTarget["ccpa"].california;
                   var showOnlyInUs = cliConfig.options.geoTarget["ccpa"].us;
               }
@@ -190,11 +203,11 @@ function randomString(length) {
   }
   return str;
 }
-var tldomain = "localhost";
+var tldomain = "www.abcde.com";
 var cliConfig = {
   options: {
-      plan: "free",
-      theme: "dark",
+      // plan: "free",
+      // theme: "dark",
       colors: {
           gdpr: {
               popup: { pills: { bg: "#414551", activeBg: "#161b23", textColor: "#ffffff", activeTextColor: "#ffffff" }, acceptCustomButton: { bg: "transparent", textColor: "#3a80ff", borderColor: "#3a80ff" } },
@@ -226,23 +239,23 @@ var cliConfig = {
               customAcceptButton: { de: "Speichern Sie meine Einstellungen", en: "Save my preferences" },
           },
       },
-      display: { gdpr: { title: false, notice: true, buttons: { accept: true, reject: true, readMore: false, settings: true }, noticeToggler: false } },
-      version: "4.0.0",
+      // display: { gdpr: { title: false, notice: true, buttons: { accept: true, reject: true, readMore: false, settings: true }, noticeToggler: false } },
+      // version: "4.0.0",
       position: "bottom",
       template: {
-          id: "banner",
+          // id: "classic",
           css:
-              ".cky-consent-bar-trigger, .cky-consent-bar, .cky-modal, .cky-consent-bar-trigger *, .cky-consent-bar *, .cky-modal * { box-sizing: border-box; } .cky-consent-bar-trigger *:focus, .cky-consent-bar *:focus, .cky-modal *:focus { outline: 0; } .cky-consent-bar-trigger { position: fixed; right: 30px; padding: 2px 5px; font-size: 13px; cursor: pointer; font-family: inherit; animation: slide-up 0.4s ease; z-index: 9997; } .cky-consent-bar { font-family: inherit; position: fixed; z-index: 9997; } .cky-consent-bar .cky-consent-title { font-size: 15px; font-weight: bold; margin-bottom: 3px; } .cky-consent-bar p { line-height: 20px; font-size: 13px; font-weight: normal; margin-bottom: 0; margin-top: 0; } .cky-btn { font-size: 12px; padding: .5rem 1rem; background: none; cursor: pointer; display: inline-block; text-align: center; white-space: nowrap; vertical-align: middle; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; border: 1px solid transparent; line-height: 1; transition: all .15s ease-in-out; margin: 0; min-height: auto; font-weight: normal; border-radius: 0; } .cky-btn:hover { opacity: .8; } .cky-btn:focus { outline: 0; } .cky-button-wrapper .cky-btn { margin-right: 15px; } .cky-button-wrapper .cky-btn:last-child { margin-right: 0; } .cky-btn.cky-btn-custom-accept { margin: 1.5rem 1rem; font-weight: 600; white-space: initial; word-break: break-word; } .cky-btn-readMore { cursor: pointer; font-size: 13px; text-decoration: underline; margin-left: 3px; } .cky-btn-doNotSell { cursor: pointer; white-space: nowrap; font-weight: bold; font-size: 13px; text-decoration: underline; margin-left: 3px; } .cky-consent-bar.cky-logo-active .cky-content-logo-outer-wrapper { display: flex; align-items: center; } .cky-consent-bar.cky-logo-active .cky-logo { margin-right: 30px; } @media (max-width: 540px) { .cky-consent-bar.cky-logo-active .cky-content-logo-outer-wrapper { display: block; } } .cky-tab { display: -ms-flexbox; display: flex; } .cky-tab-menu { flex: 0 0 25%; max-width: 25%; } @media (max-width: 991px) { .cky-tab-menu { flex: 0 0 40%; max-width: 40%; } } .cky-tab-content { flex: 0 0 75%; max-width: 75%; background: transparent; padding: 15px 20px; } @media (max-width: 991px) { .cky-tab-content { flex: 0 0 60%; max-width: 60%; } } @media (max-width: 767px) { .cky-tab-content { padding: 15px; } } .cky-tab-item { font-size: 11px; cursor: pointer; font-weight: normal; border-bottom: 1px solid; border-right: 1px solid; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.5; } @media (max-width: 767px) { .cky-tab-item { font-size: 11px; padding: .75rem .75rem; } } .cky-tab-item-active { cursor: initial; border-right: 0; } .cky-tab-content .cky-tab-desc, .cky-tab-content .cky-tab-desc p { font-size: 12px; } .cky-tab-title { font-size: 13px; margin-bottom: 11px; margin-top: 0; font-family: inherit; font-weight: bold; line-height: 1; display: flex; align-items: center; } .cky-tab-content .cky-tab-content-item:not(.cky-tab-content-active) { display: none; } .cky-category-direct { display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; padding-top: 15px; margin-top: 15px; border-top: 1px solid #d4d8df; } .cky-category-direct .cky-btn-custom-accept { margin: 0 0 0 auto; } .cky-category-direct-item { display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-right: 32px; margin-bottom: 15px; } .cky-category-direct-item:last-child { margin-right: 0; } .cky-category-direct-item .cky-switch { margin-left: 0; } .cky-category-direct-item .cky-category-direct-name { margin-left: 10px; font-size: 12px; font-weight: 600; } .cky-category-direct +.cky-detail-wrapper { margin-top: 10px; } .cky-table-wrapper { width: 100%; max-width: 100%; overflow: auto; } .cky-cookie-audit-table { font-family: inherit; border-collapse: collapse; width: 100%; margin-top: 10px; } .cky-cookie-audit-table th { background-color: #d9dfe7; border: 1px solid #cbced6; } .cky-cookie-audit-table td { border: 1px solid #d5d8df; } .cky-cookie-audit-table th, .cky-cookie-audit-table td { text-align: left; padding: 10px; font-size: 12px; color: #000000; word-break:normal; } .cky-cookie-audit-table tr:nth-child(2n+1) td { background: #f1f5fa; } .cky-cookie-audit-table tr:nth-child(2n) td { background: #ffffff; } .cky-audit-table-element h5 { margin: 25px 0 2px 0; } .cky-audit-table-element .cky-table-wrapper { margin-bottom: 1rem; } .cky-consent-bar.cky-rtl { direction: rtl; text-align: right; } .cky-consent-bar.cky-rtl .cky-button-wrapper .cky-btn { margin-right: 0; margin-left: 15px; } .cky-consent-bar.cky-rtl .cky-button-wrapper .cky-btn:last-child { margin-left: 0; } .cky-consent-bar.cky-rtl .cky-btn-readMore { margin-left: 0; margin-right: 6px; } .cky-consent-bar.cky-rtl.cky-logo-active .cky-logo { margin-right: 0px; margin-left: 30px; } .cky-switch { position: relative; min-height: 13px; padding-left: 25px; font-size: 14px; margin-left: 20px; margin-bottom: 0; display: inline-block; } .cky-switch input[type='checkbox'] { display: none !important; } .cky-switch .cky-slider { background-color: #e3e1e8; border-radius: 34px; height: 13px; width: 25px; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; transition: .4s; } .cky-switch .cky-slider:before { background-color: #fff; border-radius: 50%; bottom: 2px; content: ''; height: 9px; left: 2px; position: absolute; transition: .4s; width: 9px; } .cky-switch input:checked+.cky-slider { background-color: #008631; } .cky-switch input:disabled+.cky-slider { cursor: initial; } .cky-switch input:checked+.cky-slider:before { transform: translateX(12px); } .cky-modal.cky-fade .cky-modal-dialog { transition: -webkit-transform .3s ease-out; transition: transform .3s ease-out; transition: transform .3s ease-out, -webkit-transform .3s ease-out; -webkit-transform: translate(0, -25%); transform: translate(0, -25%); } .cky-modal.cky-show .cky-modal-dialog { -webkit-transform: translate(0, 0); transform: translate(0, 0); } .cky-modal-backdrop { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 9998; background-color: rgba(10, 10, 10, 0.22); display: none; } .cky-modal-backdrop.cky-fade { opacity: 0; } .cky-modal-backdrop.cky-show { opacity: 1; display: block; } .cky-modal { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 99999; display: none; overflow: hidden; outline: 0; min-height: calc(100% - (.5rem * 2)); } .cky-modal.cky-show { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; } .cky-modal a { text-decoration: none; } .cky-modal .cky-modal-dialog { position: relative; max-width: calc(100% - 16px); width: calc(100% - 16px); margin: .5rem; pointer-events: none; font-family: inherit; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; text-align: left; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.17); -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.17); } @media (min-width: 576px) { .cky-modal .cky-modal-dialog { max-width: 500px; width: 500px; margin: 1.75rem auto; } .cky-modal { min-height: calc(100% - (1.75rem * 2)); } } @media (min-width: 991px) { .cky-modal .cky-modal-dialog { max-width: 900px; width: 900px; } } .cky-modal-content { display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; width: 100%; pointer-events: auto; background-clip: padding-box; border: 0; border-radius: 4px; overflow: hidden; outline: 0; margin: 40px; } .cky-modal.cky-rtl { direction: rtl; text-align: right; } .ccpa.cky-modal .cky-modal-dialog { max-width: 300px; width: 300px; border-radius: 5px; } .ccpa.cky-modal .cky-modal-content { margin: 25px; text-align: center; font-weight: 600; } .ccpa.cky-modal .cky-opt-out-text { margin-bottom: 20px; } .cky-consent-bar.cky-banner { padding: 15px; width: 100%; box-shadow: 0 -1px 10px 0 rgba(172, 171, 171, 0.3); } .cky-banner .cky-content-wrapper { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; justify-content: space-between; -webkit-box-align: center; -moz-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; } .cky-banner .cky-button-wrapper { margin-left: 20px; display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-box-align: center; -moz-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; flex-wrap: nowrap; } .cky-consent-bar.cky-banner.cky-rtl .cky-button-wrapper { margin-left: 0; margin-right: 20px; } @media (max-width: 991px) { .cky-banner .cky-button-wrapper { margin-left: 0; margin-top: 20px; } .cky-consent-bar.cky-banner, .cky-consent-bar.cky-banner p, .cky-banner .cky-button-wrapper, .cky-banner .cky-content-wrapper { display: block; text-align: center; } } .cky-modal .cky-row { margin: 0 -15px; } .cky-modal .cky-modal-close { z-index: 1; padding: 0; background-color: transparent; border: 0; -webkit-appearance: none; font-size: 12px; line-height: 1; color: #9a9a9a; cursor: pointer; min-height: auto; position: absolute; top: 14px; right: 18px; } .cky-modal .cky-close:focus { outline: 0; } .cky-modal.cky-rtl .cky-modal-close { left: 20px; right: 0; } .cky-modal.cky-rtl .cky-tab-item { border-right: none; border-left: 1px solid; } .cky-modal.cky-rtl .cky-tab-item.cky-tab-item-active { border-left: 0; } .cky-modal.cky-rtl .cky-switch { margin-left: 0; margin-right: 20px; } .cky-modal.cky-rtl .cky-modal-dialog { text-align: right; } .cky-fade { transition: opacity .15s linear; } .cky-tab { overflow: hidden; } .cky-tab-menu { text-align: center; } .cky-tab-content .cky-tab-content-item { width: 100%; } .cky-tab-item { padding: .5rem 2rem; text-align: left; } .cky-tab-content .cky-tab-desc { width: 100%; min-height: 225px; max-height: 300px; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; } @media (max-width: 767px) { .cky-tab-content .cky-tab-desc { max-height: 225px; } } @media(max-width:475px) { .cky-modal-content { margin: 30px; } .cky-btn-custom-accept { margin: 1rem 0.2rem; padding: 0.5rem 0.3rem; } }",
-          detailType: "popup",
+              ".cky-consent-bar-trigger, .cky-consent-bar, .cky-modal, .cky-consent-bar-trigger *, .cky-consent-bar *, .cky-modal * { box-sizing: border-box; } .cky-consent-bar-trigger *:focus, .cky-consent-bar *:focus, .cky-modal *:focus { outline: 0; } .cky-consent-bar-trigger { position: fixed; right: 30px; padding: 2px 5px; font-size: 13px; cursor: pointer; font-family: inherit; animation: slide-up 0.4s ease; z-index: 9997; } .cky-consent-bar { font-family: inherit; position: fixed; z-index: 9997; } .cky-consent-bar .cky-consent-title { font-size: 15px; font-weight: bold; margin-bottom: 3px; } .cky-consent-bar p { line-height: 20px; font-size: 13px; font-weight: normal; margin-bottom: 0; margin-top: 0; } .cky-btn { font-size: 12px; padding: .5rem 1rem; background: none; cursor: pointer; display: inline-block; text-align: center; white-space: nowrap; vertical-align: middle; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; border: 1px solid transparent; line-height: 1; transition: all .15s ease-in-out; margin: 0; min-height: auto; font-weight: normal; border-radius: 0; } .cky-btn:hover { opacity: .8; } .cky-btn:focus { outline: 0; } .cky-button-wrapper .cky-btn { margin-right: 15px; } .cky-button-wrapper .cky-btn:last-child { margin-right: 0; } .cky-btn.cky-btn-custom-accept { margin: 1.5rem 1rem; font-weight: 600; white-space: initial; word-break: break-word; } .cky-btn-readMore { cursor: pointer; font-size: 13px; text-decoration: underline; margin-left: 3px; } .cky-btn-doNotSell { cursor: pointer; white-space: nowrap; font-weight: bold; font-size: 13px; text-decoration: underline; margin-left: 3px; } .cky-consent-bar.cky-logo-active .cky-content-logo-outer-wrapper { display: flex; align-items: center; } .cky-consent-bar.cky-logo-active .cky-logo { margin-right: 30px; } @media (max-width: 540px) { .cky-consent-bar.cky-logo-active .cky-content-logo-outer-wrapper { display: block; } } .cky-tab { display: -ms-flexbox; display: flex; } .cky-tab-menu { flex: 0 0 25%; max-width: 25%; } @media (max-width: 991px) { .cky-tab-menu { flex: 0 0 40%; max-width: 40%; } } .cky-tab-content { flex: 0 0 75%; max-width: 75%; background: transparent; padding: 15px 20px; } @media (max-width: 991px) { .cky-tab-content { flex: 0 0 60%; max-width: 60%; } } @media (max-width: 767px) { .cky-tab-content { padding: 15px; } } .cky-tab-item { font-size: 11px; cursor: pointer; font-weight: normal; border-bottom: 1px solid; border-right: 1px solid; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.5; } @media (max-width: 767px) { .cky-tab-item { font-size: 11px; padding: .75rem .75rem; } } .cky-tab-item-active { cursor: initial; border-right: 0; } .cky-tab-content .cky-tab-desc, .cky-tab-content .cky-tab-desc p { font-size: 12px; } .cky-tab-title { font-size: 13px; margin-bottom: 11px; margin-top: 0; font-family: inherit; font-weight: bold; line-height: 1; display: flex; align-items: center; } .cky-tab-content .cky-tab-content-item:not(.cky-tab-content-active) { display: none; } .cky-category-direct { display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; padding-top: 15px; margin-top: 15px; border-top: 1px solid #d4d8df; } .cky-category-direct .cky-btn-custom-accept { margin: 0 0 0 auto; } .cky-category-direct-item { display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-right: 32px; margin-bottom: 15px; } .cky-category-direct-item:last-child { margin-right: 0; } .cky-category-direct-item .cky-switch { margin-left: 0; } .cky-category-direct-item .cky-category-direct-name { margin-left: 10px; font-size: 12px; font-weight: 600; } .cky-category-direct +.cky-detail-wrapper { margin-top: 10px; } .cky-table-wrapper { width: 100%; max-width: 100%; overflow: auto; } .cky-cookie-audit-table { font-family: inherit; border-collapse: collapse; width: 100%; margin-top: 10px; } .cky-cookie-audit-table th { background-color: #d9dfe7; border: 1px solid #cbced6; } .cky-cookie-audit-table td { border: 1px solid #d5d8df; } .cky-cookie-audit-table th, .cky-cookie-audit-table td { text-align: left; padding: 10px; font-size: 12px; color: #000000; word-break:normal; } .cky-cookie-audit-table tr:nth-child(2n+1) td { background: #f1f5fa; } .cky-cookie-audit-table tr:nth-child(2n) td { background: #ffffff; } .cky-audit-table-element h5 { margin: 25px 0 2px 0; } .cky-audit-table-element .cky-table-wrapper { margin-bottom: 1rem; } .cky-consent-bar.cky-rtl { direction: rtl; text-align: right; } .cky-consent-bar.cky-rtl .cky-button-wrapper .cky-btn { margin-right: 0; margin-left: 15px; } .cky-consent-bar.cky-rtl .cky-button-wrapper .cky-btn:last-child { margin-left: 0; } .cky-consent-bar.cky-rtl .cky-btn-readMore { margin-left: 0; margin-right: 6px; } .cky-consent-bar.cky-rtl.cky-logo-active .cky-logo { margin-right: 0px; margin-left: 30px; } .cky-switch { position: relative; min-height: 13px; padding-left: 25px; font-size: 14px; margin-left: 20px; margin-bottom: 0; display: inline-block; } .cky-switch input[type='checkbox'] { display: none !important; } .cky-switch .cky-slider { background-color: #e3e1e8; border-radius: 34px; height: 13px; width: 25px; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; transition: .4s; } .cky-switch .cky-slider:before { background-color: #fff; border-radius: 50%; bottom: 2px; content: ''; height: 9px; left: 2px; position: absolute; transition: .4s; width: 9px; } .cky-switch input:checked+.cky-slider { background-color: #008631; } .cky-switch input:disabled+.cky-slider { cursor: initial; } .cky-switch input:checked+.cky-slider:before { transform: translateX(12px); } .cky-modal.cky-fade .cky-modal-dialog { transition: -webkit-transform .3s ease-out; transition: transform .3s ease-out; transition: transform .3s ease-out, -webkit-transform .3s ease-out; -webkit-transform: translate(0, -25%); transform: translate(0, -25%); } .cky-modal.cky-show .cky-modal-dialog { -webkit-transform: translate(0, 0); transform: translate(0, 0); } .cky-modal-backdrop { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 9998; background-color: rgba(10, 10, 10, 0.22); display: none; } .cky-modal-backdrop.cky-fade { opacity: 0; } .cky-modal-backdrop.cky-show { opacity: 1; display: block; } .cky-modal { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 99999; display: none; overflow: hidden; outline: 0; min-height: calc(100% - (.5rem * 2)); } .cky-modal.cky-show { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; } .cky-modal a { text-decoration: none; } .cky-modal .cky-modal-dialog { position: relative; max-width: calc(100% - 16px); width: calc(100% - 16px); margin: .5rem; pointer-events: none; font-family: inherit; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; text-align: left; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.17); -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.17); } @media (min-width: 576px) { .cky-modal .cky-modal-dialog { max-width: 500px; width: 500px; margin: 1.75rem auto; } .cky-modal { min-height: calc(100% - (1.75rem * 2)); } } @media (min-width: 991px) { .cky-modal .cky-modal-dialog { max-width: 900px; width: 900px; } } .cky-modal-content { display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; width: 100%; pointer-events: auto; background-clip: padding-box; border: 0; border-radius: 4px; overflow: hidden; outline: 0; margin: 40px; } .cky-modal.cky-rtl { direction: rtl; text-align: right; } .ccpa.cky-modal .cky-modal-dialog { max-width: 300px; width: 300px; border-radius: 5px; } .ccpa.cky-modal .cky-modal-content { margin: 25px; text-align: center; font-weight: 600; } .ccpa.cky-modal .cky-opt-out-text { margin-bottom: 20px; } .cky-consent-bar.cky-classic { width: 100%; display: block; box-shadow: 0 -1px 10px 0 rgba(172, 171, 171, 0.3); } .cky-classic .cky-content-wrapper { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; justify-content: space-between; -webkit-box-align: center; -moz-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; } .cky-classic .cky-button-wrapper { margin-left: 20px; display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-box-align: center; -moz-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; flex-wrap: nowrap; } .cky-consent-bar.cky-classic p { text-align: left; } .cky-classic .cky-btn-settings { margin-left: auto; position: relative; padding-right: 1rem; } .cky-classic .cky-btn-settings:before { border-style: solid; border-width: 1px 1px 0 0; content: ''; display: inline-block; height: 4px; right: 8px; position: absolute; border-color: #beb8b8; top: 11px; transform: rotate(135deg); vertical-align: middle; width: 4px; } .cky-classic .cky-btn-settings[expanded]:before { transform: rotate(-45deg); } .cky-classic .cky-consent-bar.cky-rtl .cky-button-wrapper { margin-left: 0; margin-right: 20px; } .cky-classic .cky-consent-bar.cky-rtl p { text-align: right; } @media(min-width: 991px) { .cky-consent-bar.cky-classic { padding: 15px 50px; } } @media(min-width: 1150px) { .cky-consent-bar.cky-classic { padding: 15px 130px; } } @media(min-width: 1415px) { .cky-consent-bar.cky-classic { padding: 15px 160px; } } @media (max-width: 991px) { .cky-classic .cky-button-wrapper { margin-left: 0; margin-top: 20px; } .cky-consent-bar.cky-classic, .cky-consent-bar.cky-classic p, .cky-classic .cky-button-wrapper, .cky-classic .cky-content-wrapper { display: block; text-align: center; } } .cky-detail-wrapper { margin-top: 30px; border: 1px solid #d4d8df; border-radius: 2px; overflow: hidden; } .cky-tab-content { width: 100%; } .cky-tab-item { padding: .5rem 1rem; align-items: center; } .cky-tab-content .cky-tab-desc { min-height: 155px; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; } @media (max-width: 767px) { .cky-tab-content .cky-tab-desc { max-height: 155px; } } .cky-consent-bar.cky-rtl .cky-detail-wrapper .cky-switch { margin-left: 0; margin-right: 20px; } .cky-consent-bar.cky-rtl .cky-detail-wrapper .cky-tab-item { border-right: none; border-left: 1px solid; } .cky-consent-bar.cky-rtl .cky-detail-wrapper .cky-tab-item.cky-tab-item-active { border-left: 0; }",
+          // detailType: "sticky",
       },
-      tldomain: "localhost",
-      behaviour: { reload: false, showLogo: true, acceptOnScroll: false, defaultConsent: false, showAuditTable: true, selectedLanguage: "en" },
+      tldomain: "www.abcde.com",
+      // behaviour: { reload: false, showLogo: true, acceptOnScroll: false, defaultConsent: false, showAuditTable: true, selectedLanguage: "en" },
       customCss: "",
       geoTarget: { gdpr: { eu: false } },
-      consentType: "explicit",
+      // consentType: "explicit",
       selectedLaws: ["gdpr"],
-      consentBarType: "banner",
-      showCategoryDirectly: false,
+      // consentBarType: "classic",
+      // showCategoryDirectly: false,
   },
   info: {
       categories: [
@@ -626,18 +639,27 @@ cliConfig.info.categories.forEach(function (category) {
       loadAnalyticsByDefault = category.settings.loadAnalyticsByDefault;
   }
 });
+
+
+// PART - 2 
+
 window.addEventListener("load", function () {
   var createBannerOnLoad = function createBannerOnLoad(ckyActiveLaw) {
-      Element.prototype.remove = function () {
-          this.parentElement.removeChild(this);
-      };
-      NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
-          for (var i = this.length - 1; i >= 0; i--) {
-              if (this[i] && this[i].parentElement) {
-                  this[i].parentElement.removeChild(this[i]);
-              }
-          }
-      };
+
+      // IE - 11 WORKING OF REMOVE FUNCTION, CAN WE DO SIMETHING BETTER HERE ?
+
+      // Element.prototype.remove = function () {
+      //     this.parentElement.removeChild(this);
+      // };
+      // NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
+      //     for (var i = this.length - 1; i >= 0; i--) {
+      //         if (this[i] && this[i].parentElement) {
+      //             this[i].parentElement.removeChild(this[i]);
+      //         }
+      //     }
+      // };
+
+
       var options = cliConfig.options;
       var content = options.content;
       var display = options.display;
@@ -671,7 +693,7 @@ window.addEventListener("load", function () {
                   date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
                   var expires = "; expires=" + date.toGMTString();
               } else var expires = "";
-              var cliCookie = name + "=" + value + expires + "; path=/;domain=" + tldomain;
+              var cliCookie = name + "=" + value + expires + "; path=/;domain=." + tldomain;
               document.cookie = cliCookie;
           },
           read: function (cname) {
@@ -704,17 +726,28 @@ window.addEventListener("load", function () {
               rejectCookies();
           },
           settings: function () {
-              switch (template.detailType) {
-                  case "sticky":
-                      showHideStickyDetail();
-                      break;
-                  case "popup":
-                      showPopupDetail();
-              }
+              // ****** ALREADY KNOW IF THE DETAIL TYPE IS STICKY OR POPUP, IN OUR CASE STICKY. ******* //
+
+              //expected
+
+              showHideStickyDetail();
+
+              // current 
+
+              // switch (template.detailType) {
+              //     case "sticky":
+              //         showHideStickyDetail();
+              //         break;
+              //     case "popup":
+              //         showPopupDetail();
+              // }
           },
-          doNotSell: function () {
-              ccpaShowPopupDetail();
-          },
+
+          // ****** DO NOT SELL BUTTON CODE , THIS SHOULD NOT BE PRESENT FOR A GDPR ONLY USER. ******* //
+
+          // doNotSell: function () {
+          //     ccpaShowPopupDetail();
+          // },
       };
       var positionValue = {
           bottom: { top: "auto", right: "0", bottom: "0", left: "auto" },
@@ -724,12 +757,16 @@ window.addEventListener("load", function () {
           "top-left": { top: "20px", right: "auto", bottom: "auto", left: "20px" },
           "top-right": { top: "20px", right: "20px", bottom: "auto", left: "auto" },
       };
-      function getById(element) {
-          return document.getElementById(element);
-      }
-      function getByClass(element) {
-          return document.getElementsByClassName(element);
-      }
+
+      // CREATED SHORTHANDS FOR JS SELECTORS. CAN BE REMOVED IF NEEDED
+
+      // function getById(element) {
+      //     return document.getElementById(element);
+      // }
+      // function getByClass(element) {
+      //     return document.getElementsByClassName(element);
+      // }
+
       function renderBanner() {
           createBanner();
           if (selectedLanguage == "ar") {
@@ -741,18 +778,52 @@ window.addEventListener("load", function () {
               }
           }
           getById("cky-consent").classList.add("cky-" + options.consentBarType);
-          if (options.consentBarType == "box") {
-              getById("cky-consent").classList.add("box-" + options.position);
-          }
-          if (!!content[ckyActiveLaw].customLogoUrl) {
-              appendLogo();
-          }
+
+          // ****** ADDING CLASS FOR STYLING BASED ON BANNER TYPE ( CONSIDERIG BOX TYPE IN THIS CASE ) ******* //
+
+          // expected
+
+          getById("cky-consent").classList.add("box-" + options.position);
+
+          // current
+
+          // if (options.consentBarType == "box") {
+          //     getById("cky-consent").classList.add("box-" + options.position);
+          // }
+
+          // ****** CONSIDERED THE CASE USER CAN APPEND LOGO ( PRO USER ) ******* //
+
+          // expected
+
+          appendLogo();
+
+          // current 
+
+          // if (!!content[ckyActiveLaw].customLogoUrl) {
+          //     appendLogo();
+          // }
+
+          // ************ //
+
           appendText();
-          if (options.showCategoryDirectly) {
-              renderCategoryBar();
-          }
+
+          // ****** CONSIDERED THE CASE USER HAS TURNED - Render catedory bar on banner turned on ******* //
+
+          // expected
+
+          // current 
+
+          renderCategoryBar();
+
+          // if (options.showCategoryDirectly) {
+          //     renderCategoryBar();
+          // }
+
+          // ************ //
+
           renderButtons();
       }
+
       if (options.display[ckyActiveLaw].notice) {
           if (cookie.read("cky-action") === "") {
               if (cookie.read("cookieyesID") === "") {
@@ -766,25 +837,44 @@ window.addEventListener("load", function () {
               }
           }
       }
+
+      
       if (cookie.read("cky-consent") === "yes") {
           checkAndInsertScripts(info.categories);
       }
       function createBanner() {
-          var consentBar;
-          if (!!content[ckyActiveLaw].customLogoUrl) {
-              consentBar =
-                  '<div class="cky-consent-bar" id="cky-consent">\
-                                  <div class="cky-content-logo-outer-wrapper" id="cky-content-logo">\
-                                      <divs id="cky-content-logo-inner-wrapper">\
-                                          <div class="cky-content-wrapper"></div>\
-                                      </div>\
+          // ****** DECIDING THE OUTER WRAPER AFTER CHECKING IF CUSTOM LOGO IS PRESENT, CONSIDERING TRUE CASE ******* //
+
+          // expected
+
+          var consentBar = '<div class="cky-consent-bar" id="cky-consent">\
+                              <div class="cky-content-logo-outer-wrapper" id="cky-content-logo">\
+                                  <divs id="cky-content-logo-inner-wrapper">\
+                                      <div class="cky-content-wrapper"></div>\
                                   </div>\
-                              </div>';
-          } else {
-              consentBar = '<div class="cky-consent-bar" id="cky-consent">\
-                                  <div class="cky-content-wrapper"></div>\
-                              </div>';
-          }
+                              </div>\
+                          </div>';
+
+          // current 
+          
+          // var consentBar;
+          // if (!!content[ckyActiveLaw].customLogoUrl) {
+          //     consentBar =
+          //         '<div class="cky-consent-bar" id="cky-consent">\
+          //                         <div class="cky-content-logo-outer-wrapper" id="cky-content-logo">\
+          //                             <divs id="cky-content-logo-inner-wrapper">\
+          //                                 <div class="cky-content-wrapper"></div>\
+          //                             </div>\
+          //                         </div>\
+          //                     </div>';
+          // } else {
+          //     consentBar = '<div class="cky-consent-bar" id="cky-consent">\
+          //                         <div class="cky-content-wrapper"></div>\
+          //                     </div>';
+          // }
+
+          // ************ //
+
           body.insertAdjacentHTML("beforeend", consentBar);
           document.getElementById("cky-consent").style.display = "block";
           ckyConsentBar = getById("cky-consent");
@@ -815,22 +905,46 @@ window.addEventListener("load", function () {
       function appendText() {
           if (content[ckyActiveLaw].title[selectedLanguage] !== null && /\S/.test(content[ckyActiveLaw].title[selectedLanguage])) {
               var consentTitle = '<div class="cky-consent-title" style="color:' + colors[ckyActiveLaw].notice.titleColor + '">' + content[ckyActiveLaw].title[selectedLanguage] + "</div>";
-              if (!!content[ckyActiveLaw].customLogoUrl) {
-                  document.querySelector("#cky-consent #cky-content-logo-inner-wrapper").insertAdjacentHTML("afterbegin", consentTitle);
-              } else {
-                  getById("cky-consent").insertAdjacentHTML("afterbegin", consentTitle);
-              }
+
+
+              // ****** DECIDING WHERE TO APPEND AFTER CHECKING IF CUSTOM LOGO IS PRESENT, CONSIDERING TRUE CASE ******* //
+
+              // expected
+
+              document.querySelector("#cky-consent #cky-content-logo-inner-wrapper").insertAdjacentHTML("afterbegin", consentTitle);
+
+              // current
+
+              // if (!!content[ckyActiveLaw].customLogoUrl) {
+              //     document.querySelector("#cky-consent #cky-content-logo-inner-wrapper").insertAdjacentHTML("afterbegin", consentTitle);
+              // } else {
+              //     getById("cky-consent").insertAdjacentHTML("afterbegin", consentTitle);
+              // }
+
+              // ************ //
           }
           var consentText = '<p class="cky-bar-text" style="color:' + colors[ckyActiveLaw].notice.textColor + '">' + content[ckyActiveLaw].text[selectedLanguage] + "</p>";
           getById("cky-consent").getElementsByClassName("cky-content-wrapper")[0].insertAdjacentHTML("beforeend", consentText);
       }
       function renderCategoryBar() {
           var categoryDirectList = '<div class="cky-category-direct" id="cky-category-direct" style="color:' + colors[ckyActiveLaw].notice.textColor + '"></div>';
-          if (options.consentBarType === "box") {
-              getById("cky-consent").getElementsByClassName("cky-bar-text")[0].insertAdjacentHTML("afterend", categoryDirectList);
-          } else {
-              getById("cky-consent").getElementsByClassName("cky-content-wrapper")[0].insertAdjacentHTML("afterend", categoryDirectList);
-          }
+
+          // ****** ADDING CLASS FOR STYLING BASED ON BANNER TYPE ( CONSIDERIG BOX TYPE IN THIS CASE ) ******* //
+
+          // expected
+
+          getById("cky-consent").getElementsByClassName("cky-bar-text")[0].insertAdjacentHTML("afterend", categoryDirectList);
+
+          //current
+
+          // if (options.consentBarType === "box") {
+          //     getById("cky-consent").getElementsByClassName("cky-bar-text")[0].insertAdjacentHTML("afterend", categoryDirectList);
+          // } else {
+          //     getById("cky-consent").getElementsByClassName("cky-content-wrapper")[0].insertAdjacentHTML("afterend", categoryDirectList);
+          // }
+
+          // ************ //
+
           for (var i = 0; i < categories.length; i++) {
               var category = categories[i];
               var categoryBarItem = '<div class="cky-category-direct-item"><span class="cky-category-direct-name" id="cky-category-direct-' + category.name[selectedLanguage] + '">' + category.name[selectedLanguage] + "</span></div>";
@@ -840,35 +954,65 @@ window.addEventListener("load", function () {
       }
       function renderButtons() {
           ckyConsentBar.getElementsByClassName("cky-content-wrapper")[0].insertAdjacentHTML("beforeend", '<div class="cky-button-wrapper"></div>');
-          if (display[ckyActiveLaw].buttons["settings"]) {
-              appendButton("settings");
-              switchStickyOrPopup();
+          // ****** IF CHECKING FOR BUTTON PRESENT IN CLI-CONFIG , SHOULD BE CHANGED ******* //
+
+          //expected
+
+          appendButton("settings");
+          switchStickyOrPopup(); // WE ALREADY KNOW IF STICKY OR POPUP ( CLASSIC - STCKY OR BOX - POPUP )
+          renderStickyDetail();  //  ADDING THIS FUNCTION INSTEAD OF ABOVE LINE WHICH WAS INSIDE switchStickyOrPopup()
+          appendButton("reject");
+          appendButton("accept");
+          let privacyLink = content[ckyActiveLaw].privacyPolicyLink[selectedLanguage].trim().replace(/\s/g, "");
+          if (/^(:\/\/)/.test(privacyLink)) {
+              privacyLink = "http" + privacyLink + "";
           }
-          if (display[ckyActiveLaw].buttons["reject"]) {
-              appendButton("reject");
+          if (!/^(f|ht)tps?:\/\//i.test(privacyLink)) {
+              privacyLink = "http://" + privacyLink + "";
           }
-          if (display[ckyActiveLaw].buttons["accept"]) {
-              appendButton("accept");
-          }
-          if (display[ckyActiveLaw].buttons["doNotSell"]) {
-              var doNotSellButton = '<a class="cky-btn-doNotSell" id="cky-btn-doNotSell">' + content[ckyActiveLaw].buttons["doNotSell"][selectedLanguage] + "</a>";
-              document.querySelector("#cky-consent .cky-button-wrapper").insertAdjacentHTML("beforeend", doNotSellButton);
-              document.querySelector("#cky-consent #cky-btn-doNotSell").onclick = bannerFunctions["doNotSell"];
-              renderCcpaPopupDetail();
-              attachButtonStyles("doNotSell");
-          }
-          if (display[ckyActiveLaw].buttons["readMore"]) {
-              let privacyLink = content[ckyActiveLaw].privacyPolicyLink[selectedLanguage].trim().replace(/\s/g, "");
-              if (/^(:\/\/)/.test(privacyLink)) {
-                  privacyLink = "http" + privacyLink + "";
-              }
-              if (!/^(f|ht)tps?:\/\//i.test(privacyLink)) {
-                  privacyLink = "http://" + privacyLink + "";
-              }
-              var readMoreButton = '<a class="cky-btn-readMore" id="cky-btn-readMore" href="' + privacyLink + '" target="_blank">' + content[ckyActiveLaw].buttons["readMore"][selectedLanguage] + "</a>";
-              document.querySelector("#cky-consent .cky-bar-text").insertAdjacentHTML("beforeend", readMoreButton);
-              attachButtonStyles("readMore");
-          }
+          var readMoreButton = '<a class="cky-btn-readMore" id="cky-btn-readMore" href="' + privacyLink + '" target="_blank">' + content[ckyActiveLaw].buttons["readMore"][selectedLanguage] + "</a>";
+          document.querySelector("#cky-consent .cky-bar-text").insertAdjacentHTML("beforeend", readMoreButton);
+          attachButtonStyles("readMore");
+
+
+          // current
+
+          // if (display[ckyActiveLaw].buttons["settings"]) {
+          //     appendButton("settings");
+          //     switchStickyOrPopup();  
+          // }
+          // if (display[ckyActiveLaw].buttons["reject"]) {
+          //     appendButton("reject");
+          // }
+          // if (display[ckyActiveLaw].buttons["accept"]) {
+          //     appendButton("accept");
+          // }
+          // if (display[ckyActiveLaw].buttons["readMore"]) {
+          //     let privacyLink = content[ckyActiveLaw].privacyPolicyLink[selectedLanguage].trim().replace(/\s/g, "");
+          //     if (/^(:\/\/)/.test(privacyLink)) {
+          //         privacyLink = "http" + privacyLink + "";
+          //     }
+          //     if (!/^(f|ht)tps?:\/\//i.test(privacyLink)) {
+          //         privacyLink = "http://" + privacyLink + "";
+          //     }
+          //     var readMoreButton = '<a class="cky-btn-readMore" id="cky-btn-readMore" href="' + privacyLink + '" target="_blank">' + content[ckyActiveLaw].buttons["readMore"][selectedLanguage] + "</a>";
+          //     document.querySelector("#cky-consent .cky-bar-text").insertAdjacentHTML("beforeend", readMoreButton);
+          //     attachButtonStyles("readMore");
+          // }
+
+
+
+          // ****** DO NOT SELL BUTTON CODE , THIS SHOULD NOT BE PRESENT FOR A GDPR ONLY USER. ******* //
+
+          // if (display[ckyActiveLaw].buttons["doNotSell"]) {
+          //     var doNotSellButton = '<a class="cky-btn-doNotSell" id="cky-btn-doNotSell">' + content[ckyActiveLaw].buttons["doNotSell"][selectedLanguage] + "</a>";
+          //     document.querySelector("#cky-consent .cky-button-wrapper").insertAdjacentHTML("beforeend", doNotSellButton);
+          //     document.querySelector("#cky-consent #cky-btn-doNotSell").onclick = bannerFunctions["doNotSell"];
+          //     renderCcpaPopupDetail();
+          //     attachButtonStyles("doNotSell");
+          // }
+          
+
       }
       function appendButton(btnName) {
           let button = '<button class="cky-btn cky-btn-' + btnName + '" id="cky-btn-' + btnName + '">' + content[ckyActiveLaw].buttons[btnName][selectedLanguage] + "</button>";
@@ -890,16 +1034,19 @@ window.addEventListener("load", function () {
               ";\
           ";
       }
-      function switchStickyOrPopup() {
-          switch (template.detailType) {
-              case "sticky":
-                  document.querySelector("#cky-consent #cky-btn-settings").style.borderColor = "transparent";
-                  renderStickyDetail();
-                  break;
-              case "popup":
-                  renderPopupDetail();
-          }
-      }
+      // ****** NO NEED OF THIS FUNCTION ANYMORE ******* // 
+
+      // function switchStickyOrPopup() {
+      //     switch (template.detailType) {
+      //         case "sticky":
+      //             document.querySelector("#cky-consent #cky-btn-settings").style.borderColor = "transparent";
+      //             renderStickyDetail();
+      //             break;
+      //         case "popup":
+      //             renderPopupDetail();
+      //     }
+      // }
+      
       function renderStickyDetail() {
           var tabCss = "color:" + colors[ckyActiveLaw].popup.pills.textColor + ";" + "border-color:" + colors[ckyActiveLaw].notice.borderColor + "";
           var activeTabCss = "background-color:" + colors[ckyActiveLaw].popup.pills.activeBg + ";" + "color:" + colors[ckyActiveLaw].popup.pills.activeTextColor + ";" + "border-color:" + colors[ckyActiveLaw].notice.borderColor + ";";
@@ -917,12 +1064,26 @@ window.addEventListener("load", function () {
                                                   </div>\
                                               </div>\
                                       </div>';
+
+
           getById("cky-consent").insertAdjacentHTML("beforeend", ckyDetailWrapper);
-          if (behaviour.showLogo) {
-              var ckyPoweredLink =
-                  '<div style="background: #d9dfe7;padding: 6px 32px;font-size: 8px;color: #111111;font-weight: normal;text-align: right;">Powered by <a target="_blank" href="https://www.cookieyes.com/#utm_source=website&utm_medium=banner&utm_campaign=poweredby&utm_term=main&utm_content=CTA" style="font-weight: bold;color: #040404;font-size: 9px;">CookieYes</a></div>';
-              getById("cky-detail-wrapper").insertAdjacentHTML("beforeend", ckyPoweredLink);
-          }
+
+          // ****** APPENDING COOKIEYES LOGO , ASSUMING USER HAS NOT TURNED IN OFF IN THIS CASE ******* //
+
+          //expected
+
+          var ckyPoweredLink =
+          '<div style="background: #d9dfe7;padding: 6px 32px;font-size: 8px;color: #111111;font-weight: normal;text-align: right;">Powered by <a target="_blank" href="https://www.cookieyes.com/#utm_source=website&utm_medium=banner&utm_campaign=poweredby&utm_term=main&utm_content=CTA" style="font-weight: bold;color: #040404;font-size: 9px;">CookieYes</a></div>';
+          getById("cky-detail-wrapper").insertAdjacentHTML("beforeend", ckyPoweredLink);
+
+          //current
+
+          // if (behaviour.showLogo) {
+          //     var ckyPoweredLink =
+          //         '<div style="background: #d9dfe7;padding: 6px 32px;font-size: 8px;color: #111111;font-weight: normal;text-align: right;">Powered by <a target="_blank" href="https://www.cookieyes.com/#utm_source=website&utm_medium=banner&utm_campaign=poweredby&utm_term=main&utm_content=CTA" style="font-weight: bold;color: #040404;font-size: 9px;">CookieYes</a></div>';
+          //     getById("cky-detail-wrapper").insertAdjacentHTML("beforeend", ckyPoweredLink);
+          // }
+
           for (var i = 0; i < categories.length + 1; i++) {
               if (i === 0) {
                   var ckyTabItem = '<div class="cky-tab-item cky-tab-item-active" id="cky-tab-item-privacy" tab-target="cky-tab-content-privacy" style="' + activeTabCss + '">' + privacyPolicy.title[selectedLanguage] + "</div>";
@@ -972,12 +1133,27 @@ window.addEventListener("load", function () {
                       "</div>\
                                               </div>";
                   document.querySelector("#cky-consent #cky-tab-content").insertAdjacentHTML("beforeend", ckyTabContentItem);
-                  if (!options.showCategoryDirectly) {
-                      createSwitches(category);
-                  }
-                  if (behaviour.showAuditTable) {
-                      renderAuditTable(true, category);
-                  }
+                  // ****** showCategoryDirectly is OFF ******* //
+
+                  //expected
+                  createSwitches(category);
+
+                  //current
+
+                  // if (!options.showCategoryDirectly) {
+                  //     createSwitches(category);
+                  // }
+                  // ****** showAuditTable IS ON ******* //
+
+                  //expected
+
+                  renderAuditTable(true, category);
+
+                  //current
+
+                  // if (behaviour.showAuditTable) {
+                  //     renderAuditTable(true, category);
+                  // }
               }
           }
           var ckyTabs = document.querySelectorAll("#cky-consent .cky-tab-item");
@@ -1009,76 +1185,89 @@ window.addEventListener("load", function () {
           id="cky-btn-custom-accept">' +
               content[ckyActiveLaw].customAcceptButton[selectedLanguage] +
               "</button>";
-          if (options.showCategoryDirectly) {
-              document.querySelector("#cky-consent #cky-category-direct").insertAdjacentHTML("beforeend", customAcceptButton);
-          } else {
-              document.querySelector("#cky-consent #cky-tab-menu").insertAdjacentHTML("beforeend", customAcceptButton);
-          }
+
+          // ****** showCategoryDirectly is OFF ******* //
+
+          //expected
+
+          document.querySelector("#cky-consent #cky-category-direct").insertAdjacentHTML("beforeend", customAcceptButton);
+
+          // current 
+
+          // if (options.showCategoryDirectly) {
+          //     document.querySelector("#cky-consent #cky-category-direct").insertAdjacentHTML("beforeend", customAcceptButton);
+          // } else {
+          //     document.querySelector("#cky-consent #cky-tab-menu").insertAdjacentHTML("beforeend", customAcceptButton);
+          // }
+
           getById("cky-btn-custom-accept").onclick = function () {
               acceptCookies("customAccept");
           };
           getById("cky-detail-wrapper").style.display = "none";
       }
-      function renderCcpaPopupDetail() {
-          let ccpaDetailPopupOverlay = '<div class="cky-modal-backdrop cky-fade" id="cky-ccpa-modal-backdrop"></div>';
-          let ccpaDetailPopup =
-              '<div class="cky-modal cky-fade ccpa" id="cky-ccpa-settings-popup">\
-                                  <div class="cky-modal-dialog" style="background-color:' +
-              colors[ckyActiveLaw].notice.bg +
-              '">\
-                                      <div class="cky-modal-content" id="cky-modal-content">\
-                                      <div class="cky-opt-out-text" style="color:' +
-              colors[ckyActiveLaw].notice.textColor +
-              ';">' +
-              content[ckyActiveLaw].confirmation.text[selectedLanguage] +
-              '</div>\
-                                          <div class="cky-button-wrapper">\
-                                              <button type="button" class="cky-btn cky-btn-cancel" id="cky-btn-cancel"\
-                                              style="color:' +
-              colors[ckyActiveLaw].buttons["cancel"].textColor +
-              ";\
-                                              border-color:" +
-              colors[ckyActiveLaw].buttons["cancel"].borderColor +
-              ";\
-                                              background-color:" +
-              colors[ckyActiveLaw].buttons["cancel"].bg +
-              ';\
-                                              ">\
-                                              ' +
-              content[ckyActiveLaw].buttons.cancel[selectedLanguage] +
-              '\
-                                              </button>\
-                                              <button type="button" class="cky-btn cky-btn-confirm" id="cky-btn-confirm"\
-                                              style="color:' +
-              colors[ckyActiveLaw].buttons["confirm"].textColor +
-              ";\
-                                              border-color:" +
-              colors[ckyActiveLaw].buttons["confirm"].borderColor +
-              ";\
-                                              background-color:" +
-              colors[ckyActiveLaw].buttons["confirm"].bg +
-              ';\
-                                              ">\
-                                              ' +
-              content[ckyActiveLaw].buttons.confirm[selectedLanguage] +
-              "\
-                                              </button>\
-                                          </div>\
-                                      </div>\
-                                  </div>\
-                              </div>";
-          body.insertAdjacentHTML("beforeend", ccpaDetailPopupOverlay);
-          body.insertAdjacentHTML("beforeend", ccpaDetailPopup);
-          if (behaviour.showLogo) {
-              var ckyPoweredLink =
-                  '<div style="padding-top: 16px;font-size: 8px;color: ' +
-                  colors[ckyActiveLaw].notice.textColor +
-                  ';font-weight: normal;text-align: right;">Powered by <a target="_blank" href="https://www.cookieyes.com/#utm_source=website&utm_medium=banner&utm_campaign=poweredby&utm_term=main&utm_content=CTA" style="font-weight: bold;color: #040404;font-size: 9px;">CookieYes</a></div>';
-              getById("cky-modal-content").insertAdjacentHTML("beforeend", ckyPoweredLink);
-          }
-          getById("cky-btn-cancel").onclick = closeCkyCcpaModal;
-          getById("cky-btn-confirm").onclick = acceptCookies;
-      }
+
+      // ****** THIS SHOULD NOT BE PRESENT FOR A GDPR ONLY USER. ******* //
+
+      // function renderCcpaPopupDetail() {
+      //     let ccpaDetailPopupOverlay = '<div class="cky-modal-backdrop cky-fade" id="cky-ccpa-modal-backdrop"></div>';
+      //     let ccpaDetailPopup =
+      //         '<div class="cky-modal cky-fade ccpa" id="cky-ccpa-settings-popup">\
+      //                             <div class="cky-modal-dialog" style="background-color:' +
+      //         colors[ckyActiveLaw].notice.bg +
+      //         '">\
+      //                                 <div class="cky-modal-content" id="cky-modal-content">\
+      //                                 <div class="cky-opt-out-text" style="color:' +
+      //         colors[ckyActiveLaw].notice.textColor +
+      //         ';">' +
+      //         content[ckyActiveLaw].confirmation.text[selectedLanguage] +
+      //         '</div>\
+      //                                     <div class="cky-button-wrapper">\
+      //                                         <button type="button" class="cky-btn cky-btn-cancel" id="cky-btn-cancel"\
+      //                                         style="color:' +
+      //         colors[ckyActiveLaw].buttons["cancel"].textColor +
+      //         ";\
+      //                                         border-color:" +
+      //         colors[ckyActiveLaw].buttons["cancel"].borderColor +
+      //         ";\
+      //                                         background-color:" +
+      //         colors[ckyActiveLaw].buttons["cancel"].bg +
+      //         ';\
+      //                                         ">\
+      //                                         ' +
+      //         content[ckyActiveLaw].buttons.cancel[selectedLanguage] +
+      //         '\
+      //                                         </button>\
+      //                                         <button type="button" class="cky-btn cky-btn-confirm" id="cky-btn-confirm"\
+      //                                         style="color:' +
+      //         colors[ckyActiveLaw].buttons["confirm"].textColor +
+      //         ";\
+      //                                         border-color:" +
+      //         colors[ckyActiveLaw].buttons["confirm"].borderColor +
+      //         ";\
+      //                                         background-color:" +
+      //         colors[ckyActiveLaw].buttons["confirm"].bg +
+      //         ';\
+      //                                         ">\
+      //                                         ' +
+      //         content[ckyActiveLaw].buttons.confirm[selectedLanguage] +
+      //         "\
+      //                                         </button>\
+      //                                     </div>\
+      //                                 </div>\
+      //                             </div>\
+      //                         </div>";
+      //     body.insertAdjacentHTML("beforeend", ccpaDetailPopupOverlay);
+      //     body.insertAdjacentHTML("beforeend", ccpaDetailPopup);
+      //     if (behaviour.showLogo) {
+      //         var ckyPoweredLink =
+      //             '<div style="padding-top: 16px;font-size: 8px;color: ' +
+      //             colors[ckyActiveLaw].notice.textColor +
+      //             ';font-weight: normal;text-align: right;">Powered by <a target="_blank" href="https://www.cookieyes.com/#utm_source=website&utm_medium=banner&utm_campaign=poweredby&utm_term=main&utm_content=CTA" style="font-weight: bold;color: #040404;font-size: 9px;">CookieYes</a></div>';
+      //         getById("cky-modal-content").insertAdjacentHTML("beforeend", ckyPoweredLink);
+      //     }
+      //     getById("cky-btn-cancel").onclick = closeCkyCcpaModal;
+      //     getById("cky-btn-confirm").onclick = acceptCookies;
+      // }
       function calculateTabDescriptionHeight() {
           let calculatedTabMenuHeight = document.querySelector("#cky-tab-menu").offsetHeight;
           calculatedTabMenuHeight = calculatedTabMenuHeight - 60;
@@ -1114,147 +1303,157 @@ window.addEventListener("load", function () {
               '/>\
                       <div class="cky-slider"></div>\
                   </label>';
-          if (options.showCategoryDirectly) {
-              getById("cky-category-direct-" + category.name[selectedLanguage] + "").insertAdjacentHTML("beforebegin", categoryCheckbox);
-          } else {
-              getById("cky-tab-title-" + category.name[selectedLanguage] + "").insertAdjacentHTML("beforeend", categoryCheckbox);
-          }
+
+          // ****** showCategoryDirectly is OFF ******* //
+
+          //expected
+
+          getById("cky-category-direct-" + category.name[selectedLanguage] + "").insertAdjacentHTML("beforebegin", categoryCheckbox);
+
+          // current
+
+          // if (options.showCategoryDirectly) {
+          //     getById("cky-category-direct-" + category.name[selectedLanguage] + "").insertAdjacentHTML("beforebegin", categoryCheckbox);
+          // } else {
+          //     getById("cky-tab-title-" + category.name[selectedLanguage] + "").insertAdjacentHTML("beforeend", categoryCheckbox);
+          // }
+
           if (category.type === 1) {
               getById("cky-checkbox-category" + category.name[selectedLanguage] + "").setAttribute("disabled", true);
           }
       }
-      function renderPopupDetail() {
-          var tabCss = "color:" + colors[ckyActiveLaw].popup.pills.textColor + ";" + "border-color:" + colors[ckyActiveLaw].notice.borderColor + "";
-          var activeTabCss = "background-color:" + colors[ckyActiveLaw].popup.pills.activeBg + ";" + "color:" + colors[ckyActiveLaw].popup.pills.activeTextColor + ";" + "border-color:" + colors[ckyActiveLaw].notice.borderColor + ";";
-          var detailPopupOverlay = '<div class="cky-modal-backdrop cky-fade" id="cky-modal-backdrop"></div>';
-          var detailPopup =
-              '<div class="cky-modal cky-fade" id="cky-settings-popup">\
-                                  <div class="cky-modal-dialog" style="background-color:' +
-              colors[ckyActiveLaw].notice.bg +
-              '">\
-                                  <div class="cky-modal-content" id="cky-modal-content" style="border:1px solid' +
-              colors[ckyActiveLaw].notice.borderColor +
-              '">\
-                                          <div class="cky-tab">\
-                                              <div class="cky-tab-menu" id="cky-tab-menu" style="background-color:' +
-              colors[ckyActiveLaw].popup.pills.bg +
-              '"></div>\
-                                              <div class="cky-tab-content" id="cky-tab-content" style="background-color:' +
-              colors[ckyActiveLaw].notice.bg +
-              '">\
-                                                  <button type="button" class="cky-modal-close" id="ckyModalClose">\
-                                                      <img src="https://cdn-cookieyes.com/assets/images/icons/close.svg" style="width: 9px" alt="modal-close-icon">\
-                                                  </button>\
-                                              </div>\
-                                          </div>\
-                                      </div>\
-                                  </div>\
-                              </div>';
-          body.insertAdjacentHTML("beforeend", detailPopupOverlay);
-          body.insertAdjacentHTML("beforeend", detailPopup);
-          if (behaviour.showLogo) {
-              var ckyPoweredLink =
-                  '<div style="background: #d9dfe7;padding: 6px 32px;font-size: 8px;color: #111111;font-weight: normal;text-align: right;">Powered by <a target="_blank" href="https://www.cookieyes.com/#utm_source=website&utm_medium=banner&utm_campaign=poweredby&utm_term=main&utm_content=CTA" style="font-weight: bold;color: #040404;font-size: 9px;">CookieYes</a></div>';
-              document.querySelector("#cky-settings-popup #cky-modal-content").insertAdjacentHTML("beforeend", ckyPoweredLink);
-          }
-          for (var i = 0; i < categories.length + 1; i++) {
-              if (i === 0) {
-                  var ckyTabItem = '<div class="cky-tab-item cky-tab-item-active" id="cky-tab-item-privacy" tab-target="cky-tab-content-privacy" style="' + activeTabCss + '">' + privacyPolicy.title[selectedLanguage] + "</div>";
-                  var ckyTabContentItem =
-                      '<div class="cky-tab-content-item cky-tab-content-active" id="cky-tab-content-privacy">\
-                                                  <div class="cky-tab-title" style="color:' +
-                      colors[ckyActiveLaw].notice.textColor +
-                      '">' +
-                      privacyPolicy.title[selectedLanguage] +
-                      '</div>\
-                                                  <div class="cky-tab-desc" style="color:' +
-                      colors[ckyActiveLaw].notice.textColor +
-                      '">' +
-                      privacyPolicy.text[selectedLanguage] +
-                      "</div>\
-                                              </div>";
-                  document.querySelector("#cky-settings-popup #cky-tab-menu").insertAdjacentHTML("beforeend", ckyTabItem);
-                  document.querySelector("#cky-settings-popup #cky-tab-content").insertAdjacentHTML("beforeend", ckyTabContentItem);
-              } else {
-                  var category = categories[i - 1];
-                  var ckyTabItem =
-                      '<div class="cky-tab-item" id="cky-tab-item-' +
-                      category.name[selectedLanguage] +
-                      '" tab-target="cky-tab-content-' +
-                      category.name[selectedLanguage] +
-                      '" style="' +
-                      tabCss +
-                      '">' +
-                      category.name[selectedLanguage] +
-                      "</div>";
-                  var ckyTabContentItem =
-                      '<div class="cky-tab-content-item" id="cky-tab-content-' +
-                      category.name[selectedLanguage] +
-                      '">\
-                                                  <div class="cky-tab-title" id="cky-tab-title-' +
-                      category.name[selectedLanguage] +
-                      '" style="color:' +
-                      colors[ckyActiveLaw].notice.textColor +
-                      '">' +
-                      category.name[selectedLanguage] +
-                      '</div>\
-                                                  <div class="cky-tab-desc" style="color:' +
-                      colors[ckyActiveLaw].notice.textColor +
-                      '">' +
-                      category.description[selectedLanguage] +
-                      "</>\
-                                              </div>";
-                  document.querySelector("#cky-settings-popup #cky-tab-menu").insertAdjacentHTML("beforeend", ckyTabItem);
-                  document.querySelector("#cky-settings-popup #cky-tab-content").insertAdjacentHTML("beforeend", ckyTabContentItem);
-                  if (!options.showCategoryDirectly) {
-                      createSwitches(category);
-                  }
-                  if (behaviour.showAuditTable) {
-                      renderAuditTable(true, category);
-                  }
-              }
-          }
-          var ckyTabs = getByClass("cky-tab-item");
-          for (var i = 0; i < ckyTabs.length; i++) {
-              ckyTabs[i].onclick = function () {
-                  currentActiveTab = getByClass("cky-tab-item-active")[0];
-                  currentActiveTab.classList.remove("cky-tab-item-active");
-                  currentActiveTab.setAttribute("style", tabCss);
-                  this.classList.add("cky-tab-item-active");
-                  this.setAttribute("style", activeTabCss);
-                  document.querySelector("#cky-settings-popup .cky-tab-content-active").classList.remove("cky-tab-content-active");
-                  var tabId = this.getAttribute("tab-target");
-                  getById(tabId).className += " cky-tab-content-active";
-              };
-          }
-          var customAcceptButton =
-              '<button class="cky-btn cky-btn-custom-accept"\
-          style = "\
-                          color: ' +
-              colors[ckyActiveLaw].popup.acceptCustomButton.textColor +
-              ";\
-                          background-color: " +
-              colors[ckyActiveLaw].popup.acceptCustomButton.bg +
-              ";\
-                          border-color: " +
-              colors[ckyActiveLaw].popup.acceptCustomButton.borderColor +
-              ';\
-                      "\
-          id="cky-btn-custom-accept">' +
-              content[ckyActiveLaw].customAcceptButton[selectedLanguage] +
-              "</button>";
-          if (options.showCategoryDirectly) {
-              document.querySelector("#cky-consent #cky-category-direct").insertAdjacentHTML("beforeend", customAcceptButton);
-          } else {
-              document.querySelector("#cky-settings-popup #cky-tab-menu").insertAdjacentHTML("beforeend", customAcceptButton);
-          }
-          getById("cky-btn-custom-accept").onclick = function () {
-              acceptCookies("customAccept");
-              document.querySelector("#cky-modal-backdrop").classList.remove("cky-show");
-          };
-          document.querySelector("#cky-modal-backdrop").onclick = closeCkyModal;
-          document.querySelector("#cky-settings-popup #ckyModalClose").onclick = closeCkyModal;
-      }
+      // function renderPopupDetail() {
+      //     var tabCss = "color:" + colors[ckyActiveLaw].popup.pills.textColor + ";" + "border-color:" + colors[ckyActiveLaw].notice.borderColor + "";
+      //     var activeTabCss = "background-color:" + colors[ckyActiveLaw].popup.pills.activeBg + ";" + "color:" + colors[ckyActiveLaw].popup.pills.activeTextColor + ";" + "border-color:" + colors[ckyActiveLaw].notice.borderColor + ";";
+      //     var detailPopupOverlay = '<div class="cky-modal-backdrop cky-fade" id="cky-modal-backdrop"></div>';
+      //     var detailPopup =
+      //         '<div class="cky-modal cky-fade" id="cky-settings-popup">\
+      //                             <div class="cky-modal-dialog" style="background-color:' +
+      //         colors[ckyActiveLaw].notice.bg +
+      //         '">\
+      //                             <div class="cky-modal-content" id="cky-modal-content" style="border:1px solid' +
+      //         colors[ckyActiveLaw].notice.borderColor +
+      //         '">\
+      //                                     <div class="cky-tab">\
+      //                                         <div class="cky-tab-menu" id="cky-tab-menu" style="background-color:' +
+      //         colors[ckyActiveLaw].popup.pills.bg +
+      //         '"></div>\
+      //                                         <div class="cky-tab-content" id="cky-tab-content" style="background-color:' +
+      //         colors[ckyActiveLaw].notice.bg +
+      //         '">\
+      //                                             <button type="button" class="cky-modal-close" id="ckyModalClose">\
+      //                                                 <img src="https://cdn-cookieyes.com/assets/images/icons/close.svg" style="width: 9px" alt="modal-close-icon">\
+      //                                             </button>\
+      //                                         </div>\
+      //                                     </div>\
+      //                                 </div>\
+      //                             </div>\
+      //                         </div>';
+      //     body.insertAdjacentHTML("beforeend", detailPopupOverlay);
+      //     body.insertAdjacentHTML("beforeend", detailPopup);
+      //     if (behaviour.showLogo) {
+      //         var ckyPoweredLink =
+      //             '<div style="background: #d9dfe7;padding: 6px 32px;font-size: 8px;color: #111111;font-weight: normal;text-align: right;">Powered by <a target="_blank" href="https://www.cookieyes.com/#utm_source=website&utm_medium=banner&utm_campaign=poweredby&utm_term=main&utm_content=CTA" style="font-weight: bold;color: #040404;font-size: 9px;">CookieYes</a></div>';
+      //         document.querySelector("#cky-settings-popup #cky-modal-content").insertAdjacentHTML("beforeend", ckyPoweredLink);
+      //     }
+      //     for (var i = 0; i < categories.length + 1; i++) {
+      //         if (i === 0) {
+      //             var ckyTabItem = '<div class="cky-tab-item cky-tab-item-active" id="cky-tab-item-privacy" tab-target="cky-tab-content-privacy" style="' + activeTabCss + '">' + privacyPolicy.title[selectedLanguage] + "</div>";
+      //             var ckyTabContentItem =
+      //                 '<div class="cky-tab-content-item cky-tab-content-active" id="cky-tab-content-privacy">\
+      //                                             <div class="cky-tab-title" style="color:' +
+      //                 colors[ckyActiveLaw].notice.textColor +
+      //                 '">' +
+      //                 privacyPolicy.title[selectedLanguage] +
+      //                 '</div>\
+      //                                             <div class="cky-tab-desc" style="color:' +
+      //                 colors[ckyActiveLaw].notice.textColor +
+      //                 '">' +
+      //                 privacyPolicy.text[selectedLanguage] +
+      //                 "</div>\
+      //                                         </div>";
+      //             document.querySelector("#cky-settings-popup #cky-tab-menu").insertAdjacentHTML("beforeend", ckyTabItem);
+      //             document.querySelector("#cky-settings-popup #cky-tab-content").insertAdjacentHTML("beforeend", ckyTabContentItem);
+      //         } else {
+      //             var category = categories[i - 1];
+      //             var ckyTabItem =
+      //                 '<div class="cky-tab-item" id="cky-tab-item-' +
+      //                 category.name[selectedLanguage] +
+      //                 '" tab-target="cky-tab-content-' +
+      //                 category.name[selectedLanguage] +
+      //                 '" style="' +
+      //                 tabCss +
+      //                 '">' +
+      //                 category.name[selectedLanguage] +
+      //                 "</div>";
+      //             var ckyTabContentItem =
+      //                 '<div class="cky-tab-content-item" id="cky-tab-content-' +
+      //                 category.name[selectedLanguage] +
+      //                 '">\
+      //                                             <div class="cky-tab-title" id="cky-tab-title-' +
+      //                 category.name[selectedLanguage] +
+      //                 '" style="color:' +
+      //                 colors[ckyActiveLaw].notice.textColor +
+      //                 '">' +
+      //                 category.name[selectedLanguage] +
+      //                 '</div>\
+      //                                             <div class="cky-tab-desc" style="color:' +
+      //                 colors[ckyActiveLaw].notice.textColor +
+      //                 '">' +
+      //                 category.description[selectedLanguage] +
+      //                 "</>\
+      //                                         </div>";
+      //             document.querySelector("#cky-settings-popup #cky-tab-menu").insertAdjacentHTML("beforeend", ckyTabItem);
+      //             document.querySelector("#cky-settings-popup #cky-tab-content").insertAdjacentHTML("beforeend", ckyTabContentItem);
+      //             if (!options.showCategoryDirectly) {
+      //                 createSwitches(category);
+      //             }
+      //             if (behaviour.showAuditTable) {
+      //                 renderAuditTable(true, category);
+      //             }
+      //         }
+      //     }
+      //     var ckyTabs = getByClass("cky-tab-item");
+      //     for (var i = 0; i < ckyTabs.length; i++) {
+      //         ckyTabs[i].onclick = function () {
+      //             currentActiveTab = getByClass("cky-tab-item-active")[0];
+      //             currentActiveTab.classList.remove("cky-tab-item-active");
+      //             currentActiveTab.setAttribute("style", tabCss);
+      //             this.classList.add("cky-tab-item-active");
+      //             this.setAttribute("style", activeTabCss);
+      //             document.querySelector("#cky-settings-popup .cky-tab-content-active").classList.remove("cky-tab-content-active");
+      //             var tabId = this.getAttribute("tab-target");
+      //             getById(tabId).className += " cky-tab-content-active";
+      //         };
+      //     }
+      //     var customAcceptButton =
+      //         '<button class="cky-btn cky-btn-custom-accept"\
+      //     style = "\
+      //                     color: ' +
+      //         colors[ckyActiveLaw].popup.acceptCustomButton.textColor +
+      //         ";\
+      //                     background-color: " +
+      //         colors[ckyActiveLaw].popup.acceptCustomButton.bg +
+      //         ";\
+      //                     border-color: " +
+      //         colors[ckyActiveLaw].popup.acceptCustomButton.borderColor +
+      //         ';\
+      //                 "\
+      //     id="cky-btn-custom-accept">' +
+      //         content[ckyActiveLaw].customAcceptButton[selectedLanguage] +
+      //         "</button>";
+      //     if (options.showCategoryDirectly) {
+      //         document.querySelector("#cky-consent #cky-category-direct").insertAdjacentHTML("beforeend", customAcceptButton);
+      //     } else {
+      //         document.querySelector("#cky-settings-popup #cky-tab-menu").insertAdjacentHTML("beforeend", customAcceptButton);
+      //     }
+      //     getById("cky-btn-custom-accept").onclick = function () {
+      //         acceptCookies("customAccept");
+      //         document.querySelector("#cky-modal-backdrop").classList.remove("cky-show");
+      //     };
+      //     document.querySelector("#cky-modal-backdrop").onclick = closeCkyModal;
+      //     document.querySelector("#cky-settings-popup #ckyModalClose").onclick = closeCkyModal;
+      // }
       function showHideStickyDetail() {
           if (!Element.prototype.toggleAttribute) {
               Element.prototype.toggleAttribute = function (name, force) {
@@ -1277,52 +1476,78 @@ window.addEventListener("load", function () {
               getById("cky-detail-wrapper").style.display = "none";
           }
       }
-      function showPopupDetail() {
-          getById("cky-settings-popup").classList.add("cky-show");
-          getByClass("cky-modal-backdrop")[0].classList.add("cky-show");
-          calculateTabDescriptionHeight();
-      }
-      function ccpaShowPopupDetail() {
-          getById("cky-ccpa-settings-popup").classList.add("cky-show");
-          getById("cky-ccpa-modal-backdrop").classList.add("cky-show");
-      }
-      function closeCkyModal() {
-          getById("cky-settings-popup").classList.remove("cky-show");
-          getByClass("cky-modal-backdrop")[0].classList.remove("cky-show");
-      }
-      function closeCkyCcpaModal() {
-          getById("cky-ccpa-settings-popup").classList.remove("cky-show");
-          getById("cky-ccpa-modal-backdrop").classList.remove("cky-show");
-      }
+
+      // ****** DETAIL TYPE IS STYICKY , NOT POPUP ******* //
+      // function showPopupDetail() {
+      //     getById("cky-settings-popup").classList.add("cky-show");
+      //     getByClass("cky-modal-backdrop")[0].classList.add("cky-show");
+      //     calculateTabDescriptionHeight();
+      // }
+
+      // ****** THIS SHOULD NOT BE PRESENT FOR A GDPR ONLY USER. ******* //
+      // function ccpaShowPopupDetail() {
+      //     getById("cky-ccpa-settings-popup").classList.add("cky-show");
+      //     getById("cky-ccpa-modal-backdrop").classList.add("cky-show");
+      // }
+
+      // ****** THIS SHOULD NOT BE PRESENT FOR A GDPR - STICKY TYPE USER. ******* //
+      // function closeCkyModal() {
+      //     getById("cky-settings-popup").classList.remove("cky-show");
+      //     getByClass("cky-modal-backdrop")[0].classList.remove("cky-show");
+      // }
+
+      // ****** THIS SHOULD NOT BE PRESENT FOR A GDPR ONLY USER. ******* //
+      // function closeCkyCcpaModal() {
+      //     getById("cky-ccpa-settings-popup").classList.remove("cky-show");
+      //     getById("cky-ccpa-modal-backdrop").classList.remove("cky-show");
+      // }
+
       function acceptCookies(choice) {
-          if (ckyActiveLaw === "gdpr") {
-              updateCookies(choice);
-          } else if (ckyActiveLaw === "ccpa") {
-              ccpaRejectCookies();
-          }
+          // ****** CONSIDERING USER TO BE GDPR . ******* //
+          // expected
+          updateCookies(choice);
+
+          // current
+          // if (ckyActiveLaw === "gdpr") {
+          //     updateCookies(choice);
+          // } else if (ckyActiveLaw === "ccpa") {
+          //     ccpaRejectCookies();
+          // }
           if (typeof ckyLogCookies !== "undefined") {
               window.addEventListener("beforeunload", ckyLogCookies());
           }
           cookie.set("cky-action", "yes", cookie.ACCEPT_COOKIE_EXPIRE);
-          if (JSON.parse(behaviour.reload)) {
-              location.reload();
-          } else {
-              cookieYes.unblock();
-              showToggler();
-          }
+
+          // ****** ASSUMING USER HAS TURED ON RELOAD ON BANNER ACTION . ******* //
+
+          //expected
+
+          location.reload();
+          
+          // current 
+
+          // if (JSON.parse(behaviour.reload)) {
+          //     location.reload();
+          // } else {
+          //     cookieYes.unblock();
+          //     showToggler();
+          // }
       }
-      function ccpaRejectCookies() {
-          cookie.set("cky-consent", "yes", cookie.ACCEPT_COOKIE_EXPIRE);
-          for (var i = 0; i < info.categories.length; i++) {
-              var category = info.categories[i];
-              var ckyItemToSave = category;
-              if (category.settings.ccpa.doNotSell === "1") {
-                  cookie.set("cookieyes-" + ckyItemToSave.slug, "no", cookie.ACCEPT_COOKIE_EXPIRE);
-              } else {
-                  cookie.set("cookieyes-" + ckyItemToSave.slug, "yes", cookie.ACCEPT_COOKIE_EXPIRE);
-              }
-          }
-      }
+
+      // ****** THIS SHOULD NOT BE PRESENT FOR A GDPR ONLY USER. ******* //
+      // function ccpaRejectCookies() {
+      //     cookie.set("cky-consent", "yes", cookie.ACCEPT_COOKIE_EXPIRE);
+      //     for (var i = 0; i < info.categories.length; i++) {
+      //         var category = info.categories[i];
+      //         var ckyItemToSave = category;
+      //         if (category.settings.ccpa.doNotSell === "1") {
+      //             cookie.set("cookieyes-" + ckyItemToSave.slug, "no", cookie.ACCEPT_COOKIE_EXPIRE);
+      //         } else {
+      //             cookie.set("cookieyes-" + ckyItemToSave.slug, "yes", cookie.ACCEPT_COOKIE_EXPIRE);
+      //         }
+      //     }
+      // }
+
       function updateCookies(choice) {
           cookie.set("cky-consent", "yes", cookie.ACCEPT_COOKIE_EXPIRE);
           for (var i = 0; i < info.categories.length; i++) {
@@ -1355,6 +1580,14 @@ window.addEventListener("load", function () {
           if (typeof ckyLogCookies !== "undefined") {
               window.addEventListener("beforeunload", ckyLogCookies());
           }
+          // ****** ASSUMING USER HAS TURED ON RELOAD ON BANNER ACTION . ******* //
+
+          //expected
+
+          location.reload();
+
+          // current 
+
           if (JSON.parse(behaviour.reload)) {
               location.reload();
           } else {
@@ -1372,11 +1605,19 @@ window.addEventListener("load", function () {
           }
       }
       function setInitialCookies() {
-          if (behaviour.defaultConsent) {
-              cookie.set("cky-consent", "yes", cookie.ACCEPT_COOKIE_EXPIRE);
-          } else {
-              cookie.set("cky-consent", "no", cookie.ACCEPT_COOKIE_EXPIRE);
-          }
+          // ****** ASSUMING USER HAS TURED ON DEFAULT CONSENT. ******* //
+
+          // expected
+
+          cookie.set("cky-consent", "yes", cookie.ACCEPT_COOKIE_EXPIRE);
+
+          // current
+          
+          // if (behaviour.defaultConsent) {
+          //     cookie.set("cky-consent", "yes", cookie.ACCEPT_COOKIE_EXPIRE);
+          // } else {
+          //     cookie.set("cky-consent", "no", cookie.ACCEPT_COOKIE_EXPIRE);
+          // }
           for (var i = 0; i < info.categories.length; i++) {
               var category = info.categories[i];
               if (category.type !== 1 && !(category.slug === "analytics" && loadAnalyticsByDefault) && ckyActiveLaw !== "ccpa") {
@@ -1551,16 +1792,17 @@ window.addEventListener("load", function () {
               renderBanner();
           }
       };
-      window.revisitCkySettings = function () {
-          if (ckyActiveLaw === "ccpa") {
-              if (!document.getElementById("cky-ccpa-settings-popup")) {
-                  renderCcpaPopupDetail();
-              }
-              if (!document.getElementById("cky-ccpa-settings-popup").classList.contains("cky-show")) {
-                  ccpaShowPopupDetail();
-              }
-          }
-      };
+      // ****** THIS SHOULD NOT BE PRESENT FOR A GDPR ONLY USER. ******* //
+      // window.revisitCkySettings = function () {
+      //     if (ckyActiveLaw === "ccpa") {
+      //         if (!document.getElementById("cky-ccpa-settings-popup")) {
+      //             renderCcpaPopupDetail();
+      //         }
+      //         if (!document.getElementById("cky-ccpa-settings-popup").classList.contains("cky-show")) {
+      //             ccpaShowPopupDetail();
+      //         }
+      //     }
+      // };
       var anywhereAuditTable = document.getElementsByClassName("cky-audit-table-element");
       if (anywhereAuditTable.length) {
           for (var i = 0; i < categories.length; i++) {
@@ -1604,9 +1846,21 @@ window.addEventListener("load", function () {
 });
 function checkSelectedLanguage(selectedLanguage, ckyActiveLaw) {
   let siteLanguage = document.documentElement.lang;
-  if (cliConfig.options.plan === "free" || !siteLanguage) {
-      return selectedLanguage;
+
+  // ****** ALREADY KNOW IF THE USER IS FREE/PAID ******* //
+
+  //expected
+  if (!siteLanguage) {
+    return selectedLanguage;
   }
+
+  // current
+  // if (cliConfig.options.plan === "free" || !siteLanguage) {
+  //     return selectedLanguage;
+  // }
+
+  // ****** //
+
   if (cliConfig.options.content[ckyActiveLaw].title[siteLanguage]) {
       return siteLanguage;
   }
@@ -1616,6 +1870,10 @@ function checkSelectedLanguage(selectedLanguage, ckyActiveLaw) {
   }
   return cliConfig.options.content[ckyActiveLaw].title[siteLanguage] ? siteLanguage : selectedLanguage;
 }
+
+
+// PART- 3
+
 function addPlaceholder(htmlElm) {
   var selectedLanguage = cliConfig.options.behaviour.selectedLanguage;
   let activeLawTemp = ckyActiveLaw ? ckyActiveLaw : cliConfig.options.selectedLaws[0];
@@ -1856,7 +2114,7 @@ var cookieYes = {
       }
       var ckyconsent = getCategoryCookie("cky-consent") ? getCategoryCookie("cky-consent") : "no";
       categoryScripts.forEach(function (item) {
-          if (ckyconsent == "yes" && getCategoryCookie("cookieyes-" + item.name) == "yes") {
+          if ((ckyconsent == "yes" && getCategoryCookie("cookieyes-" + item.name) == "yes") || ckyActiveLaw === "ccpa") {
               Array.prototype.push.apply(CKY_WHITELIST, item.list);
               Array.prototype.push.apply(patterns.whitelist, item.list);
           }

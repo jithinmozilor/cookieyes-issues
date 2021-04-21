@@ -33,7 +33,7 @@ function count(callback) {
                 } else if (ckyActiveLaw === "ccpa") {
                     var showOnlyInCalifornia = cliConfig.options.geoTarget["ccpa"].california;
                     var showOnlyInUs = cliConfig.options.geoTarget["ccpa"].us;
-                    cookieYes.unblock();
+                    cookieYes.unblock(); // added
                 }
                 switch (true) {
                     case (ckyActiveLaw === "gdpr" && showOnlyInEu && in_EU === false) ||
@@ -6763,7 +6763,7 @@ var cookieYes = {
         var ckyconsent = getCategoryCookie("cky-consent") ? getCategoryCookie("cky-consent") : "no";
         categoryScripts.forEach(function (item) {
             console.log(ckyActiveLaw);
-            if ((ckyconsent == "yes" && getCategoryCookie("cookieyes-" + item.name) == "yes") || ckyActiveLaw === 'ccpa') {
+            if ((ckyconsent == "yes" && getCategoryCookie("cookieyes-" + item.name) == "yes") || ckyActiveLaw === 'ccpa') { // added
                 Array.prototype.push.apply(CKY_WHITELIST, item.list);
                 Array.prototype.push.apply(patterns.whitelist, item.list);
             }
