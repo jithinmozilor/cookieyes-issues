@@ -7149,9 +7149,9 @@ window.addEventListener("load", function () {
                   cookie.set("cookieyes-" + category.slug, "no", cookie.ACCEPT_COOKIE_EXPIRE);
               } else {
                   cookie.set("cookieyes-" + category.slug, "yes", cookie.ACCEPT_COOKIE_EXPIRE);
+                  removeDeadCookies(category);
               }
           }
-          removeDeadCookies(category);
       }
       function setInitialCookies() {
           if (behaviour.defaultConsent) {
