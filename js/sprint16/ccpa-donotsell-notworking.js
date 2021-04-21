@@ -157,7 +157,10 @@ function getCookie(name) {
       .map(function (cookie) {
           return cookie.split("=");
       })
-      .reduce((accumulator, [key, value]) => ({ ...accumulator, [key.trim()]: decodeURIComponent(value) }), {});
+      .reduce(function (accumulator, c) {
+          accumulator[c.key.trim()] = decodeURIComponent(c.value);
+          return accumulator;
+      });
   if (name in cookieList) {
       return true;
   } else {
@@ -2163,8 +2166,241 @@ var cliConfig = {
                   },
               ],
               cookies: [
-                  { id: 340015, cookie_id: "_ga", description: { en: "test", de: "test", fi: "test", "pt-br": "test", sl: "test" }, duration: "1 year", type: "https", domain: ".jithinmozilor.github.io" },
-                  { id: 340016, cookie_id: "_gid", description: { en: "test", de: "test", fi: "test", "pt-br": "test", sl: "test" }, duration: "1 year", type: "https", domain: ".jithinmozilor.github.io" },
+                  {
+                      id: 49414,
+                      cookie_id: "__utma",
+                      description: {
+                          en:
+                              "This cookie is set by Google Analytics and is used to distinguish users and sessions. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          de:
+                              "This cookie is set by Google Analytics and is used to distinguish users and sessions. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          fr:
+                              "This cookie is set by Google Analytics and is used to distinguish users and sessions. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          it:
+                              "This cookie is set by Google Analytics and is used to distinguish users and sessions. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          es:
+                              "This cookie is set by Google Analytics and is used to distinguish users and sessions. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          nl:
+                              "This cookie is set by Google Analytics and is used to distinguish users and sessions. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          bg:
+                              "This cookie is set by Google Analytics and is used to distinguish users and sessions. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          ar:
+                              "This cookie is set by Google Analytics and is used to distinguish users and sessions. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                      },
+                      duration: "2 years",
+                      type: "http",
+                      domain: ".ishthehague.nl",
+                  },
+                  {
+                      id: 49415,
+                      cookie_id: "__utmc",
+                      description: {
+                          en:
+                              "The cookie is set by Google Analytics and is deleted when the user closes the browser. The cookie is not used by ga.js. The cookie is used to enable interoperability with urchin.js which is an older version of Google analytics and used in conjunction with the __utmb cookie to determine new sessions/visits.",
+                          de:
+                              "The cookie is set by Google Analytics and is deleted when the user closes the browser. The cookie is not used by ga.js. The cookie is used to enable interoperability with urchin.js which is an older version of Google analytics and used in conjunction with the __utmb cookie to determine new sessions/visits.",
+                          fr:
+                              "The cookie is set by Google Analytics and is deleted when the user closes the browser. The cookie is not used by ga.js. The cookie is used to enable interoperability with urchin.js which is an older version of Google analytics and used in conjunction with the __utmb cookie to determine new sessions/visits.",
+                          it:
+                              "The cookie is set by Google Analytics and is deleted when the user closes the browser. The cookie is not used by ga.js. The cookie is used to enable interoperability with urchin.js which is an older version of Google analytics and used in conjunction with the __utmb cookie to determine new sessions/visits.",
+                          es:
+                              "The cookie is set by Google Analytics and is deleted when the user closes the browser. The cookie is not used by ga.js. The cookie is used to enable interoperability with urchin.js which is an older version of Google analytics and used in conjunction with the __utmb cookie to determine new sessions/visits.",
+                          nl:
+                              "The cookie is set by Google Analytics and is deleted when the user closes the browser. The cookie is not used by ga.js. The cookie is used to enable interoperability with urchin.js which is an older version of Google analytics and used in conjunction with the __utmb cookie to determine new sessions/visits.",
+                          bg:
+                              "The cookie is set by Google Analytics and is deleted when the user closes the browser. The cookie is not used by ga.js. The cookie is used to enable interoperability with urchin.js which is an older version of Google analytics and used in conjunction with the __utmb cookie to determine new sessions/visits.",
+                          ar:
+                              "The cookie is set by Google Analytics and is deleted when the user closes the browser. The cookie is not used by ga.js. The cookie is used to enable interoperability with urchin.js which is an older version of Google analytics and used in conjunction with the __utmb cookie to determine new sessions/visits.",
+                      },
+                      duration: "Never Expire",
+                      type: "http",
+                      domain: ".ishthehague.nl",
+                  },
+                  {
+                      id: 49416,
+                      cookie_id: "__utmz",
+                      description: {
+                          en: "This cookie is set by Google analytics and is used to store the traffic source or campaign through which the visitor reached your site.",
+                          de: "This cookie is set by Google analytics and is used to store the traffic source or campaign through which the visitor reached your site.",
+                          fr: "This cookie is set by Google analytics and is used to store the traffic source or campaign through which the visitor reached your site.",
+                          it: "This cookie is set by Google analytics and is used to store the traffic source or campaign through which the visitor reached your site.",
+                          es: "This cookie is set by Google analytics and is used to store the traffic source or campaign through which the visitor reached your site.",
+                          nl: "This cookie is set by Google analytics and is used to store the traffic source or campaign through which the visitor reached your site.",
+                          bg: "This cookie is set by Google analytics and is used to store the traffic source or campaign through which the visitor reached your site.",
+                          ar: "This cookie is set by Google analytics and is used to store the traffic source or campaign through which the visitor reached your site.",
+                      },
+                      duration: "6 months",
+                      type: "http",
+                      domain: ".ishthehague.nl",
+                  },
+                  {
+                      id: 49417,
+                      cookie_id: "__utmt",
+                      description: {
+                          en: "The cookie is set by Google Analytics and is used to throttle request rate.",
+                          de: "The cookie is set by Google Analytics and is used to throttle request rate.",
+                          fr: "The cookie is set by Google Analytics and is used to throttle request rate.",
+                          it: "The cookie is set by Google Analytics and is used to throttle request rate.",
+                          es: "The cookie is set by Google Analytics and is used to throttle request rate.",
+                          nl: "The cookie is set by Google Analytics and is used to throttle request rate.",
+                          bg: "The cookie is set by Google Analytics and is used to throttle request rate.",
+                          ar: "The cookie is set by Google Analytics and is used to throttle request rate.",
+                      },
+                      duration: "10 minutes",
+                      type: "http",
+                      domain: ".ishthehague.nl",
+                  },
+                  {
+                      id: 49418,
+                      cookie_id: "__utmb",
+                      description: {
+                          en:
+                              "The cookie is set by Google Analytics. The cookie is used to determine new sessions/visits. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          de:
+                              "The cookie is set by Google Analytics. The cookie is used to determine new sessions/visits. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          fr:
+                              "The cookie is set by Google Analytics. The cookie is used to determine new sessions/visits. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          it:
+                              "The cookie is set by Google Analytics. The cookie is used to determine new sessions/visits. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          es:
+                              "The cookie is set by Google Analytics. The cookie is used to determine new sessions/visits. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          nl:
+                              "The cookie is set by Google Analytics. The cookie is used to determine new sessions/visits. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          bg:
+                              "The cookie is set by Google Analytics. The cookie is used to determine new sessions/visits. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                          ar:
+                              "The cookie is set by Google Analytics. The cookie is used to determine new sessions/visits. The cookie is created when the JavaScript library executes and there are no existing __utma cookies. The cookie is updated every time data is sent to Google Analytics.",
+                      },
+                      duration: "30 minutes",
+                      type: "http",
+                      domain: ".ishthehague.nl",
+                  },
+                  {
+                      id: 49422,
+                      cookie_id: "_gat_UA-51008765-1",
+                      description: {
+                          en:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          de:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          fr:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          it:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          es:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          nl:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          bg:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          ar:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                      },
+                      duration: "1 minute",
+                      type: "http",
+                      domain: ".ishthehague.nl",
+                  },
+                  {
+                      id: 49451,
+                      cookie_id: "_gat_UA-9331049-1",
+                      description: {
+                          en:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          de:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          fr:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          it:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          es:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          nl:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          bg:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          ar:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                      },
+                      duration: "1 minute",
+                      type: "http",
+                      domain: ".israelhayom.co.il",
+                  },
+                  {
+                      id: 49519,
+                      cookie_id: "d",
+                      description: {
+                          en: "This cookie tracks anonymous information on how visitors use the website.",
+                          de: "This cookie tracks anonymous information on how visitors use the website.",
+                          fr: "This cookie tracks anonymous information on how visitors use the website.",
+                          it: "This cookie tracks anonymous information on how visitors use the website.",
+                          es: "This cookie tracks anonymous information on how visitors use the website.",
+                          nl: "This cookie tracks anonymous information on how visitors use the website.",
+                          bg: "This cookie tracks anonymous information on how visitors use the website.",
+                          ar: "This cookie tracks anonymous information on how visitors use the website.",
+                      },
+                      duration: "2 months",
+                      type: "http",
+                      domain: ".quantserve.com",
+                  },
+                  {
+                      id: 60869,
+                      cookie_id: "_gat_UA-38602446-1",
+                      description: {
+                          en:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          de:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          fr:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          it:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          es:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          nl:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          bg:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                          ar:
+                              "This is a pattern type cookie set by Google Analytics, where the pattern element on the name contains the unique identity number of the account or website it relates to. It appears to be a variation of the _gat cookie which is used to limit the amount of data recorded by Google on high traffic volume websites.",
+                      },
+                      duration: "1 years  19 days  15 hours  21 minutes",
+                      type: "https",
+                      domain: ".wystroj-okien.pl",
+                  },
+                  {
+                      id: 60875,
+                      cookie_id: "YSC",
+                      description: {
+                          en: "This cookies is set by Youtube and is used to track the views of embedded videos.",
+                          de: "This cookies is set by Youtube and is used to track the views of embedded videos.",
+                          fr: "This cookies is set by Youtube and is used to track the views of embedded videos.",
+                          it: "This cookies is set by Youtube and is used to track the views of embedded videos.",
+                          es: "This cookies is set by Youtube and is used to track the views of embedded videos.",
+                          nl: "This cookies is set by Youtube and is used to track the views of embedded videos.",
+                          bg: "This cookies is set by Youtube and is used to track the views of embedded videos.",
+                          ar: "This cookies is set by Youtube and is used to track the views of embedded videos.",
+                      },
+                      duration: "Never Expire",
+                      type: "https",
+                      domain: ".youtube.com",
+                  },
+                  {
+                      id: 61493,
+                      cookie_id: "_gat",
+                      description: {
+                          en: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
+                          de: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
+                          fr: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
+                          it: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
+                          es: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
+                          nl: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
+                          bg: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
+                          ar: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
+                      },
+                      duration: "1 years  19 days  15 hours  22 minutes",
+                      type: "https",
+                      domain: ".schneehoehen.de",
+                  },
               ],
           },
           {
@@ -3443,17 +3679,17 @@ var cliConfig = {
               id: 38614,
               slug: "other",
               order: 6,
-              name: { en: "Other", de: "Andere", fi: "Muut", "pt-br": "Outros", sl: "Drugi" },
+              name: { en: "Other", de: "Other", fi: "Other", sl: "Other", "pt-br": "Other" },
               defaultConsent: 0,
               active: 1,
               settings: { ccpa: { doNotSell: "1" } },
               type: 2,
               description: {
-                  en: "<p>Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.</p>",
-                  de: "<p>Andere nicht kategorisierte Cookies sind solche, die analysiert werden und noch nicht in eine Kategorie eingestuft wurden.</p>",
-                  fi: "<p>Muut luokittelemattomat ev\u00e4steet ovat analysoitavia ev\u00e4steit\u00e4, joita ei ole viel\u00e4 luokiteltu luokkaan.</p>",
-                  "pt-br": "<p>Outros cookies n\u00e3o categorizados s\u00e3o aqueles que est\u00e3o sendo analisados e ainda n\u00e3o foram classificados em uma categoria.</p>",
-                  sl: "<p>Drugi nekategorizirani pi\u0161kotki so tisti, ki se analizirajo in \u0161e niso uvr\u0161\u010deni v kategorijo.</p>",
+                  en: "Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.",
+                  de: "Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.",
+                  fi: "Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.",
+                  sl: "Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.",
+                  "pt-br": "Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.",
               },
               cookies: [
                   {
@@ -6868,7 +7104,6 @@ window.addEventListener("load", function () {
                           cookie.set("cookieyes-" + ckyItemToSave.slug, "yes", cookie.ACCEPT_COOKIE_EXPIRE);
                       } else {
                           cookie.set("cookieyes-" + ckyItemToSave.slug, "no", cookie.ACCEPT_COOKIE_EXPIRE);
-                          removeDeadCookies(category);
                       }
                   } else {
                       if (category.defaultConsent) {
@@ -6881,20 +7116,6 @@ window.addEventListener("load", function () {
                   cookie.set("cookieyes-" + category.slug, "yes", cookie.ACCEPT_COOKIE_EXPIRE);
               }
           }
-      }
-      function removeDeadCookies(category) {
-        if(category.cookies) {
-            const cookieList = document.cookie.split('; ');
-            let cookieNames = {};
-            for(let j=0; j<cookieList.length;j++) {
-                cookieNames[cookieList[j].split("=")[0]] = "true";
-            }
-            for(let i=0; i<category.cookies.length; i++) {
-                if (category.cookies[i].cookie_id in cookieNames) {
-                  document.cookie = category.cookies[i].cookie_id + "= ; expires = Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=" + category.cookies[i].domain;
-                }
-            }
-        }
       }
       function rejectCookies() {
           cookie.set("cky-action", "yes", cookie.ACCEPT_COOKIE_EXPIRE);
@@ -6914,7 +7135,6 @@ window.addEventListener("load", function () {
               var category = info.categories[i];
               if (category.type !== 1) {
                   cookie.set("cookieyes-" + category.slug, "no", cookie.ACCEPT_COOKIE_EXPIRE);
-                  removeDeadCookies(category);
               } else {
                   cookie.set("cookieyes-" + category.slug, "yes", cookie.ACCEPT_COOKIE_EXPIRE);
               }
