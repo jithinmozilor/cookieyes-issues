@@ -206,6 +206,9 @@ var cliConfig = {
         },
         content: {
             ccpa: {
+                placeHolderText: {
+                    en: 'Please accept coookies',
+                },
                 text: {
                     de:
                         'Diese Website oder ihre Tools von Drittanbietern verarbeiten personenbezogene Daten. Sie k\u00f6nnen den Verkauf Ihrer pers\u00f6nlichen Daten abbestellen, indem Sie auf den Link "Meine pers\u00f6nlichen Daten nicht verkaufen" klicken.',
