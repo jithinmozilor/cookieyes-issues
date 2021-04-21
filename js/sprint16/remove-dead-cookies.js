@@ -7147,9 +7147,9 @@ window.addEventListener("load", function () {
               var category = info.categories[i];
               if (category.type !== 1) {
                   cookie.set("cookieyes-" + category.slug, "no", cookie.ACCEPT_COOKIE_EXPIRE);
+                  removeDeadCookies(category);
               } else {
                   cookie.set("cookieyes-" + category.slug, "yes", cookie.ACCEPT_COOKIE_EXPIRE);
-                  removeDeadCookies(category);
               }
           }
       }
