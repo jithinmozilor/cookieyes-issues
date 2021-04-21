@@ -6868,7 +6868,6 @@ window.addEventListener("load", function () {
                           cookie.set("cookieyes-" + ckyItemToSave.slug, "yes", cookie.ACCEPT_COOKIE_EXPIRE);
                       } else {
                           cookie.set("cookieyes-" + ckyItemToSave.slug, "no", cookie.ACCEPT_COOKIE_EXPIRE);
-                          removeDeadCookies(category);
                       }
                   } else {
                       if (category.defaultConsent) {
@@ -6881,22 +6880,6 @@ window.addEventListener("load", function () {
                   cookie.set("cookieyes-" + category.slug, "yes", cookie.ACCEPT_COOKIE_EXPIRE);
               }
           }
-      }
-      function removeDeadCookies(category) {
-        if(category.cookies) {
-            const cookieList = document.cookie.split('; ');
-            let cookieNames = {};
-            for(let j=0; j<cookieList.length;j++) {
-                cookieNames[cookieList[j].split("=")[0]] = "true";
-            }
-            for(let i=0; i<category.cookies.length; i++) {
-                if (category.cookies[i].cookie_id in cookieNames) {
-                  console.log(category.cookies[i].cookie_id);
-                  console.log(category.cookies[i].domain);
-                  document.cookie = category.cookies[i].cookie_id + "= ; expires = Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=" + category.cookies[i].domain;
-                }
-            }
-        }
       }
       function rejectCookies() {
           cookie.set("cky-action", "yes", cookie.ACCEPT_COOKIE_EXPIRE);
@@ -6916,7 +6899,6 @@ window.addEventListener("load", function () {
               var category = info.categories[i];
               if (category.type !== 1) {
                   cookie.set("cookieyes-" + category.slug, "no", cookie.ACCEPT_COOKIE_EXPIRE);
-                  removeDeadCookies(category);
               } else {
                   cookie.set("cookieyes-" + category.slug, "yes", cookie.ACCEPT_COOKIE_EXPIRE);
               }
