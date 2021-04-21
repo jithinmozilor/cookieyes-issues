@@ -31,10 +31,12 @@ function count(callback) {
                 if (ckyActiveLaw === "gdpr") {
                     var showOnlyInEu = cliConfig.options.geoTarget["gdpr"].eu;
                 } else if (ckyActiveLaw === "ccpa") {
-                    if(getCategoryCookie("cky-consent") === 'no') {
-                        console.log('1');
-                        cookieYes.unblock();
-                    }
+                    cookieYes.unblock();
+                    // if(getCategoryCookie("cky-consent") === 'no') {
+                    //     cookieYes.unblock();
+                    // } else if(getCategoryCookie("cky-consent") === 'yes') {
+                    //     console.log('else case')
+                    // }
                     var showOnlyInCalifornia = cliConfig.options.geoTarget["ccpa"].california;
                     var showOnlyInUs = cliConfig.options.geoTarget["ccpa"].us;
                 }
@@ -7390,7 +7392,9 @@ var cookieYes = {
         }
         var ckyconsent = getCategoryCookie("cky-consent") ? getCategoryCookie("cky-consent") : "no";
         categoryScripts.forEach(function (item) {
-            if ((ckyconsent == "yes" && getCategoryCookie("cookieyes-" + item.name) == "yes") || ckyActiveLaw === "ccpa") {
+            if ((ckyconsent == "yes" && getCategoryCookie("cookieyes-" + item.name) == "yes") || 
+                (ckyActiveLaw === "ccpa" && getCategoryCookie("cky-consent") === 'no') ||
+                (ckyActiveLaw === "ccpa" && getCategoryCookie("cookieyes-" + item.name) === "yes")) {
                 console.log('2')
                 Array.prototype.push.apply(CKY_WHITELIST, item.list);
                 Array.prototype.push.apply(patterns.whitelist, item.list);
