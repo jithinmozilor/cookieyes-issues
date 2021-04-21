@@ -152,15 +152,12 @@ function bannerActiveCheck() {
 }
 
 function getCookie(name) {
-  var cookieList = document.cookie.split(';');
-  cookieList = cookieList.map(function (cookie) {
-    return cookie.split("=");
-  })
-  cookieList = cookieList.reduce((accumulator, [key, value]) => ({ ...accumulator, [key.trim()]: decodeURIComponent(value) }), {});
-  console.log(cookieList);
-
-
-
+  var cookieList = document.cookie
+      .split(";")
+      .map(function (cookie) {
+          return cookie.split("=");
+      })
+      .reduce((accumulator, [key, value]) => ({ ...accumulator, [key.trim()]: decodeURIComponent(value) }), {});
   if (name in cookieList) {
       return true;
   } else {
