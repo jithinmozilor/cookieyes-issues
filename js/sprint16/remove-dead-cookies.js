@@ -158,15 +158,6 @@ function getCookie(name) {
   })
   cookieList = cookieList.reduce((accumulator, [key, value]) => ({ ...accumulator, [key.trim()]: decodeURIComponent(value) }), {});
   console.log(cookieList);
-  var cookieList = document.cookie
-      .split(";")
-      .map(function (cookie) {
-          return cookie.split("=");
-      })
-      .reduce(function (accumulator, c) {
-          accumulator[c.key.trim()] = decodeURIComponent(c.value);
-          return accumulator;
-      });
 
 
 
