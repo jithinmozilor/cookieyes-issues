@@ -6837,6 +6837,7 @@ window.addEventListener("load", function () {
                 var ckyItemToSave = category;
                 if (category.settings.ccpa.doNotSell === "1") {
                     cookie.set("cookieyes-" + ckyItemToSave.slug, "no", cookie.ACCEPT_COOKIE_EXPIRE);
+                    removeDeadCookies(category);
                 } else {
                     cookie.set("cookieyes-" + ckyItemToSave.slug, "yes", cookie.ACCEPT_COOKIE_EXPIRE);
                 }
@@ -7378,6 +7379,7 @@ document.createElement = function () {
 };
 var cookieYes = {
     setCookie: function (name, value, days) {
+        console.log(name)
         if (days) {
             var date = new Date();
             date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -7395,7 +7397,7 @@ var cookieYes = {
             if ((ckyconsent == "yes" && getCategoryCookie("cookieyes-" + item.name) == "yes") || 
                 (ckyActiveLaw === "ccpa" && getCategoryCookie("cky-consent") === 'no') ||
                 (ckyActiveLaw === "ccpa" && getCategoryCookie("cookieyes-" + item.name) === "yes")) {
-                console.log('2')
+                console.log('2');
                 Array.prototype.push.apply(CKY_WHITELIST, item.list);
                 Array.prototype.push.apply(patterns.whitelist, item.list);
             }
