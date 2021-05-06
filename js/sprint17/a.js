@@ -757,12 +757,17 @@ _ckyBannerActiveCheck();
 function _ckyRenderBanner() {
   _ckyCreateBanner();
   if (selectedLanguage == "ar")
-document.getElementById("cky-consent").classList.add("cky-rtl");
-    _ckyRenderStickyDetail();
+    document.getElementById("cky-consent").classList.add("cky-rtl");
+  document
+    .getElementById("cky-consent")
+    .classList.add('cky-classic');
+  _ckyAppendLogo();
+  _ckyAppendText();
+  _ckyRenderButtons();
 }
 
 function _ckyCreateBanner() {
-  const consentBar = `<div class="cky-consent-bar cky-classic cky-logo-active" id="cky-consent"><div class="cky-content-logo-outer-wrapper" id="cky-content-logo">${_ckyAppendLogo()}<divs id="cky-content-logo-inner-wrapper">${_ckyAppendTitle()}<div class="cky-content-wrapper">${_ckyAppendText()}<div class="cky-button-wrapper">${_ckyRenderButtons(['settings', 'reject', 'accept'])}</div></div></div></div></div>`;
+  const consentBar = `<div class="cky-consent-bar" id="cky-consent"><div class="cky-content-logo-outer-wrapper" id="cky-content-logo"><divs id="cky-content-logo-inner-wrapper"><div class="cky-content-wrapper"></div></div></div></div>`;
   document.body.insertAdjacentHTML("beforeend", consentBar);
   // MOVE TO CSS
   const ckyConsentBar = document.getElementById("cky-consent");
@@ -784,18 +789,24 @@ function _ckyCreateBanner() {
 }
 
 function _ckyAppendLogo() {
+  document.getElementById("cky-consent").classList.add("cky-logo-active");
+  // MOVE TO CSS
   const consentLogo = `<img src="${cliConfig.options.content[ckyActiveLaw].customLogoUrl}" class="img-fluid cky-logo" style="width: 100px" alt="Brand logo">`;
-  return consentLogo
-}
-
-function _ckyAppendTitle() {
-  const consentTitle = `<div class="cky-consent-title" style="color:${cliConfig.options.colors[ckyActiveLaw].notice.titleColor}">${cliConfig.options.content[ckyActiveLaw].title[selectedLanguage]}</div>`;
-  return consentTitle
+  document
+    .querySelector("#cky-consent #cky-content-logo")
+    .insertAdjacentHTML("afterbegin", consentLogo);
 }
 
 function _ckyAppendText() {
-  const consentText = `<p class="cky-bar-text" style="color:${cliConfig.options.colors[ckyActiveLaw].notice.textColor}">${cliConfig.options.content[ckyActiveLaw].text[selectedLanguage]}${_ckyAppendReadMore()}</p>`;
-  return consentText
+  const consentTitle = `<div class="cky-consent-title" style="color:${cliConfig.options.colors[ckyActiveLaw].notice.titleColor}">${cliConfig.options.content[ckyActiveLaw].title[selectedLanguage]}</div>`;
+  document
+    .querySelector("#cky-consent #cky-content-logo-inner-wrapper")
+    .insertAdjacentHTML("afterbegin", consentTitle);
+  const consentText = `<p class="cky-bar-text" style="color:${cliConfig.options.colors[ckyActiveLaw].notice.textColor}">${cliConfig.options.content[ckyActiveLaw].text[selectedLanguage]}</p>`;
+  document
+    .getElementById("cky-consent")
+    .getElementsByClassName("cky-content-wrapper")[0]
+    .insertAdjacentHTML("beforeend", consentText);
 }
 
 function _ckyCreateSwitches(category) {
@@ -804,74 +815,90 @@ function _ckyCreateSwitches(category) {
     cookieStatus === "yes" || (!cookieStatus && category.defaultConsent)
       ? "checked"
       : "";
-  return `<label class="cky-switch" ${category.type === 1 ? 'disabled': ''} for="cky-checkbox-category${category.name[selectedLanguage]}" onclick="event.stopPropagation();"><input type="checkbox" id="cky-checkbox-category${category.name[selectedLanguage]}" ${ckySwitchStatus}/><div class="cky-slider"></div></label>`;
+  const categoryCheckbox = `<label class="cky-switch" for="cky-checkbox-category${category.name[selectedLanguage]}" onclick="event.stopPropagation();"><input type="checkbox" id="cky-checkbox-category${category.name[selectedLanguage]}" ${ckySwitchStatus}/><div class="cky-slider"></div></label>`;
+  document.getElementById(`cky-tab-title-${category.name[selectedLanguage]}`).insertAdjacentHTML("beforeend", categoryCheckbox);
+  if (category.type === 1)
+    document
+      .getElementById(`cky-checkbox-category${category.name[selectedLanguage]}`)
+      .setAttribute("disabled", true);
 }
 
 function ckyBannerActions(btnName) {
   switch (btnName) {
     case "accept":
-      return _ckyAcceptCookies();
+      return _ckyAcceptCookies;
     case "reject":
-      return _ckyRejectCookies();
+      return _ckyRejectCookies;
     case "settings":
-      return  _ckyShowHideStickyDetail();
+      return  _ckyShowHideStickyDetail;
     default:
       return () => {}
   }
 };
 
-function _ckyRenderButtons(btnList) {
-  let btnHtml = ''
-  for (const btnName of btnList) {
-    const button = `<button onclick = "ckyBannerActions('${btnName}')" style = color:${cliConfig.options.colors[ckyActiveLaw].buttons[btnName].textColor};background-color:${cliConfig.options.colors[ckyActiveLaw].buttons[btnName].bg};border-color:${cliConfig.options.colors[ckyActiveLaw].buttons[btnName].borderColor}; class="cky-btn cky-btn-${btnName}" id="cky-btn-${btnName}">${cliConfig.options.content[ckyActiveLaw].buttons[btnName][selectedLanguage]}</button>`;
-    btnHtml += button
-  }
-  return btnHtml
-}
-
-function _ckyAppendReadMore() {
+function _ckyRenderButtons() {
+  document.getElementById('cky-consent')
+    .getElementsByClassName("cky-content-wrapper")[0]
+    .insertAdjacentHTML("beforeend", '<div class="cky-button-wrapper"></div>');
+  _ckyAppendButton("settings");
+  _ckyRenderStickyDetail();
+  _ckyAppendButton("reject");
+  _ckyAppendButton("accept");
   let privacyLink = cliConfig.options.content[ckyActiveLaw].privacyPolicyLink[selectedLanguage]
     .trim()
     .replace(/\s/g, "");
-  const readMoreButton = `<a class="cky-btn-readMore" style = color:${cliConfig.options.colors[ckyActiveLaw].buttons['readMore'].textColor};background-color:${cliConfig.options.colors[ckyActiveLaw].buttons['readMore'].bg};border-color:${cliConfig.options.colors[ckyActiveLaw].buttons['readMore'].borderColor}; id="cky-btn-readMore" href="${privacyLink}" target="_blank">${cliConfig.options.content[ckyActiveLaw].buttons["readMore"][selectedLanguage]}</a>`;
-  return readMoreButton
+  // if (/^(:\/\/)/.test(privacyLink)) privacyLink = `http${privacyLink}`;
+  // else if (!/^(f|ht)tps?:\/\//i.test(privacyLink))
+  //   privacyLink = `http://${privacyLink}`;
+  const readMoreButton = `<a class="cky-btn-readMore" id="cky-btn-readMore" href="${privacyLink}" target="_blank">${cliConfig.options.content[ckyActiveLaw].buttons["readMore"][selectedLanguage]}</a>`;
+  document
+    .querySelector("#cky-consent .cky-bar-text")
+    .insertAdjacentHTML("beforeend", readMoreButton);
+  _ckyAttachButtonStyles("readMore");
+}
+
+function _ckyAppendButton(btnName) {
+  const button = `<button class="cky-btn cky-btn-${btnName}" id="cky-btn-${btnName}">${cliConfig.options.content[ckyActiveLaw].buttons[btnName][selectedLanguage]}</button>`;
+  document
+    .querySelector("#cky-consent .cky-button-wrapper")
+    .insertAdjacentHTML("beforeend", button);
+  _ckyAttachButtonStyles(btnName);
+  document.querySelector(`#cky-consent #cky-btn-${btnName}`).onclick = ckyBannerActions(btnName);
+}
+
+function _ckyAttachButtonStyles(btnName) {
+  document.querySelector(
+    `#cky-consent #cky-btn-${btnName}`
+  ).style = `color:${cliConfig.options.colors[ckyActiveLaw].buttons[btnName].textColor};background-color:${cliConfig.options.colors[ckyActiveLaw].buttons[btnName].bg};border-color:${cliConfig.options.colors[ckyActiveLaw].buttons[btnName].borderColor};`;
 }
 
 const tabCss = `color:${cliConfig.options.colors[ckyActiveLaw].popup.pills.textColor};border-color:${cliConfig.options.colors[ckyActiveLaw].notice.borderColor}`;
 const activeTabCss = `background-color:${cliConfig.options.colors[ckyActiveLaw].popup.pills.activeBg};color:${cliConfig.options.colors[ckyActiveLaw].popup.pills.activeTextColor};border-color:${cliConfig.options.colors[ckyActiveLaw].notice.borderColor};`;
 
 function _ckyRenderStickyDetail() {
-  const { ckyTabItem, ckyTabContentHtml  } = _ckyCreateTabDetails();
-  const ckyDetailWrapper = `<div class="cky-detail-wrapper" id="cky-detail-wrapper" style="display: none;border-color:${cliConfig.options.colors[ckyActiveLaw].notice.borderColor}"><div class="cky-tab"><div class="cky-tab-menu" id="cky-tab-menu" style="background-color:${cliConfig.options.colors[ckyActiveLaw].popup.pills.bg}">${ckyTabItem}${_ckyCreateCustomAcceptButton()}</div><div class="cky-tab-content" id="cky-tab-content" style="background-color:${cliConfig.options.colors[ckyActiveLaw].notice.bg}">${ckyTabContentHtml}</div></div>${_ckyAppendPoweredByLogo()}</div>`;
+  const ckyDetailWrapper = `<div class="cky-detail-wrapper" id="cky-detail-wrapper" style="border-color:${cliConfig.options.colors[ckyActiveLaw].notice.borderColor}"><div class="cky-tab"><div class="cky-tab-menu" id="cky-tab-menu" style="background-color:${cliConfig.options.colors[ckyActiveLaw].popup.pills.bg}"></div><div class="cky-tab-content" id="cky-tab-content" style="background-color:${cliConfig.options.colors[ckyActiveLaw].notice.bg}"></div></div></div>`;
   document
     .getElementById("cky-consent")
     .insertAdjacentHTML("beforeend", ckyDetailWrapper);
+  // MOVE TO CSS
+  const ckyPoweredLink =
+    '<div style="background: #d9dfe7;padding: 6px 32px;font-size: 8px;color: #111111;font-weight: normal;text-align: right;">Powered by <a target="_blank" href="https://www.cookieyes.com/#utm_source=website&utm_medium=banner&utm_campaign=poweredby&utm_term=main&utm_content=CTA" style="font-weight: bold;color: #040404;font-size: 9px;">CookieYes</a></div>';
+  document
+    .getElementById("cky-detail-wrapper")
+    .insertAdjacentHTML("beforeend", ckyPoweredLink);
+    _ckyRenderStickyTabAndAddClick();
+  for (const category of  cliConfig.info.categories) _ckyRenderStickyTabAndAddClick(category);
+  const customAcceptButton = `<button class="cky-btn cky-btn-custom-accept"style = "color: ${cliConfig.options.colors[ckyActiveLaw].popup.acceptCustomButton.textColor};background-color: ${cliConfig.options.colors[ckyActiveLaw].popup.acceptCustomButton.bg};border-color: ${cliConfig.options.colors[ckyActiveLaw].popup.acceptCustomButton.borderColor};"id="cky-btn-custom-accept">${cliConfig.options.content[ckyActiveLaw].customAcceptButton[selectedLanguage]}</button>`;
+  document.querySelector("#cky-consent #cky-tab-menu").insertAdjacentHTML("beforeend", customAcceptButton);
+  document.getElementById("cky-btn-custom-accept").onclick = () =>
+    _ckyAcceptCookies("customAccept");
+  document.getElementById("cky-detail-wrapper").style.display = "none";
 }
 
-function _ckyCreateTabDetails() {
-  let ckyTab =  {
-    ckyTabItem: '',
-    ckyTabContentHtml: ''
-  };
-  _ckyRenderStickyTabAndAddClick(ckyTab);
-  for (const category of  cliConfig.info.categories) _ckyRenderStickyTabAndAddClick(ckyTab, category);
-  return ckyTab;
-}
-
-function _ckyCreateCustomAcceptButton() {
-  return `<button onclick =  "_ckyAcceptCookies('customAccept')" class="cky-btn cky-btn-custom-accept"style = "color: ${cliConfig.options.colors[ckyActiveLaw].popup.acceptCustomButton.textColor};background-color: ${cliConfig.options.colors[ckyActiveLaw].popup.acceptCustomButton.bg};border-color: ${cliConfig.options.colors[ckyActiveLaw].popup.acceptCustomButton.borderColor};"id="cky-btn-custom-accept">${cliConfig.options.content[ckyActiveLaw].customAcceptButton[selectedLanguage]}</button>`;
-}
-
-function _ckyAppendPoweredByLogo() {
-  return '<div style="background: #d9dfe7;padding: 6px 32px;font-size: 8px;color: #111111;font-weight: normal;text-align: right;">Powered by <a target="_blank" href="https://www.cookieyes.com/#utm_source=website&utm_medium=banner&utm_campaign=poweredby&utm_term=main&utm_content=CTA" style="font-weight: bold;color: #040404;font-size: 9px;">CookieYes</a></div>';
-}
-
-function _ckyRenderStickyTabAndAddClick(ckyTab, category) {
-  const isPrivacy = !category;
-  const tabId = `cky-tab-item-${
-    isPrivacy ? "privacy" : category.name[selectedLanguage]
-  }`
-  const ckyTabItem = `<div onclick = "_ckyTabOnClick('${tabId}')" class="cky-tab-item${
+function _ckyRenderStickyTabAndAddClick(category) {
+  const isPrivacy = !category
+  const isNecessaryCategory = category && category.slug === "necessary";
+  const ckyTabItem = `<div class="cky-tab-item${
     isPrivacy ? " cky-tab-item-active" : ""
   }" id="cky-tab-item-${
     isPrivacy ? "privacy" : category.name[selectedLanguage]
@@ -890,33 +917,46 @@ function _ckyRenderStickyTabAndAddClick(ckyTab, category) {
     isPrivacy
       ? cliConfig.info.privacyPolicy.title[selectedLanguage]
       : category.name[selectedLanguage]
-  }${!isPrivacy ? _ckyCreateSwitches(category) : ''}</div><div class="cky-tab-desc" style="color:${
+  }</div><div class="cky-tab-desc" style="color:${
     cliConfig.options.colors[ckyActiveLaw].notice.textColor
   }">${
     isPrivacy
       ? cliConfig.info.privacyPolicy.text[selectedLanguage]
       : category.description[selectedLanguage]
-  }${!isPrivacy && _ckyRenderAuditTable(true, category)}</div></div>`;
-  ckyTab.ckyTabItem += ckyTabItem;
-  ckyTab.ckyTabContentHtml += ckyTabContentItem;
-}
-
-function _ckyTabOnClick(_tabId) {
-    const ckyTab = document.getElementById(_tabId);
-    const currentActiveTab = document.getElementsByClassName(
-      "cky-tab-item-active"
-    )[0];
-    currentActiveTab.classList.remove("cky-tab-item-active");
-    currentActiveTab.setAttribute("style", tabCss);
-    ckyTab.classList.add("cky-tab-item-active");
-    ckyTab.setAttribute("style", activeTabCss);
-    document
-      .querySelector("#cky-consent .cky-tab-content-active")
-      .classList.remove("cky-tab-content-active");
-    const tabId = ckyTab.getAttribute("tab-target");
-    document.getElementById(tabId).className = `${
-      document.getElementById(tabId).className
-    } cky-tab-content-active`;
+  }</div></div>`;
+  document
+    .querySelector("#cky-consent #cky-tab-menu")
+    .insertAdjacentHTML("beforeend", ckyTabItem);
+  document
+    .querySelector("#cky-consent #cky-tab-content")
+    .insertAdjacentHTML("beforeend", ckyTabContentItem);
+  if (!isPrivacy) {
+    _ckyCreateSwitches(category);
+    _ckyRenderAuditTable(true, category);
+  }
+  setTimeout(() => {
+    const ckyTab = document.getElementById(
+      `cky-tab-item-${
+        isPrivacy ? "privacy" : category.name[selectedLanguage]
+      }`
+    );
+    ckyTab.onclick = function () {
+      const currentActiveTab = document.getElementsByClassName(
+        "cky-tab-item-active"
+      )[0];
+      currentActiveTab.classList.remove("cky-tab-item-active");
+      currentActiveTab.setAttribute("style", tabCss);
+      ckyTab.classList.add("cky-tab-item-active");
+      ckyTab.setAttribute("style", activeTabCss);
+      document
+        .querySelector("#cky-consent .cky-tab-content-active")
+        .classList.remove("cky-tab-content-active");
+      const tabId = ckyTab.getAttribute("tab-target");
+      document.getElementById(tabId).className = `${
+        document.getElementById(tabId).className
+      } cky-tab-content-active`;
+    };
+  });
 }
 
 function _ckyShowHideStickyDetail() {
@@ -942,9 +982,11 @@ function _ckyRenderAuditTable(inBanner, category) {
     cliConfig.options.content[ckyActiveLaw].auditTable.description[selectedLanguage]
   }</th></tr></thead><tbody></tbody></table></div>`;
   if (inBanner)
-   return auditTable
+    document
+      .getElementById(`cky-tab-content-${category.name[selectedLanguage]}`)
+      .getElementsByClassName("cky-tab-desc")[0]
+      .insertAdjacentHTML("beforeend", auditTable);
   else {
-    // ASK LINSA
     const auditTableCategoryName = `<h5>${category.name[selectedLanguage]}</h5>`;
     const auditTableElements = document.getElementsByClassName(
       "cky-audit-table-element"
