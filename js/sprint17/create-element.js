@@ -1850,7 +1850,7 @@ document.createElement = function () {
       args[_key] = arguments[_key];
   }
   console.log(args[0]);
-  if (args[0].toLowerCase() !== "script") return createElementBackup.bind(document)(_toConsumableArray(args));
+  if (args[0].toLowerCase() !== "script") return createElementBackup.apply(document, _toConsumableArray(args));
   var scriptElt = createElementBackup.bind(document)(_toConsumableArray(args));
   var originalSetAttribute = scriptElt.setAttribute.bind(scriptElt);
   Object.defineProperties(scriptElt, {
