@@ -1782,6 +1782,8 @@ var isOnWhitelist = function isOnWhitelist(src) {
   );
 };
 function _toConsumableArray(arr) {
+  console.log('consumable fn' + arr)
+  console.log(_arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread());
   return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
 }
 function _nonIterableSpread() {
