@@ -4,7 +4,8 @@ try {
     console.error(err);
 }
 
-var ckyActiveLaw = "";
+let ckyActiveLaw = "";
+let ipdata = {}
 
 function count(callback) {
     if (cliConfig.options.selectedLaws.length !== 2) {
@@ -19,11 +20,7 @@ function count(callback) {
         if (this.status >= 200 && this.status < 400) {
             var data = JSON.parse(this.response);
             var clientIP = data.ip;
-            sessionStorage.setItem("isEU", data.in_eu);
-            sessionStorage.setItem("countryName", data.country);
-            sessionStorage.setItem("regionCode", data.region_code);
-            var ipdata = { ip: clientIP.substring(0, clientIP.lastIndexOf(".")) + ".0", country_name: data.country_name };
-            sessionStorage.setItem("ip", JSON.stringify(ipdata, null, 2));
+            ipdata = { ip: clientIP.substring(0, clientIP.lastIndexOf(".")) + ".0", country_name: data.country_name };
             var in_EU = data.in_eu;
             var country_name = data.country;
             var region_code = data.region_code;
@@ -114,6 +111,7 @@ function count(callback) {
     request.send();
 
     ckyLogCookies = function () {
+        if(!ipdata.ip) return
         function getCookie(name) {
             var re = new RegExp(name + "=([^;]+)");
             var value = re.exec(document.cookie);
@@ -125,13 +123,12 @@ function count(callback) {
             { name: "Analytics", status: getCookie("cookieyes-analytics") },
             { name: "Advertisement", status: getCookie("cookieyes-advertisement") },
         ];
-        let ip = sessionStorage.getItem("ip");
         let consent_id = getCookie("cookieyesID");
         var request = new XMLHttpRequest();
         var data = new FormData();
         data.append("log", JSON.stringify(log));
         data.append("key", "2a51e749d60e012484a135a4");
-        data.append("ip", ip);
+        data.append("ip", ipdata.ip);
         data.append("consent_id", consent_id);
         request.open("POST", "https://app.cookieyes.com/api/v1/log", true);
         request.send(data);

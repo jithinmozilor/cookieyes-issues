@@ -4,7 +4,9 @@ try {
   console.error(err);
 }
 
-var ckyActiveLaw = "";
+let ckyActiveLaw = "";
+let ipdata = {}
+
 
 function count(callback) {
   if (cliConfig.options.selectedLaws.length !== 2) {
@@ -19,11 +21,7 @@ function count(callback) {
       if (this.status >= 200 && this.status < 400) {
           var data = JSON.parse(this.response);
           var clientIP = data.ip;
-          sessionStorage.setItem("isEU", data.in_eu);
-          sessionStorage.setItem("countryName", data.country);
-          sessionStorage.setItem("regionCode", data.region_code);
-          var ipdata = { ip: clientIP.substring(0, clientIP.lastIndexOf(".")) + ".0", country_name: data.country_name };
-          sessionStorage.setItem("ip", JSON.stringify(ipdata, null, 2));
+          ipdata = { ip: clientIP.substring(0, clientIP.lastIndexOf('.')) + '.0', country_name: data.country_name };
           var in_EU = data.in_eu;
           var country_name = data.country;
           var region_code = data.region_code;
@@ -114,6 +112,7 @@ function count(callback) {
   request.send();
 
   ckyLogCookies = function () {
+      if(!ipdata.ip) return
       function getCookie(name) {
           var re = new RegExp(name + "=([^;]+)");
           var value = re.exec(document.cookie);
@@ -128,13 +127,12 @@ function count(callback) {
           { name: "Advertisement", status: getCookie("cookieyes-advertisement") },
           { name: "Other", status: getCookie("cookieyes-other") },
       ];
-      let ip = sessionStorage.getItem("ip");
       let consent_id = getCookie("cookieyesID");
       var request = new XMLHttpRequest();
       var data = new FormData();
       data.append("log", JSON.stringify(log));
       data.append("key", "283620d36e7db014be743e51");
-      data.append("ip", ip);
+      data.append("ip", ipdata.ip);
       data.append("consent_id", consent_id);
       request.open("POST", "https://app.cookieyes.com/api/v1/log", true);
       request.send(data);
@@ -1384,21 +1382,6 @@ window.addEventListener("load", function () {
               }
           }
       }
-      function getCookie(name) {
-        var cookieList = document.cookie.split(';')
-        .map(function(cookie) {
-            return cookie.split('=');
-        })
-        .reduce(function(accumulator, cookie) {
-            accumulator[cookie[0].trim()] = decodeURIComponent(cookie[1])
-            return accumulator
-        }, {});
-        if(name in cookieList) {
-          return true;
-        } else {
-          return false;
-        }
-    }
       function rejectCookies() {
           cookie.set("cky-action", "yes", cookie.ACCEPT_COOKIE_EXPIRE);
           cookie.set("cky-consent", "no", cookie.ACCEPT_COOKIE_EXPIRE);
@@ -1797,8 +1780,6 @@ var isOnWhitelist = function isOnWhitelist(src) {
   );
 };
 function _toConsumableArray(arr) {
-  console.log('consumable fn' + arr)
-  console.log(_arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread());
   return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
 }
 function _nonIterableSpread() {
@@ -1864,9 +1845,8 @@ document.createElement = function () {
   for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
   }
-  console.log(args[0]);
-  if (args[0].toLowerCase() !== "script") return createElementBackup.apply(document, _toConsumableArray(args));
-  var scriptElt = createElementBackup.apply(document, _toConsumableArray(args));
+  if (args[0].toLowerCase() !== "script") return createElementBackup.bind(document)(_toConsumableArray(args));
+  var scriptElt = createElementBackup.bind(document)(_toConsumableArray(args));
   var originalSetAttribute = scriptElt.setAttribute.bind(scriptElt);
   Object.defineProperties(scriptElt, {
       src: {
