@@ -1,0 +1,87 @@
+{
+  "plan": "Basic",
+  "colors": {
+      "gdpr": {
+          "popup": { "pills": { "bg": "#f2f5fa", "activeBg": "#ffffff", "textColor": "#000000", "activeTextColor": "#000000" } },
+          "notice": { "bg": "#fff", "textColor": "#565662", "borderColor": "#d4d8df" },
+          "buttons": {
+              "accept": { "bg": "#DA11D4", "textColor": "#fff", "borderColor": "#DA11D4" },
+              "reject": { "bg": "#dedfe0", "textColor": "#717375", "borderColor": "transparent" },
+              "readMore": { "bg": "transparent", "textColor": "#565662", "borderColor": "transparent" },
+              "settings": { "bg": "transparent", "textColor": "#7f7f7f", "borderColor": "#ebebeb" }
+          }
+      }
+  },
+  "content": {
+      "gdpr": {
+          "text": {
+              "bg": "Този сайт използва бисквитки, за да подобри Вашия опит. Ние ще приемем, че сте съгласни с това, но можете да се откажете, ако желаете.",
+              "da": "Dette websted bruger cookies til at forbedre din oplevelse. Vi antager, at du er ok med dette, men du kan fravælge det, hvis du ønsker det.",
+              "de": "Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern. Wir gehen davon aus, dass Sie damit einverstanden sind. Sie können dies jedoch ablehnen, wenn Sie möchten.",
+              "en": "Our website uses cookies that help the website function, provide social media features, advertise our products and understand which content is most useful.\n\nWe will not use non-essential cookies unless consent is given by clicking the Accept button. You can switch off particular cookie types via 'Settings' before clicking 'Accept' to continue your visit without them.",
+              "es": "Este sitio web utiliza cookies para mejorar su experiencia. Asumiremos que está de acuerdo con esto, pero puede optar por no participar si lo desea.",
+              "fr": "Ce site utilise des cookies pour améliorer votre expérience. Nous supposerons que cela vous convient, mais vous pouvez vous désabonner si vous le souhaitez.",
+              "it": "Questo sito Web utilizza i cookie per migliorare la tua esperienza. Daremo per scontato che tu sia d'accordo con questo, ma puoi decidere di rinunciare se lo desideri.",
+              "nl": "Deze website maakt gebruik van cookies om uw ervaring te verbeteren. We gaan ervan uit dat je hiermee akkoord gaat, maar je kunt je afmelden als je dat wilt."
+          },
+          "title": { "bg": "Cookie consent", "da": "Cookie samtykke", "de": "Cookie Zustimmung", "en": "Cookie consent", "es": "Cookie consent", "fr": "Cookie consent", "it": "Cookie consent", "nl": "Cookie consent" },
+          "buttons": {
+              "accept": { "bg": "приемам", "da": "Acceptere", "de": "Akzeptieren", "en": "Accept", "es": "Aceptar", "fr": "Acceptez", "it": "Accettare", "nl": "Aanvaarden" },
+              "reject": { "bg": "Отхвърляне", "da": "Afvise", "de": "Ablehnen", "en": "Reject", "es": "Rechazar", "fr": "Rejeter", "it": "Rifiutare", "nl": "Rfwijzen" },
+              "readMore": { "bg": "Прочетете още", "da": "Læs mere", "de": "Weiterlesen", "en": "Read More", "es": "Lee mas", "fr": "Lire la suite", "it": "Leggi di più", "nl": "Lees verder" },
+              "settings": { "bg": "Настройки", "da": "Indstillinger", "de": "Die Einstellungen", "en": "Settings", "es": "Ajustes", "fr": "Réglages", "it": "Impostazioni", "nl": "Instellingen" }
+          },
+          "saveButton": { "bg": "Save", "da": "Gemme", "de": "sparen", "en": "Save", "es": "Save", "fr": "Save", "it": "Save", "nl": "Save" },
+          "customLogoUrl": null,
+          "noticeToggler": {
+              "bg": "Privacy Details",
+              "da": "Privatlivsdetail",
+              "de": "Details zum Datenschutz",
+              "en": "Privacy Details",
+              "es": "Privacy Details",
+              "fr": "Privacy Details",
+              "it": "Privacy Details",
+              "nl": "Privacy Details"
+          },
+          "placeHolderText": {
+              "ar": "يُرجى قبول موافقة ملف تعريف الارتباط",
+              "bg": "Моля, приемете съгласието за бисквитките",
+              "da": "Accepter cookie-samtykke",
+              "de": "Bitte akzeptieren Sie die Cookie-Zustimmung",
+              "en": "Please accept the cookie consent",
+              "es": "Por favor, acepte el consentimiento de cookies",
+              "fr": "Veuillez accepter le consentement des cookies",
+              "it": "Accetta il consenso sui cookie",
+              "nl": "Accepteer de cookietoestemming",
+              "ru": "Пожалуйста, примите согласие cookie"
+          },
+          "privacyPolicyLink": {
+              "ar": "https://www.fccinnovation.co.uk/privacy-statement",
+              "bg": "https://www.fccinnovation.co.uk/privacy-statement",
+              "da": "https://www.fccinnovation.co.uk/privacy-statement",
+              "de": "https://www.fccinnovation.co.uk/privacy-statement",
+              "en": "https://www.fccinnovation.co.uk/privacy-statement",
+              "es": "https://www.fccinnovation.co.uk/privacy-statement",
+              "fr": "https://www.fccinnovation.co.uk/privacy-statement",
+              "it": "https://www.fccinnovation.co.uk/privacy-statement",
+              "nl": "https://www.fccinnovation.co.uk/privacy-statement",
+              "ru": "https://www.fccinnovation.co.uk/privacy-statement"
+          }
+      }
+  },
+  "display": { "gdpr": { "title": false, "notice": true, "buttons": { "accept": true, "reject": false, "readMore": true, "settings": true }, "noticeToggler": false } },
+  "version": "2.0.0",
+  "position": "bottom",
+  "template": {
+      "id": "banner",
+      "css": ".cky-consent-bar-trigger, .cky-consent-bar, .cky-modal, .cky-consent-bar-trigger *, .cky-consent-bar *, .cky-modal * { box-sizing: border-box; } .cky-consent-bar-trigger *:focus, .cky-consent-bar *:focus, .cky-modal *:focus { outline: 0; } .cky-consent-bar-trigger { position: fixed; right: 30px; padding: 2px 5px; font-size: 13px; cursor: pointer; font-family: inherit; animation: slide-up 0.4s ease; z-index: 9997; } .cky-consent-bar { font-family: inherit; position: fixed; z-index: 9997; } .cky-consent-bar .cky-banner-title { margin-top: 0; margin-bottom: 12px; font-size: 20px; font-weight: 500; } .cky-consent-bar p { font-family: inherit; margin-bottom: 0; margin-top: 0; } .cky-btn { background: none; cursor: pointer; display: inline-block; text-align: center; white-space: nowrap; vertical-align: middle; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; border: 1px solid transparent; line-height: 1; transition: all .15s ease-in-out; margin: 0; min-height: auto; } .cky-consent-bar .cky-btn { margin-right: 15px; border: 1px solid; } .cky-consent-bar .cky-btn:last-child { margin-right: 0; } .cky-btn-readMore { cursor: pointer; font-size: 13px; text-decoration: underline; margin-left: 3px; } .cky-category-direct { display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; padding-top: 15px; margin-top: 15px; border-top: 1px solid #d4d8df; } .cky-category-direct-item { display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-right: 32px; margin-bottom: 15px; } .cky-category-direct-item:last-child { margin-right: 0; } .cky-category-direct-item .cky-switch { margin-left: 0; } .cky-category-direct-item .cky-category-direct-name { margin-left: 10px; font-size: 12px; font-weight: 600; } .cky-category-direct +.cky-detail-wrapper { margin-top: 10px; } .cky-container-fluid { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; } .cky-row { display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; margin-right: -15px; margin-left: -15px; } .cky-align-items-stretch { -ms-flex-align: stretch; align-items: stretch; } .cky-d-flex { display: -ms-flexbox; display: flex; } .cky-px-0 { padding-left: 0; padding-right: 0; } .cky-btn:hover { opacity: .8; } .cky-btn:focus { outline: 0; } .cky-table-wrapper { width: 100%; max-width: 100%; overflow: auto; } .cky-cookie-audit-table { font-family: inherit; border-collapse: collapse; width: 100%; margin-top: 10px; } .cky-cookie-audit-table th { background-color: #d9dfe7; border: 1px solid #cbced6; } .cky-cookie-audit-table td { border: 1px solid #d5d8df; } .cky-cookie-audit-table th, .cky-cookie-audit-table td { text-align: left; padding: 10px; font-size: 12px; color: #000000; word-break:normal; } .cky-cookie-audit-table tr:nth-child(2n+1) td { background: #f1f5fa; } .cky-cookie-audit-table tr:nth-child(2n) td { background: #ffffff; } .cky-audit-table-element h5 { margin: 25px 0 2px 0; } .cky-audit-table-element .cky-table-wrapper { margin-bottom: 1rem; } .cky-consent-bar.cky-rtl { direction: rtl; text-align: right; } .cky-consent-bar.cky-rtl .cky-button-wrapper .cky-btn { margin-right: 0; margin-left: 15px; } .cky-consent-bar.cky-rtl .cky-button-wrapper .cky-btn:last-child { margin-left: 0; } .cky-consent-bar.cky-rtl .cky-btn-readMore { margin-left: 0; margin-right: 6px; } .cky-consent-bar.cky-logo-active .cky-content-logo-outer-wrapper { display: flex; align-items: center; } @media (max-width: 540px) { .cky-consent-bar.cky-logo-active .cky-content-logo-outer-wrapper { display: block; } } .cky-consent-bar.cky-logo-active .cky-logo { margin-right: 30px; } .cky-consent-bar.cky-rtl.cky-logo-active .cky-logo { margin-right: 0px; margin-left: 30px; } .cky-consent-bar { padding: 15px; width: 100%; box-shadow: 0 -1px 10px 0 rgba(172, 171, 171, 0.3); } .cky-consent-title { margin-top: 0; font-size: 15px; margin-bottom: 3px; } .cky-content-wrapper { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; justify-content: space-between; -webkit-box-align: center; -moz-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; } .cky-consent-bar p { line-height: 20px; font-size: 13px; font-weight: normal; } .cky-button-wrapper { margin-left: 20px; display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-box-align: center; -moz-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; flex-wrap: nowrap; } @media (max-width: 991px) { .cky-consent-bar, .cky-consent-bar p, .cky-button-wrapper, .cky-content-wrapper { display: block; text-align: center; } .cky-button-wrapper { margin-left: 0; margin-top: 20px; } } .cky-btn { font-size: 12px; font-weight: 500; padding: .5rem 1rem; } @media (min-width: 992px) { .cky-consent-bar .cky-btn-reject { margin-right: 85px; } } .cky-col-4 { -ms-flex: 0 0 33.333333%; flex: 0 0 33.333333%; max-width: 33.333333%; } .cky-col-8 { -ms-flex: 0 0 66.666667%; flex: 0 0 66.666667%; max-width: 66.666667%; } .cky-btn-readMore { cursor: pointer; font-size: 13px; text-decoration: underline; margin-left: 3px; } .cky-consent-bar.cky-rtl .cky-button-wrapper { margin-left: 0; margin-right: 20px; }  .cky-modal-open { overflow: hidden; } .cky-modal-open .cky-modal { overflow-x: hidden; overflow-y: auto; } .cky-modal.cky-fade .cky-modal-dialog { transition: -webkit-transform .3s ease-out; transition: transform .3s ease-out; transition: transform .3s ease-out, -webkit-transform .3s ease-out; -webkit-transform: translate(0, -25%); transform: translate(0, -25%); } .cky-modal.cky-show .cky-modal-dialog { -webkit-transform: translate(0, 0); transform: translate(0, 0); } .cky-modal-backdrop { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 9998; background-color: rgba(10, 10, 10, 0.22); display: none; } .cky-modal-backdrop.cky-fade { opacity: 0; } .cky-modal-backdrop.cky-show { opacity: 1; display: block; } .cky-modal { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 99999; display: none; overflow: hidden; outline: 0; min-height: calc(100% - (.5rem * 2)); } .cky-modal.cky-show { display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; } .cky-modal a { text-decoration: none; } .cky-modal .cky-modal-dialog { position: relative; max-width: calc(100% - 16px); width: calc(100% - 16px); margin: .5rem; pointer-events: none; font-family: inherit; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; text-align: left; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.17); -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.17); } @media (min-width: 576px) { .cky-modal .cky-modal-dialog { max-width: 500px; width: 500px; margin: 1.75rem auto; } .cky-modal { min-height: calc(100% - (1.75rem * 2)); } } @media (min-width: 992px) { .cky-modal .cky-modal-dialog { max-width: 900px; width: 900px; } } .cky-modal-content { display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; width: 100%; pointer-events: auto; background-clip: padding-box; border: 0; border-radius: 4px; overflow: hidden; outline: 0; margin: 40px; } .cky-modal .cky-row { margin: 0 -15px; } .cky-modal .cky-modal-close { z-index: 1; padding: 0; background-color: transparent; border: 0; -webkit-appearance: none; font-size: 12px; line-height: 1; color: #9a9a9a; cursor: pointer; min-height: auto; position: absolute; top: 14px; right: 18px; } .cky-modal .cky-close:focus { outline: 0; } .cky-switch-wrapper { margin-top: 30px; padding-top: 22px; border-top: 1px solid #f3f4f8; display: -ms-flexbox; display: flex; align-items: center; -webkit-align-items: center; justify-content: space-between; height: 90px; } .cky-switch { position: relative; min-height: 13px; padding-left: 25px; font-size: 14px; margin-left: 20px; margin-bottom: 0; display: inline-block; } .cky-switch input[type='checkbox'] { display: none !important; } .cky-switch .cky-slider { background-color: #e3e1e8; height: 13px; width: 25px; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; transition: .4s; } .cky-switch .cky-slider:before { background-color: #fff; bottom: 2px; content: ''; height: 9px; left: 2px; position: absolute; transition: .4s; width: 9px; } .cky-switch input:checked+.cky-slider { background-color: #008631; } .cky-switch input:disabled+.cky-slider { cursor: initial; } .cky-switch input:checked+.cky-slider:before { transform: translateX(12px); } .cky-switch .cky-slider { border-radius: 34px; } .cky-switch .cky-slider:before { border-radius: 50%; } @media (max-width: 767px) { .cky-tab-content { padding-left: 15px; } } .cky-fade { transition: opacity .15s linear; } .cky-tab { display: -ms-flexbox; display: flex; overflow: hidden; } .cky-tab-menu { flex: 0 0 25%; max-width: 25%; text-align: center; } @media (max-width: 991px) { .cky-tab-menu { flex: 0 0 40%; max-width: 40%; } } .cky-tab-content { flex: 0 0 75%; max-width: 75%; background: transparent; padding: 15px 20px; } @media (max-width: 991px) { .cky-tab-content { flex: 0 0 60%; max-width: 60%; } } @media (max-width: 767px) { .cky-tab-content { padding: 15px; } } .cky-tab-content .cky-tab-content-item { width: 100%; } .cky-tab-content .cky-tab-content-item:not(.cky-tab-content-active) { display: none; } .cky-fade { transition: opacity .15s linear; } .cky-tab-item { font-size: 11px; padding: .5rem 2rem; cursor: pointer; font-weight: normal; border-bottom: 1px solid; border-right: 1px solid; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } @media (max-width: 767px) { .cky-tab-item { font-size: 11px; padding: .75rem .75rem; } } .cky-tab-item-active { cursor: initial; border-right: 0; } .cky-tab-content .cky-tab-desc { height: 225px; max-height: 225px; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; } .cky-tab-content .cky-tab-desc, .cky-tab-content .cky-tab-desc p { font-size: 12px; } .cky-tab-title { font-size: 13px; margin-bottom: 11px; margin-top: 0; font-family: inherit; font-weight: bold; line-height: 1; display: flex; align-items: center; } .cky-modal .cky-powered-link { background: #efefef; padding: 13px 32px; color: #a1a1a1; font-weight: 500; } .cky-modal .cky-powered-link a { font-weight: bold; color: #a1a1a1; font-size: 14px; } .cky-modal.cky-rtl { direction: rtl; text-align: right; } .cky-modal.cky-rtl .cky-modal-close { left: 20px; right: 0; } .cky-modal.cky-rtl .cky-tab-item { border-right: none; border-left: 1px solid; } .cky-modal.cky-rtl .cky-tab-item.cky-tab-item-active { border-left: 0; } .cky-modal.cky-rtl .cky-switch { margin-left: 0; margin-right: 20px; } .cky-modal.cky-rtl .cky-modal-dialog { text-align: right; } @media(max-width:475px) { .cky-modal-content { margin: 30px; } }",
+      "detailType": "popup"
+  },
+  "tldomain": "fccinnovation.co.uk",
+  "behaviour": { "reload": true, "showLogo": false, "acceptOnScroll": false, "defaultConsent": false, "showAuditTable": true, "selectedLanguage": "en" },
+  "customCss": null,
+  "consentType": "custom",
+  "selectedLaws": ["gdpr"],
+  "consentBarType": "banner",
+  "showCategoryDirectly": false
+}
