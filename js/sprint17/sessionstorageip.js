@@ -19,9 +19,19 @@ function count(callback) {
 
   request.onload = function () {
       if (this.status >= 200 && this.status < 400) {
-          var data = JSON.parse(this.response);
+          let data = {}
+          try {
+            data = JSON.parse(this.response);
+          } catch {
+            if(ckyActiveLaw === 'ccpa') {
+              activateCcpa();
+            } else {
+              activateGdpr();
+            }
+            return
+          }
           var clientIP = data.ip;
-          ipdata = { ip: clientIP.substring(0, clientIP.lastIndexOf('.')) + '.0', country_name: data.country_name };
+          if(clientIP) { ipdata = { ip: clientIP.substring(0, clientIP.lastIndexOf('.')) + '.0', country_name: data.country_name } }
           var in_EU = data.in_eu;
           var country_name = data.country;
           var region_code = data.region_code;
