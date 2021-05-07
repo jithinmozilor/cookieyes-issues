@@ -23,8 +23,8 @@ function count(callback) {
           try {
             data = JSON.parse(this.response);
           } catch {
-            if(ckyActiveLaw === 'ccpa') {
-              activateCcpa();
+            if(cliConfig.options.selectedLaws.length !== 2) {
+              displayBanner();
             } else {
               activateGdpr();
             }
