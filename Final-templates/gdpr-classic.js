@@ -1,6 +1,3 @@
-// const cliConfig = require('./gdpr.json');
-// const position = require('./position.json');
-
 const cliConfig = {
   "options":{
      "colors":{
@@ -98,7 +95,7 @@ const cliConfig = {
               "de":"sparen",
               "en":"Save"
            },
-           "customLogoUrl": "https://www.cookieyes.com/wp-content/themes/cookieyes/assets/images/logo-cookieyes.svg",
+           "customLogoUrl": "",
            "noticeToggler":{
               "de":"Cookie-Einstellungen",
               "en":"Cookie Settings"
@@ -762,7 +759,7 @@ document.getElementById("cky-consent").classList.add("cky-rtl");
 }
 
 function _ckyCreateBanner() {
-  const consentBar = `<div class="cky-consent-bar cky-classic cky-logo-active" id="cky-consent"><div class="cky-content-logo-outer-wrapper" id="cky-content-logo">${_ckyAppendLogo()}<divs id="cky-content-logo-inner-wrapper">${_ckyAppendTitle()}<div class="cky-content-wrapper">${_ckyAppendText()}<div class="cky-button-wrapper">${_ckyRenderButtons(['settings', 'reject', 'accept'])}</div></div></div></div></div>`;
+  const consentBar = `<div class="cky-consent-bar cky-classic" id="cky-consent">${_ckyAppendTitle()}<div class="cky-content-wrapper">${_ckyAppendText()}<div class="cky-button-wrapper">${_ckyRenderButtons(['settings', 'reject', 'accept'])}</div></div></div>`;
   document.body.insertAdjacentHTML("beforeend", consentBar);
   // MOVE TO CSS
   const ckyConsentBar = document.getElementById("cky-consent");
@@ -783,18 +780,13 @@ function _ckyCreateBanner() {
     document.getElementById("cky-consent").style.display = "none";
 }
 
-function _ckyAppendLogo() {
-  const consentLogo = `<img src="${cliConfig.options.content[ckyActiveLaw].customLogoUrl}" class="img-fluid cky-logo" style="width: 100px" alt="Brand logo">`;
-  return consentLogo
-}
-
 function _ckyAppendTitle() {
   const consentTitle = `<div class="cky-consent-title" style="color:${cliConfig.options.colors[ckyActiveLaw].notice.titleColor}">${cliConfig.options.content[ckyActiveLaw].title[selectedLanguage]}</div>`;
   return consentTitle
 }
 
 function _ckyAppendText() {
-  const consentText = `<p class="cky-bar-text" style="color:${cliConfig.options.colors[ckyActiveLaw].notice.textColor}">${cliConfig.options.content[ckyActiveLaw].text[selectedLanguage]}${_ckyAppendReadMore()}</p>`;
+  const consentText = `<p class="cky-bar-text" style="color:${cliConfig.options.colors[ckyActiveLaw].notice.textColor}">${cliConfig.options.content[ckyActiveLaw].text[selectedLanguage]}</p>`;
   return consentText
 }
 
@@ -827,14 +819,6 @@ function _ckyRenderButtons(btnList) {
     btnHtml += button
   }
   return btnHtml
-}
-
-function _ckyAppendReadMore() {
-  let privacyLink = cliConfig.options.content[ckyActiveLaw].privacyPolicyLink[selectedLanguage]
-    .trim()
-    .replace(/\s/g, "");
-  const readMoreButton = `<a class="cky-btn-readMore" style = color:${cliConfig.options.colors[ckyActiveLaw].buttons['readMore'].textColor};background-color:${cliConfig.options.colors[ckyActiveLaw].buttons['readMore'].bg};border-color:${cliConfig.options.colors[ckyActiveLaw].buttons['readMore'].borderColor}; id="cky-btn-readMore" href="${privacyLink}" target="_blank">${cliConfig.options.content[ckyActiveLaw].buttons["readMore"][selectedLanguage]}</a>`;
-  return readMoreButton
 }
 
 const tabCss = `color:${cliConfig.options.colors[ckyActiveLaw].popup.pills.textColor};border-color:${cliConfig.options.colors[ckyActiveLaw].notice.borderColor}`;
@@ -944,7 +928,6 @@ function _ckyRenderAuditTable(inBanner, category) {
   if (inBanner)
    return auditTable
   else {
-    // ASK LINSA
     const auditTableCategoryName = `<h5>${category.name[selectedLanguage]}</h5>`;
     const auditTableElements = document.getElementsByClassName(
       "cky-audit-table-element"
@@ -1155,8 +1138,6 @@ window.addEventListener("load", function () {
 });
 
 // PART- 3
-const observer = new MutationObserver(_ckyMutationObserver);
-observer.observe(document.documentElement, { childList: true, subtree: true });
 
 function _ckyMutationObserver(mutations) {
   for (const { addedNodes } of mutations) {
@@ -1192,36 +1173,87 @@ function _ckyMutationObserver(mutations) {
     }
   }
 }
-
+function _ckyScriptExecutionListener(node) {
+  return (e) => {
+    e.preventDefault();
+    node.removeEventListener("beforescriptexecute", beforeScriptExecute);
+  };
+}
 function _ckyAddPlaceholder(htmlElm) {
   if (htmlElm.tagName === "IMG") return;
-  let htmlElemContent =
-    cliConfig.options.content[ckyActiveLaw].placeHolderText[selectedLanguage];
-  let htmlElemWidth = htmlElm.getAttribute("width");
-  let htmlElemHeight = htmlElm.getAttribute("height");
-  if (htmlElemWidth) htmlElemWidth = htmlElm.offsetWidth;
-  if (htmlElemHeight) htmlElemHeight = htmlElm.offsetHeight;
-  if (htmlElemHeight === 0 || htmlElemWidth === 0) htmlElemContent = "";
-  let placeholder = `<div data-src="${htmlElm.src}" style="background-image: url('https://cdn-cookieyes.com/assets/images/cky-placeholder.svg');background-size: 80px;background-position: center;background-repeat: no-repeat;background-color: #b2b0b059;position: relative;display: flex;align-items: flex-end;justify-content: center; width:${htmlElemWidth}px; height:${htmlElemHeight} px;max-width:100%;" class="wt-cli-iframe-placeholder"><div class="wt-cli-inner-text" style="text-align:center;">${htmlElemContent}</div></div>`;
-  const youtubeID = _ckyGetYoutubeID(htmlElm.src)
-  if (htmlElm.src && youtubeID) {
-    placeholder = `<div data-src="${htmlElm.src}" style="background-image: linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.2)), url('https://img.youtube.com/vi/${youtubeID}/maxresdefault.jpg');background-size: 100% 100%;background-position: center;background-repeat: no-repeat;background-color: #b2b0b059;position: relative;display: flex;align-items: center;justify-content: center; width:${htmlElemWidth}px; height:${htmlElemHeight}px;max-width:100%;" class="wt-cli-iframe-placeholder"><div class="wt-cli-inner-text" style="text-align:center;display: flex; align-items: center; padding:10px 16px; background-color: rgba(0, 0, 0, 0.8); color: #FFFFFF;">${htmlElemContent}</div></div>`;
-  }
+  const htmlElemWidth = htmlElm.getAttribute("width") || htmlElm.offsetWidth;
+  const htmlElemHeight = htmlElm.getAttribute("height") || htmlElm.offsetHeight;
+  if (htmlElemHeight === 0 || htmlElemWidth === 0) return;
+  let placeholder = `<div data-src="${htmlElm.src}" style="background-image: url('https://cdn-cookieyes.com/assets/images/cky-placeholder.svg');background-size: 80px;background-position: center;background-repeat: no-repeat;background-color: #b2b0b059;position: relative;display: flex;align-items: flex-end;justify-content: center; width:${htmlElemWidth}px; height:${htmlElemHeight} px;max-width:100%;" class="wt-cli-iframe-placeholder"><div class="wt-cli-inner-text" style="text-align:center;">${cliConfig.options.content[ckyActiveLaw].placeHolderText[selectedLanguage]}</div></div>`;
+  const youtubeID = _ckyGetYoutubeID(htmlElm.src);
+  if (htmlElm.src && youtubeID)
+    placeholder = `<div data-src="${htmlElm.src}" style="background-image: linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.2)), url('https://img.youtube.com/vi/${youtubeID}/maxresdefault.jpg');background-size: 100% 100%;background-position: center;background-repeat: no-repeat;background-color: #b2b0b059;position: relative;display: flex;align-items: center;justify-content: center; width:${htmlElemWidth}px; height:${htmlElemHeight}px;max-width:100%;" class="wt-cli-iframe-placeholder"><div class="wt-cli-inner-text" style="text-align:center;display: flex; align-items: center; padding:10px 16px; background-color: rgba(0, 0, 0, 0.8); color: #FFFFFF;">${cliConfig.options.content[ckyActiveLaw].placeHolderText[selectedLanguage]}</div></div>`;
   placeholder.width = htmlElemWidth;
   placeholder.height = htmlElemHeight;
   htmlElm.insertAdjacentHTML("beforebegin", placeholder);
 }
-
 function _ckyGetYoutubeID(src) {
   const match = src.match(
     /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
   );
-  if (match && Array.isArray(match) && match[2] && match[2].length === 11) {
+  if (match && Array.isArray(match) && match[2] && match[2].length === 11)
     return match[2];
-  }
   return false;
 }
-
+function _ckyIsOnBlacklist(src) {
+  return src && patterns.blacklist.some((pattern) => pattern.test(src));
+}
+function _ckyIsOnWhitelist(src) {
+  return src && patterns.whitelist.some((pattern) => pattern.test(src));
+}
+function _ckyUnblock() {
+  if (navigator.doNotTrack === 1) return;
+  const ckyconsent = _ckyGetCookie("cky-consent") || "no";
+  if (ckyconsent === "yes") {
+    for (const { name, list } of categoryScripts)
+      if (_ckyGetCookie(`cookieyes-${name}`) === "yes")
+        patterns.whitelist.push(...list);
+  }
+  observer.disconnect();
+  backupRemovedScripts.blacklisted = backupRemovedScripts.blacklisted.filter(
+    (script, index) => {
+      if (!script.src || !_ckyIsOnWhitelist(script.src)) return true;
+      if (script.type === "javascript/blocked") {
+        script.type = "text/javascript";
+        const scriptNode = document.createElement("script");
+        scriptNode.src = script.src;
+        scriptNode.type = "text/javascript";
+        document.head.appendChild(scriptNode);
+      } else {
+        const frames = document.getElementsByClassName(
+          "wt-cli-iframe-placeholder"
+        );
+        for (const frame of frames) {
+          if (script.src !== frame.getAttribute("data-src")) continue;
+          const iframe = document.createElement("iframe");
+          const width = frame.offsetWidth;
+          const height = frame.offsetHeight;
+          iframe.src = script.src;
+          iframe.width = width;
+          iframe.height = height;
+          frame.parentNode.insertBefore(iframe, frame);
+          frame.parentNode.removeChild(frame);
+        }
+      }
+      return false;
+    }
+  );
+  document.createElement = createElementBackup;
+}
+function _ckyAddToBlackList() {
+  if (navigator.doNotTrack === 1)
+    return patterns.blacklist.push(...categoryScripts.map(({ list }) => list));
+  for (const { name, list } of categoryScripts) {
+    if (name === "analytics" && loadAnalyticsByDefault) continue;
+    if (ckyconsent !== "yes" || _ckyGetCookie(`cookieyes-${name}`) !== "yes")
+      patterns.blacklist.push(...list);
+  }
+}
 const categoryScripts = [
   {
     name: "functional",
@@ -1276,36 +1308,12 @@ const categoryScripts = [
     ],
   },
 ];
-
 const backupRemovedScripts = { blacklisted: [] };
-const CKY_BLACKLIST = [];
-const CKY_WHITELIST = [];
-const ckyconsent = _ckyGetCookie("cky-consent") || "no";
-const TYPE_ATTRIBUTE = "javascript/blocked";
-for (const { name, list } of categoryScripts) {
-  if (navigator.doNotTrack == 1) {
-    CKY_BLACKLIST.push(...list);
-    continue;
-  }
-  if (name === "analytics" && loadAnalyticsByDefault) {
-    continue;
-  }
-  if (ckyconsent !== "yes" || _ckyGetCookie(`cookieyes-${name}`) !== "yes") {
-    CKY_BLACKLIST.push(...list);
-  }
-}
 const patterns = {
-  blacklist: CKY_BLACKLIST,
-  whitelist: CKY_WHITELIST,
+  blacklist: [],
+  whitelist: [],
 };
-function _ckyIsOnBlacklist(src) {
-  return src && patterns.blacklist.some((pattern) => pattern.test(src));
-}
-
-function _ckyIsOnWhitelist(src) {
-  return src && patterns.whitelist.some((pattern) => pattern.test(src));
-}
-
+const ckyconsent = _ckyGetCookie("cky-consent") || "no";
 const createElementBackup = document.createElement;
 document.createElement = function (...args) {
   const newCreatedElement = createElementBackup.call(document, ...args);
@@ -1320,7 +1328,7 @@ document.createElement = function (...args) {
       },
       set: function (value) {
         if (_ckyIsOnBlacklist(value))
-          originalSetAttribute("type", TYPE_ATTRIBUTE);
+          originalSetAttribute("type", "javascript/blocked");
         originalSetAttribute("src", value);
         return true;
       },
@@ -1328,7 +1336,7 @@ document.createElement = function (...args) {
     type: {
       set: function (value) {
         const typeValue = _ckyIsOnBlacklist(newCreatedElement.src)
-          ? TYPE_ATTRIBUTE
+          ? "javascript/blocked"
           : value;
         originalSetAttribute("type", typeValue);
         return true;
@@ -1341,51 +1349,6 @@ document.createElement = function (...args) {
   };
   return newCreatedElement;
 };
-
-function _ckyUnblock() {
-  if (navigator.doNotTrack === 1) return;
-  const ckyconsent = _ckyGetCookie("cky-consent") || "no";
-  for (const { name, list } of categoryScripts) {
-    if (ckyconsent === "yes" && _ckyGetCookie(`cookieyes-${name}`) === "yes") {
-      CKY_WHITELIST.push(list);
-      patterns.whitelist.push(list);
-    }
-  }
-  observer.disconnect();
-  let indexOffset = 0;
-  backupRemovedScripts.blacklisted.forEach(function (script, index) {
-    if (!script.src || !_ckyIsOnWhitelist(script.src)) {
-      return;
-    }
-    if (script.type === "javascript/blocked") {
-      TYPE_ATTRIBUTE = "text/javascript";
-      script.type = "text/javascript";
-      const scriptNode = document.createElement("script");
-      scriptNode.src = script.src;
-      scriptNode.type = "text/javascript";
-      document.head.appendChild(scriptNode);
-      backupRemovedScripts.blacklisted.splice(index - indexOffset, 1);
-      indexOffset++;
-    } else {
-      const frames = document.getElementsByClassName(
-        "wt-cli-iframe-placeholder"
-      );
-      for (const frame of frames) {
-        if (
-          script.src == frame.getAttribute("data-src") &&
-          isOnWhitelist(script.src)
-        ) {
-          const iframe = document.createElement("iframe");
-          const width = frame.offsetWidth;
-          const height = frame.offsetHeight;
-          iframe.src = script.src;
-          iframe.width = width;
-          iframe.height = height;
-          frame.parentNode.insertBefore(iframe, frame);
-          frame.parentNode.removeChild(frame);
-        }
-      }
-    }
-  });
-  document.createElement = createElementBackup;
-}
+_ckyAddToBlackList();
+const observer = new MutationObserver(_ckyMutationObserver);
+observer.observe(document.documentElement, { childList: true, subtree: true });

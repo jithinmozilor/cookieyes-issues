@@ -95,7 +95,7 @@ const cliConfig = {
               "de":"sparen",
               "en":"Save"
            },
-           "customLogoUrl": "",
+           "customLogoUrl": "https://www.cookieyes.com/wp-content/themes/cookieyes/assets/images/logo-cookieyes.svg",
            "noticeToggler":{
               "de":"Cookie-Einstellungen",
               "en":"Cookie Settings"
@@ -759,7 +759,7 @@ document.getElementById("cky-consent").classList.add("cky-rtl");
 }
 
 function _ckyCreateBanner() {
-  const consentBar = `<div class="cky-consent-bar cky-classic" id="cky-consent">${_ckyAppendTitle()}<div class="cky-content-wrapper">${_ckyAppendText()}<div class="cky-button-wrapper">${_ckyRenderButtons(['settings', 'reject', 'accept'])}</div></div></div>`;
+  const consentBar = `<div class="cky-consent-bar cky-classic cky-logo-active" id="cky-consent"><div class="cky-content-logo-outer-wrapper" id="cky-content-logo">${_ckyAppendLogo()}<divs id="cky-content-logo-inner-wrapper">${_ckyAppendTitle()}<div class="cky-content-wrapper">${_ckyAppendText()}<div class="cky-button-wrapper">${_ckyRenderButtons(['settings', 'reject', 'accept'])}</div></div></div></div></div>`;
   document.body.insertAdjacentHTML("beforeend", consentBar);
   // MOVE TO CSS
   const ckyConsentBar = document.getElementById("cky-consent");
@@ -780,13 +780,18 @@ function _ckyCreateBanner() {
     document.getElementById("cky-consent").style.display = "none";
 }
 
+function _ckyAppendLogo() {
+  const consentLogo = `<img src="${cliConfig.options.content[ckyActiveLaw].customLogoUrl}" class="img-fluid cky-logo" style="width: 100px" alt="Brand logo">`;
+  return consentLogo
+}
+
 function _ckyAppendTitle() {
   const consentTitle = `<div class="cky-consent-title" style="color:${cliConfig.options.colors[ckyActiveLaw].notice.titleColor}">${cliConfig.options.content[ckyActiveLaw].title[selectedLanguage]}</div>`;
   return consentTitle
 }
 
 function _ckyAppendText() {
-  const consentText = `<p class="cky-bar-text" style="color:${cliConfig.options.colors[ckyActiveLaw].notice.textColor}">${cliConfig.options.content[ckyActiveLaw].text[selectedLanguage]}${_ckyAppendReadMore()}</p>`;
+  const consentText = `<p class="cky-bar-text" style="color:${cliConfig.options.colors[ckyActiveLaw].notice.textColor}">${cliConfig.options.content[ckyActiveLaw].text[selectedLanguage]}</p>`;
   return consentText
 }
 
@@ -819,14 +824,6 @@ function _ckyRenderButtons(btnList) {
     btnHtml += button
   }
   return btnHtml
-}
-
-function _ckyAppendReadMore() {
-  let privacyLink = cliConfig.options.content[ckyActiveLaw].privacyPolicyLink[selectedLanguage]
-    .trim()
-    .replace(/\s/g, "");
-  const readMoreButton = `<a class="cky-btn-readMore" style = color:${cliConfig.options.colors[ckyActiveLaw].buttons['readMore'].textColor};background-color:${cliConfig.options.colors[ckyActiveLaw].buttons['readMore'].bg};border-color:${cliConfig.options.colors[ckyActiveLaw].buttons['readMore'].borderColor}; id="cky-btn-readMore" href="${privacyLink}" target="_blank">${cliConfig.options.content[ckyActiveLaw].buttons["readMore"][selectedLanguage]}</a>`;
-  return readMoreButton
 }
 
 const tabCss = `color:${cliConfig.options.colors[ckyActiveLaw].popup.pills.textColor};border-color:${cliConfig.options.colors[ckyActiveLaw].notice.borderColor}`;

@@ -1162,69 +1162,117 @@ function _ckyMutationObserver(mutations) {
   for (const { addedNodes } of mutations) {
     for (const node of addedNodes) {
       if (
-        (node.nodeType !== 1 || node.tagName !== "SCRIPT") &&
-        node.tagName !== "IFRAME"
-      ) {
+        !node.src ||
+        ((node.nodeType !== 1 || node.tagName !== "SCRIPT") &&
+          node.tagName !== "IFRAME")
+      )
         continue;
-      }
-      const src = node.src || "";
-      const scriptCategory = node.getAttribute("data-cookieyes");
-      if (scriptCategory && _ckyGetCookie(scriptCategory) !== "yes" && src) {
-        const webdetail = new URL(src);
-        CKY_BLACKLIST.push(new RegExp(webdetail.hostname));
-        patterns.blacklist.push(new RegExp(webdetail.hostname));
-        for (const categoryScript of categoryScripts) {
-          if (`cookieyes-${categoryScript.name}` === scriptCategory) {
-            categoryScript.list.push(new RegExp(webdetail.hostname));
-          }
-        }
-      }
-      if (_ckyIsOnBlacklist(src) && _ckyGetCookie(scriptCategory) !== "yes") {
-        if (node.tagName === "IFRAME") {
-          _ckyAddPlaceholder(node);
-        }
+      if (_ckyIsOnBlacklist(node.src)) {
+        if (node.tagName === "IFRAME") _ckyAddPlaceholder(node);
         node.type = "javascript/blocked";
         node.remove();
         backupRemovedScripts.blacklisted.push(node.cloneNode());
-        const beforeScriptExecute = function (e) {
-          e.preventDefault();
-          node.removeEventListener("beforescriptexecute", beforeScriptExecute);
-        };
-        node.addEventListener("beforescriptexecute", beforeScriptExecute);
+        node.addEventListener(
+          "beforescriptexecute",
+          _ckyScriptExecutionListener(node)
+        );
       }
+      const scriptCategory = node.getAttribute("data-cookieyes");
+      if (
+        !scriptCategory ||
+        (scriptCategory && _ckyGetCookie(scriptCategory) === "yes")
+      )
+        continue;
+      const webdetail = new URL(node.src);
+      patterns.blacklist.push(new RegExp(webdetail.hostname));
+      const categoryScript = categoryScripts.find(
+        (category) => `cookieyes-${category.name}` === scriptCategory
+      );
+      categoryScript.list.push(new RegExp(webdetail.hostname));
     }
   }
 }
-
+function _ckyScriptExecutionListener(node) {
+  return (e) => {
+    e.preventDefault();
+    node.removeEventListener("beforescriptexecute", beforeScriptExecute);
+  };
+}
 function _ckyAddPlaceholder(htmlElm) {
   if (htmlElm.tagName === "IMG") return;
-  let htmlElemContent =
-    cliConfig.options.content[ckyActiveLaw].placeHolderText[selectedLanguage];
-  let htmlElemWidth = htmlElm.getAttribute("width");
-  let htmlElemHeight = htmlElm.getAttribute("height");
-  if (htmlElemWidth) htmlElemWidth = htmlElm.offsetWidth;
-  if (htmlElemHeight) htmlElemHeight = htmlElm.offsetHeight;
-  if (htmlElemHeight === 0 || htmlElemWidth === 0) htmlElemContent = "";
-  let placeholder = `<div data-src="${htmlElm.src}" style="background-image: url('https://cdn-cookieyes.com/assets/images/cky-placeholder.svg');background-size: 80px;background-position: center;background-repeat: no-repeat;background-color: #b2b0b059;position: relative;display: flex;align-items: flex-end;justify-content: center; width:${htmlElemWidth}px; height:${htmlElemHeight} px;max-width:100%;" class="wt-cli-iframe-placeholder"><div class="wt-cli-inner-text" style="text-align:center;">${htmlElemContent}</div></div>`;
-  const youtubeID = _ckyGetYoutubeID(htmlElm.src)
-  if (htmlElm.src && youtubeID) {
-    placeholder = `<div data-src="${htmlElm.src}" style="background-image: linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.2)), url('https://img.youtube.com/vi/${youtubeID}/maxresdefault.jpg');background-size: 100% 100%;background-position: center;background-repeat: no-repeat;background-color: #b2b0b059;position: relative;display: flex;align-items: center;justify-content: center; width:${htmlElemWidth}px; height:${htmlElemHeight}px;max-width:100%;" class="wt-cli-iframe-placeholder"><div class="wt-cli-inner-text" style="text-align:center;display: flex; align-items: center; padding:10px 16px; background-color: rgba(0, 0, 0, 0.8); color: #FFFFFF;">${htmlElemContent}</div></div>`;
-  }
+  const htmlElemWidth = htmlElm.getAttribute("width") || htmlElm.offsetWidth;
+  const htmlElemHeight = htmlElm.getAttribute("height") || htmlElm.offsetHeight;
+  if (htmlElemHeight === 0 || htmlElemWidth === 0) return;
+  let placeholder = `<div data-src="${htmlElm.src}" style="background-image: url('https://cdn-cookieyes.com/assets/images/cky-placeholder.svg');background-size: 80px;background-position: center;background-repeat: no-repeat;background-color: #b2b0b059;position: relative;display: flex;align-items: flex-end;justify-content: center; width:${htmlElemWidth}px; height:${htmlElemHeight} px;max-width:100%;" class="wt-cli-iframe-placeholder"><div class="wt-cli-inner-text" style="text-align:center;">${cliConfig.options.content[ckyActiveLaw].placeHolderText[selectedLanguage]}</div></div>`;
+  const youtubeID = _ckyGetYoutubeID(htmlElm.src);
+  if (htmlElm.src && youtubeID)
+    placeholder = `<div data-src="${htmlElm.src}" style="background-image: linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.2)), url('https://img.youtube.com/vi/${youtubeID}/maxresdefault.jpg');background-size: 100% 100%;background-position: center;background-repeat: no-repeat;background-color: #b2b0b059;position: relative;display: flex;align-items: center;justify-content: center; width:${htmlElemWidth}px; height:${htmlElemHeight}px;max-width:100%;" class="wt-cli-iframe-placeholder"><div class="wt-cli-inner-text" style="text-align:center;display: flex; align-items: center; padding:10px 16px; background-color: rgba(0, 0, 0, 0.8); color: #FFFFFF;">${cliConfig.options.content[ckyActiveLaw].placeHolderText[selectedLanguage]}</div></div>`;
   placeholder.width = htmlElemWidth;
   placeholder.height = htmlElemHeight;
   htmlElm.insertAdjacentHTML("beforebegin", placeholder);
 }
-
 function _ckyGetYoutubeID(src) {
   const match = src.match(
     /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
   );
-  if (match && Array.isArray(match) && match[2] && match[2].length === 11) {
+  if (match && Array.isArray(match) && match[2] && match[2].length === 11)
     return match[2];
-  }
   return false;
 }
-
+function _ckyIsOnBlacklist(src) {
+  return src && patterns.blacklist.some((pattern) => pattern.test(src));
+}
+function _ckyIsOnWhitelist(src) {
+  return src && patterns.whitelist.some((pattern) => pattern.test(src));
+}
+function _ckyUnblock() {
+  if (navigator.doNotTrack === 1) return;
+  const ckyconsent = _ckyGetCookie("cky-consent") || "no";
+  if (ckyconsent === "yes") {
+    for (const { name, list } of categoryScripts)
+      if (_ckyGetCookie(`cookieyes-${name}`) === "yes")
+        patterns.whitelist.push(...list);
+  }
+  observer.disconnect();
+  backupRemovedScripts.blacklisted = backupRemovedScripts.blacklisted.filter(
+    (script, index) => {
+      if (!script.src || !_ckyIsOnWhitelist(script.src)) return true;
+      if (script.type === "javascript/blocked") {
+        script.type = "text/javascript";
+        const scriptNode = document.createElement("script");
+        scriptNode.src = script.src;
+        scriptNode.type = "text/javascript";
+        document.head.appendChild(scriptNode);
+      } else {
+        const frames = document.getElementsByClassName(
+          "wt-cli-iframe-placeholder"
+        );
+        for (const frame of frames) {
+          if (script.src !== frame.getAttribute("data-src")) continue;
+          const iframe = document.createElement("iframe");
+          const width = frame.offsetWidth;
+          const height = frame.offsetHeight;
+          iframe.src = script.src;
+          iframe.width = width;
+          iframe.height = height;
+          frame.parentNode.insertBefore(iframe, frame);
+          frame.parentNode.removeChild(frame);
+        }
+      }
+      return false;
+    }
+  );
+  document.createElement = createElementBackup;
+}
+function _ckyAddToBlackList() {
+  if (navigator.doNotTrack === 1)
+    return patterns.blacklist.push(...categoryScripts.map(({ list }) => list));
+  for (const { name, list } of categoryScripts) {
+    if (name === "analytics" && loadAnalyticsByDefault) continue;
+    if (ckyconsent !== "yes" || _ckyGetCookie(`cookieyes-${name}`) !== "yes")
+      patterns.blacklist.push(...list);
+  }
+}
 const categoryScripts = [
   {
     name: "functional",
@@ -1279,36 +1327,12 @@ const categoryScripts = [
     ],
   },
 ];
-
 const backupRemovedScripts = { blacklisted: [] };
-const CKY_BLACKLIST = [];
-const CKY_WHITELIST = [];
-const ckyconsent = _ckyGetCookie("cky-consent") || "no";
-const TYPE_ATTRIBUTE = "javascript/blocked";
-for (const { name, list } of categoryScripts) {
-  if (navigator.doNotTrack == 1) {
-    CKY_BLACKLIST.push(...list);
-    continue;
-  }
-  if (name === "analytics" && loadAnalyticsByDefault) {
-    continue;
-  }
-  if (ckyconsent !== "yes" || _ckyGetCookie(`cookieyes-${name}`) !== "yes") {
-    CKY_BLACKLIST.push(...list);
-  }
-}
 const patterns = {
-  blacklist: CKY_BLACKLIST,
-  whitelist: CKY_WHITELIST,
+  blacklist: [],
+  whitelist: [],
 };
-function _ckyIsOnBlacklist(src) {
-  return src && patterns.blacklist.some((pattern) => pattern.test(src));
-}
-
-function _ckyIsOnWhitelist(src) {
-  return src && patterns.whitelist.some((pattern) => pattern.test(src));
-}
-
+const ckyconsent = _ckyGetCookie("cky-consent") || "no";
 const createElementBackup = document.createElement;
 document.createElement = function (...args) {
   const newCreatedElement = createElementBackup.call(document, ...args);
@@ -1323,7 +1347,7 @@ document.createElement = function (...args) {
       },
       set: function (value) {
         if (_ckyIsOnBlacklist(value))
-          originalSetAttribute("type", TYPE_ATTRIBUTE);
+          originalSetAttribute("type", "javascript/blocked");
         originalSetAttribute("src", value);
         return true;
       },
@@ -1331,7 +1355,7 @@ document.createElement = function (...args) {
     type: {
       set: function (value) {
         const typeValue = _ckyIsOnBlacklist(newCreatedElement.src)
-          ? TYPE_ATTRIBUTE
+          ? "javascript/blocked"
           : value;
         originalSetAttribute("type", typeValue);
         return true;
@@ -1344,51 +1368,6 @@ document.createElement = function (...args) {
   };
   return newCreatedElement;
 };
-
-function _ckyUnblock() {
-  if (navigator.doNotTrack === 1) return;
-  const ckyconsent = _ckyGetCookie("cky-consent") || "no";
-  for (const { name, list } of categoryScripts) {
-    if (ckyconsent === "yes" && _ckyGetCookie(`cookieyes-${name}`) === "yes") {
-      CKY_WHITELIST.push(list);
-      patterns.whitelist.push(list);
-    }
-  }
-  observer.disconnect();
-  let indexOffset = 0;
-  backupRemovedScripts.blacklisted.forEach(function (script, index) {
-    if (!script.src || !_ckyIsOnWhitelist(script.src)) {
-      return;
-    }
-    if (script.type === "javascript/blocked") {
-      TYPE_ATTRIBUTE = "text/javascript";
-      script.type = "text/javascript";
-      const scriptNode = document.createElement("script");
-      scriptNode.src = script.src;
-      scriptNode.type = "text/javascript";
-      document.head.appendChild(scriptNode);
-      backupRemovedScripts.blacklisted.splice(index - indexOffset, 1);
-      indexOffset++;
-    } else {
-      const frames = document.getElementsByClassName(
-        "wt-cli-iframe-placeholder"
-      );
-      for (const frame of frames) {
-        if (
-          script.src == frame.getAttribute("data-src") &&
-          isOnWhitelist(script.src)
-        ) {
-          const iframe = document.createElement("iframe");
-          const width = frame.offsetWidth;
-          const height = frame.offsetHeight;
-          iframe.src = script.src;
-          iframe.width = width;
-          iframe.height = height;
-          frame.parentNode.insertBefore(iframe, frame);
-          frame.parentNode.removeChild(frame);
-        }
-      }
-    }
-  });
-  document.createElement = createElementBackup;
-}
+_ckyAddToBlackList();
+const observer = new MutationObserver(_ckyMutationObserver);
+observer.observe(document.documentElement, { childList: true, subtree: true });
