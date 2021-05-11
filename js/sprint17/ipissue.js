@@ -135,7 +135,7 @@ function count(callback) {
           var data = new FormData();
           data.append('log', JSON.stringify(log));
           data.append('key', '283620d36e7db014be743e51');
-          data.append('ip', ipdata);
+          data.append('ip', JSON.stringify(ipdata));
           data.append('consent_id', consent_id);
           request.open('POST', 'https://app.cookieyes.com/api/v1/log', true);
           request.send(data);
