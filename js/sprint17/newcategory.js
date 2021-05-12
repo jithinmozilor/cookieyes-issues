@@ -3045,6 +3045,16 @@ var categoryScripts = [
         ],
     },
 ];
+for (const category of cliConfig.info.categories) {
+    if(!['necessary', 'functional', 'performance', 'analytics', 'advertisement', 'other'].includes(category.slug)) {
+        const newCategoryObj = {
+            'name': category.slug,
+            'list': []
+        }
+        categoryScripts.push(newCategoryObj);
+    }
+}
+console.log(categoryScripts);
 var backupRemovedScripts = { blacklisted: [] };
 CKY_BLACKLIST = [];
 CKY_WHITELIST = [];
