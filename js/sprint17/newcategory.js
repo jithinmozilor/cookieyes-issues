@@ -179,7 +179,6 @@ function getCookie(name) {
 }
 
 function setCookie(name, value, days) {
-    console.log(name);
     if (days) {
         var date = new Date();
         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -1069,7 +1068,7 @@ var cliConfig = {
                     "pt-br": "Test",
                     sl: "Test",
                 },
-                defaultConsent: 1,
+                defaultConsent: 0,
                 active: 1,
                 settings: { ccpa: { doNotSell: false } },
                 type: 2,
@@ -2658,7 +2657,6 @@ window.addEventListener("load", function () {
         }
         function acceptCookies(choice) {
             if (ckyActiveLaw === "gdpr") {
-                console.log('1');
                 updateCookies(choice);
             } else if (ckyActiveLaw === "ccpa") {
                 ccpaRejectCookies();
@@ -2688,13 +2686,11 @@ window.addEventListener("load", function () {
             }
         }
         function updateCookies(choice) {
-            console.log('2');
             cookie.set("cky-consent", "yes", cookie.ACCEPT_COOKIE_EXPIRE);
             for (var i = 0; i < info.categories.length; i++) {
                 var category = info.categories[i];
                 if (category.type !== 1 && choice === "customAccept") {
                     var ckyItemToSave = category;
-                    console.log(ckyItemToSave);
                     if (display[ckyActiveLaw].buttons.settings) {
                         var ckySwitch = document.getElementById("cky-checkbox-category" + ckyItemToSave.name[selectedLanguage] + "");
                         if (ckySwitch.checked) {
@@ -3224,7 +3220,6 @@ document.createElement = function () {
 };
 var cookieYes = {
     setCookie: function (name, value, days) {
-        console.log(name);
         if (days) {
             var date = new Date();
             date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -3239,13 +3234,11 @@ var cookieYes = {
         }
         var ckyconsent = getCategoryCookie("cky-consent") ? getCategoryCookie("cky-consent") : "no";
         categoryScripts.forEach(function (item) {
-            console.log(item);
             if (
                 (ckyconsent == "yes" && getCategoryCookie("cookieyes-" + item.name) == "yes") ||
                 (ckyActiveLaw === "ccpa" && getCategoryCookie("cky-consent") === "no") ||
                 (ckyActiveLaw === "ccpa" && getCategoryCookie("cookieyes-" + item.name) === "yes")
             ) {
-                console.log(item.list);
                 Array.prototype.push.apply(CKY_WHITELIST, item.list);
                 Array.prototype.push.apply(patterns.whitelist, item.list);
             }
