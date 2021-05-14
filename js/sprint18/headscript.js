@@ -2798,7 +2798,7 @@ window.addEventListener("load", function () {
           if (JSON.parse(behaviour.reload)) {
               location.reload();
           } else {
-              checkAndInsertScripts();
+              checkAndInsertScripts(info.categories);
               cookieYes.unblock();
               showToggler();
           }
