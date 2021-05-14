@@ -2258,7 +2258,7 @@ window.addEventListener("load", function () {
           }
       }
       if (cookie.read("cky-consent") === "yes") {
-          window.checkAndInsertScripts(info.categories);
+          checkAndInsertScripts(info.categories);
       }
       function createBanner() {
           var consentBar;
@@ -2798,7 +2798,7 @@ window.addEventListener("load", function () {
           if (JSON.parse(behaviour.reload)) {
               location.reload();
           } else {
-              cookieYes.unblock();
+              cookieYes.unblock(checkAndInsertScripts);
               showToggler();
           }
       }
@@ -2941,7 +2941,7 @@ window.addEventListener("load", function () {
               body.insertAdjacentHTML("beforeend", cliConsentBarTrigger);
           }
       }
-      window.checkAndInsertScripts = function(categories) {
+      function checkAndInsertScripts(categories) {
           for (var i = 0; i < categories.length; i++) {
               var category = categories[i];
               if(category.isAddedToDom) continue
@@ -3366,11 +3366,11 @@ var cookieYes = {
       var cliCookie = name + "=" + value + expires + "; path=/;";
       document.cookie = cliCookie;
   },
-  unblock: function () {
+  unblock: function (callback) {
       if (navigator.doNotTrack == 1) {
           return;
       }
-      checkAndInsertScripts(cliConfig.info.categories);
+      callback(cliConfig.info.categories)
       var ckyconsent = getCategoryCookie("cky-consent") ? getCategoryCookie("cky-consent") : "no";
       categoryScripts.forEach(function (item) {
           if (
