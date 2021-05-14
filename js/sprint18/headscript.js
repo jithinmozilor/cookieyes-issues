@@ -2798,7 +2798,8 @@ window.addEventListener("load", function () {
           if (JSON.parse(behaviour.reload)) {
               location.reload();
           } else {
-              cookieYes.unblock(checkAndInsertScripts);
+              checkAndInsertScripts();
+              cookieYes.unblock();
               showToggler();
           }
       }
@@ -3366,11 +3367,10 @@ var cookieYes = {
       var cliCookie = name + "=" + value + expires + "; path=/;";
       document.cookie = cliCookie;
   },
-  unblock: function (callback) {
+  unblock: function () {
       if (navigator.doNotTrack == 1) {
           return;
       }
-      callback(cliConfig.info.categories)
       var ckyconsent = getCategoryCookie("cky-consent") ? getCategoryCookie("cky-consent") : "no";
       categoryScripts.forEach(function (item) {
           if (
