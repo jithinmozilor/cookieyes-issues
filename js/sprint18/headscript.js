@@ -2941,7 +2941,7 @@ window.addEventListener("load", function () {
               body.insertAdjacentHTML("beforeend", cliConsentBarTrigger);
           }
       }
-      function checkAndInsertScripts(categories) {
+      window.checkAndInsertScripts = function(categories) {
           for (var i = 0; i < categories.length; i++) {
               var category = categories[i];
               if(category.isAddedToDom) continue
