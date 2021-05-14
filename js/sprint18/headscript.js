@@ -2798,7 +2798,6 @@ window.addEventListener("load", function () {
           if (JSON.parse(behaviour.reload)) {
               location.reload();
           } else {
-              checkAndInsertScripts(info.categories);
               cookieYes.unblock();
               showToggler();
           }
@@ -2945,6 +2944,7 @@ window.addEventListener("load", function () {
       function checkAndInsertScripts(categories) {
           for (var i = 0; i < categories.length; i++) {
               var category = categories[i];
+              if(category.isAddedToDom) continue
               var cookieStatus = cookie.read("cookieyes-" + category.slug);
               if (category.type === 1) {
                   insertScripts(category);
@@ -2956,6 +2956,7 @@ window.addEventListener("load", function () {
           }
       }
       function insertScripts(category) {
+          category.isAddedToDom = true;
           if (typeof category.scripts != "undefined") {
               for (var i = 0; i < category.scripts.length; i++) {
                   var scriptItem = category.scripts[i];
@@ -3369,6 +3370,7 @@ var cookieYes = {
       if (navigator.doNotTrack == 1) {
           return;
       }
+      checkAndInsertScripts(info.categories);
       var ckyconsent = getCategoryCookie("cky-consent") ? getCategoryCookie("cky-consent") : "no";
       categoryScripts.forEach(function (item) {
           if (
