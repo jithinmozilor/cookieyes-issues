@@ -3370,7 +3370,7 @@ var cookieYes = {
       if (navigator.doNotTrack == 1) {
           return;
       }
-      checkAndInsertScripts(info.categories);
+      checkAndInsertScripts(cliConfig.info.categories);
       var ckyconsent = getCategoryCookie("cky-consent") ? getCategoryCookie("cky-consent") : "no";
       categoryScripts.forEach(function (item) {
           if (
