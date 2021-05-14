@@ -2258,7 +2258,7 @@ window.addEventListener("load", function () {
           }
       }
       if (cookie.read("cky-consent") === "yes") {
-          checkAndInsertScripts(info.categories);
+          window.checkAndInsertScripts(info.categories);
       }
       function createBanner() {
           var consentBar;
