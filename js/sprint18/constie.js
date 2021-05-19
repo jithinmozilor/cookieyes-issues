@@ -3006,12 +3006,12 @@ var categoryScripts = [
       ],
   },
 ];
-for (let category of cliConfig.info.categories) {
+cliConfig.info.categories.forEach(function (category) {
   if (!["necessary", "functional", "performance", "analytics", "advertisement", "other"].includes(category.slug)) {
-      const newCategoryObj = { name: category.slug, list: [] };
-      categoryScripts.push(newCategoryObj);
+    const newCategoryObj = { name: category.slug, list: [] };
+    categoryScripts.push(newCategoryObj);
   }
-}
+});
 var backupRemovedScripts = { blacklisted: [] };
 CKY_BLACKLIST = [];
 CKY_WHITELIST = [];
