@@ -3007,7 +3007,7 @@ var categoryScripts = [
   },
 ];
 cliConfig.info.categories.forEach(function (category) {
-  if (!["necessary", "functional", "performance", "analytics", "advertisement", "other"].indexOf(category.slug) > -1) {
+  if (["necessary", "functional", "performance", "analytics", "advertisement", "other"].indexOf(category.slug) === -1) {
     const newCategoryObj = { name: category.slug, list: [] };
     categoryScripts.push(newCategoryObj);
   }
