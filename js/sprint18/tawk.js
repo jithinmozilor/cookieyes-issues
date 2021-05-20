@@ -3145,9 +3145,12 @@ document.createElement = function () {
       },
   });
   scriptElt.setAttribute = function (name, value) {
-      if (name === "type" || name === "src") scriptElt[name] = value;
-      else if(name === 'data-cookieyes' && value === 'cookieyes-necessary') originalSetAttribute("type", 'text/javascript');
-      else HTMLScriptElement.prototype.setAttribute.call(scriptElt, name, value);
+      if (name === "type" || name === "src") {
+        scriptElt[name] = value;
+        return
+      } 
+      if(name === 'data-cookieyes' && value === 'cookieyes-necessary') originalSetAttribute("type", 'text/javascript');
+      HTMLScriptElement.prototype.setAttribute.call(scriptElt, name, value);
   };
   return scriptElt;
 };
