@@ -2691,6 +2691,7 @@ window.addEventListener("load", function () {
                   cookie.set("cookieyes-" + category.slug, "yes", cookie.ACCEPT_COOKIE_EXPIRE);
               }
           }
+          cookieYes.unblock();
       }
       function showToggler() {
           if (document.getElementById("cky-consent")) {
