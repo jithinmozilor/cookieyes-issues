@@ -3134,13 +3134,19 @@ var observer = new MutationObserver(function (mutations) {
                         var cat = node.getAttribute("data-cookieyes");
                         if(node.src!== '' && typeof node.src!== undefined){
                             var webdetail = new URL(node.src);
-                            Array.prototype.push.apply(window.CKY_BLACKLIST, [new RegExp(webdetail.hostname)]);
-                            Array.prototype.push.apply(patterns.blacklist, [new RegExp(webdetail.hostname)]);
-                            categoryScriptsNew.push(
-                                {
-                                  "re": webdetail.hostname,
-                                  "categories": [cat.replace('cookieyes-', '')]
-                            })
+                            var category = categoryScriptsNew.find(function (cat) {
+                                cat.re === webdetail.hostname
+                            });
+                            if (category) category.categories.push(cat.replace('cookieyes-', ''));
+                            else {
+                                Array.prototype.push.apply(window.CKY_BLACKLIST, [new RegExp(webdetail.hostname)]);
+                                Array.prototype.push.apply(patterns.blacklist, [new RegExp(webdetail.hostname)]);
+                                categoryScriptsNew.push(
+                                    {
+                                      "re": webdetail.hostname,
+                                      "categories": [cat.replace('cookieyes-', '')]
+                                })    
+                            }
                         }
                     }
                 }
@@ -3293,4 +3299,22 @@ function isCategoryAccepted(item) {
       return getCategoryCookie("cookieyes-" + category) === "no";
     })
 }
+  
+Array.prototype.find = Array.prototype.find || function(callback) {
+    if (this === null) {
+      throw new TypeError('Array.prototype.find called on null or undefined');
+    } else if (typeof callback !== 'function') {
+      throw new TypeError('callback must be a function');
+    }
+    var list = Object(this);
+    // Makes sures is always has an positive integer as length.
+    var length = list.length >>> 0;
+    var thisArg = arguments[1];
+    for (var i = 0; i < length; i++) {
+      var element = list[i];
+      if ( callback.call(thisArg, element, i, list) ) {
+        return element;
+      }
+    }
+  };
   
