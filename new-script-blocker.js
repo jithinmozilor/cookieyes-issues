@@ -3236,12 +3236,11 @@ var cookieYes = {
         var ckyconsent = (getCategoryCookie("cky-consent")) ? getCategoryCookie("cky-consent") : 'no';
 
         categoryScriptsNew.forEach(function (item) {
-
             if ((ckyconsent == 'yes' && !isCategoryAccepted(item)) || 
                 (ckyActiveLaw === "ccpa" && getCategoryCookie("cky-consent") === 'no') ||
                 (ckyActiveLaw === "ccpa" && !isCategoryAccepted(item))) {
-                    CKY_WHITELIST.push(CKY_WHITELIST, new RegExp(item.re));
-                    patterns.whitelist.push(new RegExp(item.re));
+                    Array.prototype.push.apply(window.CKY_WHITELIST, [new RegExp(item.re)]);
+                    Array.prototype.push.apply(patterns.whitelist, [new RegExp(item.re)]);
             }
         });
 
