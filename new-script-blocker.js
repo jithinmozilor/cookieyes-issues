@@ -3029,28 +3029,28 @@ function getYoutubeID( src ) {
 
 const categoryScriptsNew = [
     {
-      "re": "youtube-nocookie.com/",
-      "categories": [analytics, functional]
+      "re": "youtube-nocookie\.com",
+      "categories": ["analytics", "functional"]
     },
     {
-      "re": "facebook.*/",
-      "categories": [necessary, functional]
+      "re": "facebook\.*",
+      "categories": ["necessary", "functional"]
     },
     {
       "re": "hotjar\.com",
-      "categories": [analytics, functional]
+      "categories": ["analytics", "functional"]
     },
     {
-      "re": "js.hs-scripts.com/",
-      "categories": [analytics, functional]
+      "re": "js\.hs-scripts.com",
+      "categories": ["analytics", "functional"]
     },
     {
-      "re": "tawk.to/",
-      "categories": [analytics, functional]
+      "re": "tawk\.to",
+      "categories": ["analytics", "functional"]
     },
     {
-      "re": "googletagmanager.com/",
-      "categories": [analytics, functional]
+      "re": "googletagmanager\.com",
+      "categories": ["analytics", "functional"]
     },
 ]
 
