@@ -3288,3 +3288,10 @@ var cookieYes = {
         document.createElement = createElementBackup;
     }
 };
+
+function isCategoryAccepted(item) {
+    return item.categories.some(function (category) {
+      return getCategoryCookie("cookieyes-" + category) === "no";
+    })
+}
+  
