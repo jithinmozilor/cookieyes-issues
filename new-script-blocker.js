@@ -3135,7 +3135,7 @@ var observer = new MutationObserver(function (mutations) {
                         if(node.src!== '' && typeof node.src!== undefined){
                             var webdetail = new URL(node.src);
                             var category = categoryScriptsNew.find(function (cat) {
-                                cat.re === webdetail.hostname
+                                return cat.re === webdetail.hostname;
                             });
                             if (category) category.categories.push(cat.replace('cookieyes-', ''));
                             else {
