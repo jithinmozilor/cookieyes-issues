@@ -3197,7 +3197,10 @@ document.createElement = function () {
                 return scriptElt.getAttribute('src')
             },
             set: function (value) {
-                if (isOnBlacklist(value)) {
+                var isNeccessary =
+                  scriptElt.hasAttribute("data-cookieyes") &&
+                  scriptElt.getAttribute("data-cookieyes") === "cookieyes-necessary";      
+                if (isOnBlacklist(value) && !isNeccessary) {
                     originalSetAttribute('type', TYPE_ATTRIBUTE)
                 }
                 originalSetAttribute('src', value);
@@ -3206,7 +3209,10 @@ document.createElement = function () {
         },
         'type': {
             set: function (value) {
-                var typeValue = isOnBlacklist(scriptElt.src) ? TYPE_ATTRIBUTE : value;
+                var isNeccessary =
+                  scriptElt.hasAttribute("data-cookieyes") &&
+                  scriptElt.getAttribute("data-cookieyes") === "cookieyes-necessary";
+                var typeValue = isOnBlacklist(scriptElt.src) && !isNeccessary ? TYPE_ATTRIBUTE : value;
                 originalSetAttribute('type', typeValue);
                 return true
             }
