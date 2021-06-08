@@ -3068,7 +3068,7 @@ if (navigator.doNotTrack == 1) {
     });
 } else if(cliConfig.options.consentType !== "info") {
     categoryScriptsNew.forEach(function (item) {
-      if (item.name === "analytics" && loadAnalyticsByDefault) return;
+      if (item.categories.length === 1 && item.categories[0] === "analytics" && loadAnalyticsByDefault) return;
       if (ckyconsent !== "yes") {
         CKY_BLACKLIST.push(new RegExp(item.re));
         return
@@ -3137,8 +3137,10 @@ var observer = new MutationObserver(function (mutations) {
                             var category = categoryScriptsNew.find(function (cat) {
                                 return cat.re === webdetail.hostname;
                             });
-                            if (category) category.categories.push(cat.replace('cookieyes-', ''));
-                            else {
+                            if (category) {
+                                if (!category.categories.indexOf(cat.replace("cookieyes-", "")) === -1)
+                                  category.categories.push(cat.replace("cookieyes-", ""));
+                            } else {
                                 Array.prototype.push.apply(window.CKY_BLACKLIST, [new RegExp(webdetail.hostname)]);
                                 Array.prototype.push.apply(patterns.blacklist, [new RegExp(webdetail.hostname)]);
                                 categoryScriptsNew.push(
