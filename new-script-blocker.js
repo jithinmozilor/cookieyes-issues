@@ -93,6 +93,7 @@ function count(callback) {
               cookieYes.setCookie("cookieyes-analytics", "yes", cookieExpiry);
               cookieYes.setCookie("cookieyes-functional", "yes", cookieExpiry);
               cookieYes.setCookie("cookieyes-advertisement", "yes", cookieExpiry);
+              cookieYes.setCookie("cookieyes-performance", "yes", cookieExpiry);
               cookieYes.unblock();
           }
 
