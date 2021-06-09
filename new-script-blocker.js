@@ -1060,10 +1060,10 @@ var cliConfig = {
                   "pt-br": "Funcional",
                   sl: "Funkcionalno",
               },
-              defaultConsent: 0,
+              defaultConsent: 1,
               active: 1,
               settings: { ccpa: { doNotSell: false } },
-              type: 2,
+              type: 1,
               description: {
                   en: "<p>Functional cookies help to perform certain functionalities like sharing the content of the website on social media platforms, collect feedbacks, and other third-party features.</p>",
                   de:
@@ -1134,7 +1134,7 @@ var cliConfig = {
               defaultConsent: 0,
               active: 1,
               settings: { ccpa: { doNotSell: false }, loadAnalyticsByDefault: true },
-              type: 2,
+              type: 1,
               description: {
                   en: "<p>Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics the number of visitors, bounce rate, traffic source, etc.</p>",
                   de: "<p>Analyse-Cookies werden verwendet um zu verstehen, wie Besucher mit der Website interagieren. Diese Cookies dienen zu Aussagen \u00fcber die Anzahl der Besucher, Absprungrate, Herkunft der Besucher usw.</p>",
