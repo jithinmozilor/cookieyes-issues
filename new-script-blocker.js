@@ -3612,9 +3612,8 @@ var observer = new MutationObserver(function (mutations) {
                   category.categories = [cat.replace("cookieyes-", "")];
                   category.isReplaced = true;
                 } else if (
-                  !category.categories.indexOf(
-                    cat.replace("cookieyes-", "")
-                  ) === -1
+                  category.categories.indexOf(cat.replace("cookieyes-", "")) ===
+                  -1
                 ) {
                   category.categories.push(cat.replace("cookieyes-", ""));
                 }
