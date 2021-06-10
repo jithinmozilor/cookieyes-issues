@@ -3620,10 +3620,10 @@ var observer = new MutationObserver(function (mutations) {
                 }
               } else {
                 Array.prototype.push.apply(window.CKY_BLACKLIST, [
-                  new RegExp(escapeRegExp(webdetail.hostname).replace(/^www./, "")),
+                  new RegExp(escapeRegExp(webdetail.hostname.replace(/^www./, ""))),
                 ]);
                 Array.prototype.push.apply(patterns.blacklist, [
-                  new RegExp(escapeRegExp(webdetail.hostname).replace(/^www./, "")),
+                  new RegExp(escapeRegExp(webdetail.hostname.replace(/^www./, ""))),
                 ]);
                 categoryScripts.push({
                   re: webdetail.hostname,
