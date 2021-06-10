@@ -3605,7 +3605,7 @@ var observer = new MutationObserver(function (mutations) {
             if (node.src !== "" && typeof node.src !== undefined) {
               var webdetail = new URL(node.src);
               var category = categoryScripts.find(function (cat) {
-                return cat.re === webdetail.hostname;
+                return cat.re === webdetail.hostname.replace(/^www./, "");
               });
               if (category) {
                 if (!category.isReplaced) {
@@ -3620,13 +3620,17 @@ var observer = new MutationObserver(function (mutations) {
                 }
               } else {
                 Array.prototype.push.apply(window.CKY_BLACKLIST, [
-                  new RegExp(escapeRegExp(webdetail.hostname.replace(/^www./, ""))),
+                  new RegExp(
+                    escapeRegExp(webdetail.hostname.replace(/^www./, ""))
+                  ),
                 ]);
                 Array.prototype.push.apply(patterns.blacklist, [
-                  new RegExp(escapeRegExp(webdetail.hostname.replace(/^www./, ""))),
+                  new RegExp(
+                    escapeRegExp(webdetail.hostname.replace(/^www./, ""))
+                  ),
                 ]);
                 categoryScripts.push({
-                  re: webdetail.hostname,
+                  re: webdetail.hostname.replace(/^www./, ""),
                   categories: [cat.replace("cookieyes-", "")],
                 });
               }
