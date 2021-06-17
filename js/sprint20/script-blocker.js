@@ -3938,11 +3938,8 @@ var observer = new MutationObserver(function (mutations) {
                 for (
                   let i = 0; i < cliConfig.info.categories.length; i++
                 ) {
-                  if (
-                    cliConfig.info.categories[index].type === 1 &&
-                    node.getAttribute("data-cookieyes").replace("cookieyes-", "") ===
-                      cliConfig.info.categories[i].slug
-                  )
+                  if (cliConfig.info.categories[i].type === 1 &&
+                    node.getAttribute("data-cookieyes").replace("cookieyes-", "") === cliConfig.info.categories[i].slug)
                     return;
                 }
                   if (getCategoryCookie(node.getAttribute("data-cookieyes")) != "yes") {
