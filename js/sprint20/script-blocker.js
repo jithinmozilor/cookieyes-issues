@@ -3935,7 +3935,16 @@ var observer = new MutationObserver(function (mutations) {
           if ((node.nodeType === 1 && node.tagName === "SCRIPT") || node.tagName === "IFRAME") {
               var src = node.src || "";
               if (node.hasAttribute("data-cookieyes")) {
-                  if (node.getAttribute("data-cookieyes") === "necessary") return;
+                for (
+                  let i = 0; i < cliConfig.info.categories.length; i++
+                ) {
+                  if (
+                    cliConfig.info.categories[index].type === 1 &&
+                    node.getAttribute("data-cookieyes").replace("cookieyes-", "") ===
+                      cliConfig.info.categories[i].slug
+                  )
+                    return;
+                }
                   if (getCategoryCookie(node.getAttribute("data-cookieyes")) != "yes") {
                       var cat = node.getAttribute("data-cookieyes");
                       if (node.src !== "" && typeof node.src !== undefined) {
