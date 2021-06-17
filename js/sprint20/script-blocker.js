@@ -3935,6 +3935,7 @@ var observer = new MutationObserver(function (mutations) {
           if ((node.nodeType === 1 && node.tagName === "SCRIPT") || node.tagName === "IFRAME") {
               var src = node.src || "";
               if (node.hasAttribute("data-cookieyes")) {
+                  if (node.getAttribute("data-cookieyes") === "necessary") return;
                   if (getCategoryCookie(node.getAttribute("data-cookieyes")) != "yes") {
                       var cat = node.getAttribute("data-cookieyes");
                       if (node.src !== "" && typeof node.src !== undefined) {
