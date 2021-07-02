@@ -7,7 +7,7 @@ try {
 let ckyActiveLaw = "";
 let ipdata = {};
 
-function count(callback) {
+function ckyCount(callback) {
   if (cliConfig.options.selectedLaws.length !== 2) {
     ckyActiveLaw = cliConfig.options.selectedLaws[0];
     callback(ckyActiveLaw);
@@ -174,7 +174,7 @@ function count(callback) {
 function bannerActiveCheck() {
   var isActiveCheckCookiePresent = getCookie("cky-active-check");
   if (!isActiveCheckCookiePresent && window.fetch && window.Promise) {
-    fetch("https://active.cookieyes.com/api/b5b1522787f87c5c212deb5a/log", {
+    fetch("https://active.cookieyes.com/api/1cd28f8d786d5e5c04fd1dd5/log", {
       method: "POST",
     }).catch(function (err) {
       console.error(err);
@@ -224,7 +224,7 @@ function randomString(length) {
   }
   return str;
 }
-var tldomain = "jithinmozilor.github.io";
+var tldomain = "www.mozilor.com";
 var cliConfig = {
   options: {
     version: "4.0.0",
@@ -287,6 +287,8 @@ var cliConfig = {
       gdpr: {
         title: {
           en: "Cookie consent",
+          de: "Cookie Zustimmung",
+          fr: "Consentement des cookies",
           it: "Consenso dei cookie",
           es: "Consentimiento de cookies",
           nl: "Cookie toestemming",
@@ -298,23 +300,23 @@ var cliConfig = {
           pt: "Consentimento de cookie",
           ca: "Consentiment de cookies",
           hu: "Cookie-beleegyez\u00e9s",
-          sv: "Samtycke till cookies",
+          se: "Samtycke till cookies",
           cr: "Suglasnost s kola\u010di\u0107ima",
           zh: "Cookie\u540c\u610f",
           uk: "\u0417\u0433\u043e\u0434\u0430 \u043d\u0430 \u0444\u0430\u0439\u043b\u0438 cookie",
           sk: "S\u00fahlas s cookies",
-          tr: "\u00c7erez izni",
+          ts: "\u00c7erez izni",
           lt: "Slapuko sutikimas",
           cs: "Souhlas se soubory cookie",
           fi: "Ev\u00e4steiden suostumus",
           no: "Cookie Samtykke",
-          "pt-br": "Consentimento do cookie",
+          br: "Consentimento do cookie",
           sl: "Soglasje za pi\u0161kotek",
-          ro: "Consim\u021b\u0103m\u00e2nt privind cookie-urile",
-          th: "\u0e01\u0e32\u0e23\u0e22\u0e34\u0e19\u0e22\u0e2d\u0e21\u0e43\u0e2b\u0e49\u0e43\u0e0a\u0e49\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49",
         },
         text: {
           en: "This website uses cookies that help the website to function and also to track how you interact with our website. But for us to provide the best user experience, enable the specific cookies from Settings, and click on Accept.",
+          de: "Diese Website verwendet Cookies, mit denen die Website funktioniert und wie Sie mit ihr interagieren, damit wir Ihnen eine verbesserte und angepasste Benutzererfahrung bieten k\u00f6nnen. Wir werden die Cookies nur verwenden, wenn Sie dem zustimmen, indem Sie auf Akzeptieren klicken. Sie k\u00f6nnen auch einzelne Cookie-Einstellungen in den Einstellungen verwalten.",
+          fr: "Ce site Web utilise des cookies qui aident le site Web \u00e0 fonctionner et \u00e0 suivre comment vous interagissez avec lui afin que nous puissions vous offrir une exp\u00e9rience utilisateur am\u00e9lior\u00e9e et personnalis\u00e9e. Nous n'utiliserons les cookies que si vous y consentez en cliquant sur Accepter. Vous pouvez \u00e9galement g\u00e9rer les pr\u00e9f\u00e9rences de cookies individuelles \u00e0 partir des param\u00e8tres.",
           it: "Questo sito Web utilizza i cookie che aiutano il funzionamento del sito Web e per tenere traccia di come interagisci con esso in modo da poterti offrire un'esperienza utente migliorata e personalizzata. Utilizzeremo i cookie solo se acconsenti facendo clic su Accetta. Puoi anche gestire le preferenze dei singoli cookie dalle Impostazioni.",
           es: "Este sitio web utiliza cookies que ayudan al funcionamiento del sitio web y para rastrear c\u00f3mo interact\u00faa con \u00e9l para que podamos brindarle una experiencia de usuario mejorada y personalizada. Solo usaremos las cookies si usted lo acepta haciendo clic en Aceptar. Tambi\u00e9n puede administrar las preferencias de cookies individuales desde Configuraci\u00f3n.",
           nl: "Deze website maakt gebruik van cookies die de website helpen functioneren en om bij te houden hoe u ermee omgaat, zodat we u een verbeterde en aangepaste gebruikerservaring kunnen bieden. Wij gebruiken de cookies alleen als u hiermee instemt door op Accepteren te klikken. U kunt ook individuele cookievoorkeuren beheren via Instellingen.",
@@ -326,24 +328,23 @@ var cliConfig = {
           pt: "Este site usa cookies que ajudam as fun\u00e7\u00f5es do site e rastreiam como voc\u00ea interage com ele, para que possamos lhe fornecer uma experi\u00eancia de usu\u00e1rio aprimorada e personalizada. S\u00f3 usaremos os cookies se voc\u00ea consentir, clicando em Aceitar. Voc\u00ea tamb\u00e9m pode gerenciar prefer\u00eancias de cookies individuais em Configura\u00e7\u00f5es.",
           ca: "Aquest lloc web utilitza cookies que ajuden el funcionament del lloc web i per fer un seguiment de com interactueu amb ell, de manera que us puguem proporcionar una experi\u00e8ncia d\u2019usuari millorada i personalitzada. \u00danicament utilitzarem les cookies si hi consentiu fent clic a Accepta. Tamb\u00e9 podeu gestionar les prefer\u00e8ncies de cookies individuals des de Configuraci\u00f3.",
           hu: "Ez a weboldal cookie-kat haszn\u00e1l, amelyek seg\u00edtik a weboldal m\u0171k\u00f6d\u00e9s\u00e9t, \u00e9s nyomon k\u00f6vetik, hogy mik\u00e9nt m\u0171k\u00f6dnek egy\u00fctt vele, hogy jobb \u00e9s szem\u00e9lyre szabott felhaszn\u00e1l\u00f3i \u00e9lm\u00e9nyt ny\u00fajthassunk \u00d6nnek. Csak akkor haszn\u00e1ljuk a cookie-kat, ha beleegyezik az Elfogad\u00e1s gombra kattintva. Az egyedi cookie-be\u00e1ll\u00edt\u00e1sokat a Be\u00e1ll\u00edt\u00e1sok k\u00f6z\u00f6tt is kezelheti.",
-          sv: "Denna webbplats anv\u00e4nder cookies som hj\u00e4lper webbplatsens funktioner och f\u00f6r att sp\u00e5ra hur du interagerar med den s\u00e5 att vi kan ge dig f\u00f6rb\u00e4ttrad och anpassad anv\u00e4ndarupplevelse. Vi anv\u00e4nder endast kakorna om du godk\u00e4nner det genom att klicka p\u00e5 Acceptera. Du kan ocks\u00e5 hantera individuella cookieinst\u00e4llningar fr\u00e5n Inst\u00e4llningar.",
+          se: "Denna webbplats anv\u00e4nder cookies som hj\u00e4lper webbplatsens funktioner och f\u00f6r att sp\u00e5ra hur du interagerar med den s\u00e5 att vi kan ge dig f\u00f6rb\u00e4ttrad och anpassad anv\u00e4ndarupplevelse. Vi anv\u00e4nder endast kakorna om du godk\u00e4nner det genom att klicka p\u00e5 Acceptera. Du kan ocks\u00e5 hantera individuella cookieinst\u00e4llningar fr\u00e5n Inst\u00e4llningar.",
           cr: "Ova web stranica koristi kola\u010di\u0107e koji poma\u017eu u funkcioniranju web stranice i za pra\u0107enje va\u0161e interakcije s njom kako bismo vam mogli pru\u017eiti pobolj\u0161ano i prilago\u0111eno korisni\u010dko iskustvo. Kola\u010di\u0107e \u0107emo koristiti samo ako na njih pristanete klikom na Prihvati. Tako\u0111er mo\u017eete upravljati pojedina\u010dnim postavkama kola\u010di\u0107a u Postavkama.",
           zh: "\u672c\u7f51\u7ad9\u4f7f\u7528Cookie\u6765\u5e2e\u52a9\u7f51\u7ad9\u6b63\u5e38\u8fd0\u884c\uff0c\u5e76\u8ddf\u8e2a\u60a8\u4e0e\u6211\u4eec\u7f51\u7ad9\u7684\u4e92\u52a8\u65b9\u5f0f\u3002 \u4f46\u662f\uff0c\u4e3a\u4e86\u8ba9\u6211\u4eec\u63d0\u4f9b\u6700\u4f73\u7684\u7528\u6237\u4f53\u9a8c\uff0c\u8bf7\u4ece\u201c\u8bbe\u7f6e\u201d\u4e2d\u542f\u7528\u7279\u5b9a\u7684cookie\uff0c\u7136\u540e\u5355\u51fb\u201c\u63a5\u53d7\u201d\u3002",
           uk: "\u0426\u0435\u0439 \u0432\u0435\u0431-\u0441\u0430\u0439\u0442 \u0432\u0438\u043a\u043e\u0440\u0438\u0441\u0442\u043e\u0432\u0443\u0454 \u0444\u0430\u0439\u043b\u0438 cookie, \u044f\u043a\u0456 \u0434\u043e\u043f\u043e\u043c\u0430\u0433\u0430\u044e\u0442\u044c \u0432\u0435\u0431-\u0441\u0430\u0439\u0442\u0443 \u0444\u0443\u043d\u043a\u0446\u0456\u043e\u043d\u0443\u0432\u0430\u0442\u0438, \u0430 \u0442\u0430\u043a\u043e\u0436 \u0432\u0456\u0434\u0441\u0442\u0435\u0436\u0443\u0432\u0430\u0442\u0438, \u044f\u043a \u0432\u0438 \u0432\u0437\u0430\u0454\u043c\u043e\u0434\u0456\u0454\u0442\u0435 \u0437 \u043d\u0430\u0448\u0438\u043c \u0432\u0435\u0431-\u0441\u0430\u0439\u0442\u043e\u043c. \u0410\u043b\u0435 \u0434\u043b\u044f \u043d\u0430\u0441, \u0449\u043e\u0431 \u0437\u0430\u0431\u0435\u0437\u043f\u0435\u0447\u0438\u0442\u0438 \u043d\u0430\u0439\u043a\u0440\u0430\u0449\u0443 \u0432\u0437\u0430\u0454\u043c\u043e\u0434\u0456\u044e \u0437 \u043a\u043e\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0447\u0435\u043c, \u0443\u0432\u0456\u043c\u043a\u043d\u0456\u0442\u044c \u043f\u0435\u0432\u043d\u0456 \u0444\u0430\u0439\u043b\u0438 cookie \u0432 \u043d\u0430\u043b\u0430\u0448\u0442\u0443\u0432\u0430\u043d\u043d\u044f\u0445 \u0442\u0430 \u043d\u0430\u0442\u0438\u0441\u043d\u0456\u0442\u044c \u041f\u0440\u0438\u0439\u043d\u044f\u0442\u0438.",
           sk: "T\u00e1to webov\u00e1 str\u00e1nka pou\u017e\u00edva cookies, ktor\u00e9 pom\u00e1haj\u00fa webovej str\u00e1nke fungova\u0165 a tie\u017e sledova\u0165 va\u0161u interakciu s na\u0161ou webovou str\u00e1nkou. Aby sme v\u0161ak zaistili \u010do najlep\u0161iu pou\u017e\u00edvate\u013esk\u00fa sk\u00fasenos\u0165, povo\u013ete konkr\u00e9tne cookies v Nastaveniach a kliknite na Prija\u0165.",
-          tr: "Bu web sitesi, web sitesinin \u00e7al\u0131\u015fmas\u0131na yard\u0131mc\u0131 olan ve ayr\u0131ca web sitemizle nas\u0131l etkile\u015fim kurdu\u011funuzu takip eden tan\u0131mlama bilgileri kullan\u0131r. Ancak en iyi kullan\u0131c\u0131 deneyimini sa\u011flamam\u0131z i\u00e7in Ayarlar'dan belirli \u00e7erezleri etkinle\u015ftirin ve Kabul Et'e t\u0131klay\u0131n.",
+          ts: "Bu web sitesi, web sitesinin \u00e7al\u0131\u015fmas\u0131na yard\u0131mc\u0131 olan ve ayr\u0131ca web sitemizle nas\u0131l etkile\u015fim kurdu\u011funuzu takip eden tan\u0131mlama bilgileri kullan\u0131r. Ancak en iyi kullan\u0131c\u0131 deneyimini sa\u011flamam\u0131z i\u00e7in Ayarlar'dan belirli \u00e7erezleri etkinle\u015ftirin ve Kabul Et'e t\u0131klay\u0131n.",
           lt: "\u0160ioje svetain\u0117je naudojami slapukai, kurie padeda svetainei veikti ir taip pat sekti, kaip j\u016bs bendraujate su m\u016bs\u0173 svetaine. Bet kad gal\u0117tume suteikti geriausi\u0105 vartotojo patirt\u012f, nustatymuose \u012fgalinkite konkre\u010dius slapukus ir spustel\u0117kite Priimti.",
           cs: "Tento web pou\u017e\u00edv\u00e1 soubory cookie, kter\u00e9 pom\u00e1haj\u00ed fungov\u00e1n\u00ed webu a tak\u00e9 ke sledov\u00e1n\u00ed va\u0161\u00ed interakce s na\u0161\u00edm webem. Abychom v\u0161ak zajistili co nejlep\u0161\u00ed u\u017eivatelsk\u00fd z\u00e1\u017eitek, povolte konkr\u00e9tn\u00ed soubory cookie v Nastaven\u00ed a klikn\u011bte na P\u0159ijmout.",
           fi: "T\u00e4m\u00e4 verkkosivusto k\u00e4ytt\u00e4\u00e4 ev\u00e4steit\u00e4, jotka auttavat verkkosivustoa toimimaan ja my\u00f6s seuraamaan, miten olet vuorovaikutuksessa verkkosivustomme kanssa. Mutta jotta voimme tarjota parhaan k\u00e4ytt\u00f6kokemuksen, ota tietyt ev\u00e4steet k\u00e4ytt\u00f6\u00f6n Asetuksista ja napsauta Hyv\u00e4ksy.",
           no: "Dette nettstedet bruker informasjonskapsler som hjelper nettstedet til \u00e5 fungere, og ogs\u00e5 for \u00e5 spore hvordan du samhandler med nettstedet v\u00e5rt. Men for at vi skal gi den beste brukeropplevelsen, aktiver de spesifikke informasjonskapslene fra Innstillinger, og klikk p\u00e5 Godta.",
-          "pt-br":
-            "Este site usa cookies que ajudam o site a funcionar e tamb\u00e9m para acompanhar como voc\u00ea interage com nosso site. Mas para fornecermos a melhor experi\u00eancia do usu\u00e1rio, habilitar os cookies espec\u00edficos das Configura\u00e7\u00f5es e clicar em Aceitar.",
+          br: "Este site usa cookies que ajudam o site a funcionar e tamb\u00e9m para acompanhar como voc\u00ea interage com nosso site. Mas para fornecermos a melhor experi\u00eancia do usu\u00e1rio, habilitar os cookies espec\u00edficos das Configura\u00e7\u00f5es e clicar em Aceitar.",
           sl: "Ta spletna stran uporablja pi\u0161kotke, ki pomagajo spletnemu mestu pri delovanju in tudi za sledenje na\u010dinu interakcije z na\u0161o spletno stranjo. Za nas, da zagotovimo najbolj\u0161o uporabni\u0161ko izku\u0161njo, je priporo\u010dljivo, da omogo\u010dite dolo\u010dene pi\u0161kotke iz Nastavitve in kliknite na Sprejmi.",
-          ro: "Acest site web folose\u0219te cookie-uri care ajut\u0103 la func\u021bionarea site-ului \u0219i urm\u0103re\u0219te modul \u00een care interac\u021biona\u021bi cu acesta, astfel \u00eenc\u00e2t s\u0103 v\u0103 putem oferi o experien\u021b\u0103 de utilizare \u00eembun\u0103t\u0103\u021bit\u0103 \u0219i personalizat\u0103. Vom folosi cookie-urile numai dac\u0103 sunte\u021bi de acord cu acestea f\u0103c\u00e2nd clic pe Accept.",
-          th: "\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c\u0e19\u0e35\u0e49\u0e43\u0e0a\u0e49\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e0a\u0e48\u0e27\u0e22\u0e01\u0e32\u0e23\u0e17\u0e33\u0e07\u0e32\u0e19\u0e02\u0e2d\u0e07\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c\u0e41\u0e25\u0e30\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e27\u0e48\u0e32\u0e04\u0e38\u0e13\u0e42\u0e15\u0e49\u0e15\u0e2d\u0e1a\u0e01\u0e31\u0e1a\u0e21\u0e31\u0e19\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e44\u0e23 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e43\u0e2b\u0e49\u0e40\u0e23\u0e32\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e21\u0e2d\u0e1a\u0e1b\u0e23\u0e30\u0e2a\u0e1a\u0e01\u0e32\u0e23\u0e13\u0e4c\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19\u0e17\u0e35\u0e48\u0e14\u0e35\u0e02\u0e36\u0e49\u0e19\u0e41\u0e25\u0e30\u0e1b\u0e23\u0e31\u0e1a\u0e41\u0e15\u0e48\u0e07\u0e43\u0e2b\u0e49\u0e15\u0e23\u0e07\u0e43\u0e08\u0e04\u0e38\u0e13\u0e21\u0e32\u0e01\u0e02\u0e36\u0e49\u0e19 \u0e40\u0e23\u0e32\u0e08\u0e30\u0e43\u0e0a\u0e49\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e01\u0e47\u0e15\u0e48\u0e2d\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e04\u0e38\u0e13\u0e22\u0e34\u0e19\u0e22\u0e2d\u0e21\u0e42\u0e14\u0e22\u0e04\u0e25\u0e34\u0e01\u0e17\u0e35\u0e48\u0e22\u0e2d\u0e21\u0e23\u0e31\u0e1a",
         },
         saveButton: {
           en: "Save",
+          de: "sparen",
+          fr: "Sauver",
           it: "Salva",
           es: "Salvar",
           nl: "Opslaan",
@@ -355,23 +356,23 @@ var cliConfig = {
           pt: "Salvar",
           ca: "Salvar",
           hu: "Megment",
-          sv: "Spara",
+          se: "Spara",
           cr: "U\u0161tedjeti",
           zh: "\u6551",
           uk: "\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438",
           sk: "Save",
-          tr: "Kaydetmek",
+          ts: "Kaydetmek",
           lt: "Sutaupyti",
           cs: "Ulo\u017eit",
           fi: "Tallentaa",
           no: "Lagre",
-          "pt-br": "Salvar",
+          br: "Salvar",
           sl: "Shranite",
-          ro: "Salva\u021bi",
-          th: "\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01",
         },
         customAcceptButton: {
           en: "Save my preferences",
+          de: "Speichern Sie meine Einstellungen",
+          fr: "Enregistrer mes pr\u00e9f\u00e9rences",
           it: "Salva le mie preferenze",
           es: "Guardar mis preferencias",
           nl: "Bewaar mijn voorkeuren",
@@ -383,26 +384,26 @@ var cliConfig = {
           pt: "Salvar minhas prefer\u00eancias",
           ca: "Desar les meves prefer\u00e8ncies",
           hu: "Mentse el a be\u00e1ll\u00edt\u00e1sokat",
-          sv: "Spara mina preferenser",
+          se: "Spara mina preferenser",
           cr: "Spremi moje postavke",
           zh: "\u4fdd\u5b58\u6211\u7684\u504f\u597d",
           uk: "\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438 \u043c\u043e\u0457 \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438",
           sk: "Ulo\u017ei\u0165 moje predvo\u013eby",
-          tr: "Tercihlerimi kaydet",
+          ts: "Tercihlerimi kaydet",
           lt: "I\u0161saugoti mano nuostatas",
           cs: "Ulo\u017eit moje p\u0159edvolby",
           fi: "Tallenna asetukset",
           no: "Lagre mine preferanser",
-          "pt-br": "Salve minhas prefer\u00eancias",
+          br: "Salve minhas prefer\u00eancias",
           sl: "Shrani moje nastavitve",
-          ro: "Salva\u021bi preferin\u021bele mele",
-          th: "\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e01\u0e32\u0e23\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e02\u0e2d\u0e07\u0e09\u0e31\u0e19",
         },
         noticeToggler: {
-          en: "Cookie Settings",
-          it: "Impostazioni dei cookie",
-          es: "Configuraci\u00f3n de cookies",
-          nl: "Cookie-instellingen",
+          en: "Privacy Details",
+          de: "Details zum Datenschutz",
+          fr: "D\u00e9tails de confidentialit\u00e9",
+          it: "Dettagli sulla privacy",
+          es: "Detalles de privacidad",
+          nl: "Privacy gegevens",
           bg: "\u0414\u0435\u0442\u0430\u0439\u043b\u0438 \u0437\u0430 \u043f\u043e\u0432\u0435\u0440\u0438\u0442\u0435\u043b\u043d\u043e\u0441\u0442",
           da: "Privatlivsdetail",
           ru: "\u0421\u0432\u0435\u0434\u0435\u043d\u0438\u044f \u043e \u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438",
@@ -411,24 +412,24 @@ var cliConfig = {
           pt: "Detalhes de privacidade",
           ca: "Detalls de privadesa",
           hu: "Adatv\u00e9delmi r\u00e9szletek",
-          sv: "Sekretessinformation",
+          se: "Sekretessinformation",
           cr: "Pojedinosti o privatnosti",
           zh: "\u9690\u79c1\u8be6\u60c5",
           uk: "\u0414\u0435\u0442\u0430\u043b\u0456 \u043a\u043e\u043d\u0444\u0456\u0434\u0435\u043d\u0446\u0456\u0439\u043d\u043e\u0441\u0442\u0456",
           sk: "Detaily o ochrane osobn\u00fdch \u00fadajov",
-          tr: "Gizlilik Ayr\u0131nt\u0131lar\u0131",
+          ts: "Gizlilik Ayr\u0131nt\u0131lar\u0131",
           lt: "Informacija apie privatum\u0105",
           cs: "Podrobnosti o ochran\u011b osobn\u00edch \u00fadaj\u016f",
           fi: "Yksityisyyden yksityiskohdat",
           no: "Personverndetaljer",
-          "pt-br": "Detalhes de privacidade",
+          br: "Detalhes de privacidade",
           sl: "Podrobnosti o zasebnosti",
-          ro: "Set\u0103ri cookie",
-          th: "\u0e01\u0e32\u0e23\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49",
         },
         buttons: {
           accept: {
             en: "Accept All",
+            de: "Alle akzeptieren",
+            fr: "Accepter tout",
             it: "Accettare tutto",
             es: "Aceptar todo",
             nl: "Accepteer alles",
@@ -440,26 +441,26 @@ var cliConfig = {
             pt: "Aceite tudo",
             ca: "Accepta-ho tot",
             hu: "Az \u00f6sszes elfogad\u00e1sa",
-            sv: "Acceptera alla",
+            se: "Acceptera alla",
             cr: "Prihvatiti sve",
             zh: "\u63a5\u53d7\u6240\u6709\u7684",
             uk: "\u041f\u0440\u0438\u0439\u043d\u044f\u0442\u0438 \u0432\u0441\u0456\u0445",
             sk: "Prija\u0165 v\u0161etko",
-            tr: "Accept All",
+            ts: "Accept All",
             lt: "Priimti visk\u0105",
             cs: "P\u0159ijmout v\u0161e",
             fi: "Hyv\u00e4ksy kaikki",
             no: "Aksepter alt",
-            "pt-br": "Aceitar tudo",
+            br: "Aceitar tudo",
             sl: "Sprejmi vse",
-            ro: "Acceptare toate",
-            th: "\u0e22\u0e2d\u0e21\u0e23\u0e31\u0e1a\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
           },
           reject: {
             en: "Reject All",
-            it: "Rifiuta tutto",
-            es: "Rechazar todo",
-            nl: "Alles afwijzen",
+            de: "Ablehnen",
+            fr: "Rejeter",
+            it: "Rifiutare",
+            es: "Rechazar",
+            nl: "Rfwijzen",
             bg: "\u041e\u0442\u0445\u0432\u044a\u0440\u043b\u044f\u043d\u0435",
             da: "Afvise",
             ru: "\u043e\u0442\u043a\u043b\u043e\u043d\u044f\u0442\u044c",
@@ -468,23 +469,23 @@ var cliConfig = {
             pt: "Rejeitar",
             ca: "Rebutjar",
             hu: "Elutas\u00edt",
-            sv: "Avvisa",
+            se: "Avvisa",
             cr: "Odbiti",
             zh: "\u62d2\u7edd",
             uk: "\u0412\u0456\u0434\u0445\u0438\u043b\u0438\u0442\u0438",
             sk: "Odmietnu\u0165",
-            tr: "Reddetmek",
+            ts: "Reddetmek",
             lt: "Atmesti",
             cs: "Odm\u00edtnout",
             fi: "Hyl\u00e4t\u00e4",
             no: "Avvis",
-            "pt-br": "Rejeitar",
+            br: "Rejeitar",
             sl: "Zavrne",
-            ro: "Refuzare toate",
-            th: "\u0e1b\u0e0f\u0e34\u0e40\u0e2a\u0e18\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
           },
           settings: {
             en: "Preferences",
+            de: "Einstellungen",
+            fr: "R\u00e9glages",
             it: "Preferenze",
             es: "Preferencias",
             nl: "voorkeuren",
@@ -496,23 +497,23 @@ var cliConfig = {
             pt: "Prefer\u00eancias",
             ca: "Prefer\u00e8ncies",
             hu: "preferenci\u00e1k",
-            sv: "Inst\u00e4llningar",
+            se: "Inst\u00e4llningar",
             cr: "Postavke",
             zh: "\u4f18\u5148",
             uk: "\u041f\u0440\u0435\u0444\u0435\u0440\u0435\u043d\u0446\u0456\u0457",
             sk: "Predvo\u013eby",
-            tr: "Tercihler",
+            ts: "Tercihler",
             lt: "Nuostatos",
             cs: "P\u0159edvolby",
             fi: "Asetukset",
             no: "Preferanser",
-            "pt-br": "Prefer\u00eancias",
+            br: "Prefer\u00eancias",
             sl: "Nastavitve",
-            ro: "Preferin\u021be",
-            th: "\u0e01\u0e32\u0e23\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32",
           },
           readMore: {
             en: "Read More",
+            de: "Weiterlesen",
+            fr: "Lire la suite",
             it: "Leggi di pi\u00f9",
             es: "Lee mas",
             nl: "Lees verder",
@@ -524,25 +525,25 @@ var cliConfig = {
             pt: "consulte Mais informa\u00e7\u00e3o",
             ca: "Llegeix m\u00e9s",
             hu: "Olvass tov\u00e1bb",
-            sv: "L\u00e4s mer",
+            se: "L\u00e4s mer",
             cr: "\u010citaj vi\u0161e",
             zh: "\u9605\u8bfb\u66f4\u591a",
             uk: "\u0427\u0438\u0442\u0430\u0442\u0438 \u0434\u0430\u043b\u0456",
             sk: "\u010c\u00edtaj viac",
-            tr: "Daha fazla oku",
+            ts: "Daha fazla oku",
             lt: "Skaityti daugiau",
             cs: "P\u0159e\u010dt\u011bte si v\u00edce",
             fi: "Lue lis\u00e4\u00e4",
             no: "Les mer",
-            "pt-br": "Leia Mais",
+            br: "Leia Mais",
             sl: "Preberite ve\u010d",
-            ro: "Afla\u021bi mai multe",
-            th: "\u0e2d\u0e48\u0e32\u0e19\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21",
           },
         },
         auditTable: {
           cookie: {
             en: "Cookie",
+            de: "Cookie",
+            fr: "Cookie",
             it: "Cookie",
             es: "Cookie",
             nl: "Cookie",
@@ -554,23 +555,23 @@ var cliConfig = {
             pt: "Cookie",
             ca: "Cookie",
             hu: "Cookie",
-            sv: "Cookie",
+            se: "Cookie",
             cr: "Kola\u010di\u0107",
             zh: "Cookie",
             uk: "Cookie",
             sk: "Cookie",
-            tr: "Cookie",
+            ts: "Cookie",
             lt: "Cookie",
             cs: "Cookie",
             fi: "Ev\u00e4ste",
             no: "Cookie",
-            "pt-br": "Cookie",
+            br: "Cookie",
             sl: "Pi\u0161kotek",
-            ro: "Cookie",
-            th: "\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49",
           },
           type: {
             en: "Type",
+            de: "Art",
+            fr: "Type",
             it: "genere",
             es: "tipo",
             nl: "Type",
@@ -582,23 +583,23 @@ var cliConfig = {
             pt: "Tipo",
             ca: "Tipus",
             hu: "T\u00edpus",
-            sv: "Typ",
+            se: "Typ",
             cr: "Tip",
             zh: "\u7c7b\u578b",
             uk: "\u0422\u0438\u043f",
             sk: "Typ",
-            tr: "Type",
+            ts: "Type",
             lt: "Tipas",
             cs: "Typ",
             fi: "Tyyppi",
             no: "Type",
-            "pt-br": "Tipo",
+            br: "Tipo",
             sl: "Vrsta",
-            ro: "Tip",
-            th: "\u0e1b\u0e23\u0e30\u0e40\u0e20\u0e17",
           },
           duration: {
             en: "Duration",
+            de: "Dauer",
+            fr: "dur\u00e9e",
             it: "Durata",
             es: "Duraci\u00f3n",
             nl: "Looptijd",
@@ -610,23 +611,23 @@ var cliConfig = {
             pt: "Dura\u00e7\u00e3o",
             ca: "Durada",
             hu: "Id\u0151tartam",
-            sv: "Varaktighet",
+            se: "Varaktighet",
             cr: "Trajanje",
             zh: "\u671f\u95f4",
             uk: "\u0422\u0440\u0438\u0432\u0430\u043b\u0456\u0441\u0442\u044c",
             sk: "Trvanie",
-            tr: "S\u00fcresi",
+            ts: "S\u00fcresi",
             lt: "Trukm\u0117",
             cs: "Doba trv\u00e1n\u00ed",
             fi: "Kesto",
             no: "Varighet",
-            "pt-br": "Dura\u00e7\u00e3o",
+            br: "Dura\u00e7\u00e3o",
             sl: "Trajanje",
-            ro: "Durat\u0103",
-            th: "\u0e23\u0e30\u0e22\u0e30\u0e40\u0e27\u0e25\u0e32",
           },
           description: {
             en: "Description",
+            de: "Beschreibung",
+            fr: "la description",
             it: "descrizione",
             es: "Descripci\u00f3n",
             nl: "Beschrijving",
@@ -638,24 +639,24 @@ var cliConfig = {
             pt: "Descri\u00e7\u00e3o",
             ca: "Descripci\u00f3",
             hu: "Le\u00edr\u00e1s",
-            sv: "Beskrivning",
+            se: "Beskrivning",
             cr: "Opis",
             zh: "\u63cf\u8ff0",
             uk: "\u041e\u043f\u0438\u0441",
             sk: "Popis",
-            tr: "A\u00e7\u0131klama",
+            ts: "A\u00e7\u0131klama",
             lt: "apib\u016bdinimas",
             cs: "Popis",
             fi: "Kuvaus",
             no: "Beskrivelse",
-            "pt-br": "Descri\u00e7\u00e3o",
+            br: "Descri\u00e7\u00e3o",
             sl: "Opis",
-            ro: "Descriere",
-            th: "\u0e23\u0e32\u0e22\u0e25\u0e30\u0e40\u0e2d\u0e35\u0e22\u0e14",
           },
         },
         privacyPolicyLink: {
           en: "#",
+          de: "#",
+          fr: "#",
           it: "#",
           es: "#",
           nl: "#",
@@ -667,23 +668,23 @@ var cliConfig = {
           pt: "#",
           ca: "#",
           hu: "#",
-          sv: "#",
+          se: "#",
           cr: "#",
           zh: "#",
           uk: "#",
           sk: "#",
-          tr: "#",
+          ts: "#",
           lt: "#",
           cs: "#",
           fi: "#",
           no: "#",
-          "pt-br": "#",
+          br: "#",
           sl: "#",
-          ro: "#",
-          th: "#",
         },
         placeHolderText: {
           en: "Please accept the cookie consent",
+          de: "Bitte akzeptieren Sie die Cookie-Zustimmung",
+          fr: "Veuillez accepter le consentement des cookies",
           it: "Accetta il consenso sui cookie",
           es: "Por favor, acepte el consentimiento de cookies",
           nl: "Accepteer de cookietoestemming",
@@ -695,20 +696,18 @@ var cliConfig = {
           pt: "Por favor, aceite o consentimento do cookie",
           ca: "Si us plau, accepti el consentiment de la galeta",
           hu: "K\u00e9rj\u00fck, fogadja el a cookie-k beleegyez\u00e9s\u00e9t",
-          sv: "Acceptera cookies samtycke",
+          se: "Acceptera cookies samtycke",
           cr: "Prihvatite pristanak za kola\u010di\u0107e",
           zh: "\u8bf7\u63a5\u53d7Cookie\u540c\u610f",
           uk: "\u041f\u0440\u0438\u0439\u043c\u0456\u0442\u044c \u0437\u0433\u043e\u0434\u0443 \u043d\u0430 \u0432\u0438\u043a\u043e\u0440\u0438\u0441\u0442\u0430\u043d\u043d\u044f \u0444\u0430\u0439\u043b\u0456\u0432 cookie",
           sk: "Prijmite s\u00fahlas so s\u00faborom cookie",
-          tr: "L\u00fctfen \u00e7erez onay\u0131n\u0131 kabul edin",
+          ts: "L\u00fctfen \u00e7erez onay\u0131n\u0131 kabul edin",
           lt: "Pra\u0161ome sutikti su slapuko sutikimu",
           cs: "P\u0159ijm\u011bte pros\u00edm souhlas se soubory cookie",
           fi: "Hyv\u00e4ksy ev\u00e4steen suostumus",
           no: "Godta samtykke fra informasjonskapsel",
-          "pt-br": "Por favor, aceite o consentimento do cookie",
+          br: "Por favor, aceite o consentimento do cookie",
           sl: "Prosimo, sprejmite soglasje za pi\u0161kotek",
-          ro: "V\u0103 rug\u0103m s\u0103 accepta\u021bi consim\u021b\u0103m\u00e2ntul pentru cookie-uri",
-          th: "\u0e42\u0e1b\u0e23\u0e14\u0e22\u0e34\u0e19\u0e22\u0e2d\u0e21\u0e43\u0e2b\u0e49\u0e43\u0e0a\u0e49\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49",
         },
         customLogoUrl: null,
       },
@@ -719,7 +718,7 @@ var cliConfig = {
         title: false,
         buttons: {
           accept: true,
-          reject: false,
+          reject: true,
           settings: true,
           readMore: false,
         },
@@ -734,12 +733,14 @@ var cliConfig = {
       showAuditTable: true,
       selectedLanguage: "en",
     },
-    tldomain: "jithinmozilor.github.io",
+    tldomain: "www.mozilor.com",
   },
   info: {
     privacyPolicy: {
       title: {
         en: "Privacy Policy",
+        de: "Datenschutz-Bestimmungen",
+        fr: "Politique de confidentialit\u00e9",
         it: "politica sulla riservatezza",
         es: "Pol\u00edtica de privacidad",
         nl: "Privacybeleid",
@@ -751,23 +752,23 @@ var cliConfig = {
         pt: "Pol\u00edtica de Privacidade",
         ca: "Pol\u00edtica de privacitat",
         hu: "Pol\u00edtica de Privacidade",
-        sv: "Pol\u00edtica de privacitat",
+        se: "Pol\u00edtica de privacitat",
         cr: "Pravila o privatnostiy",
         zh: "Privacy Policy",
         uk: "\u041f\u043e\u043b\u0456\u0442\u0438\u043a\u0430 \u043a\u043e\u043d\u0444\u0456\u0434\u0435\u043d\u0446\u0456\u0439\u043d\u043e\u0441\u0442\u0456",
         sk: "Privacy Policy",
-        tr: "Gizlilik Politikas\u0131",
+        ts: "Gizlilik Politikas\u0131",
         lt: "Privatumo politika",
         cs: "Z\u00e1sady ochrany osobn\u00edch \u00fadaj\u016f",
         fi: "Tietosuojak\u00e4yt\u00e4nt\u00f6",
         no: "Personvernregler",
-        "pt-br": "Pol\u00edtica de Privacidade",
+        br: "Pol\u00edtica de Privacidade",
         sl: "Pravilnik o zasebnosti",
-        ro: "Politica de confiden\u021bialitate",
-        th: "\u0e19\u0e42\u0e22\u0e1a\u0e32\u0e22\u0e04\u0e27\u0e32\u0e21\u0e40\u0e1b\u0e47\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27",
       },
       text: {
         en: "<p>This website uses cookies to improve your experience while you navigate through the website. Out of these cookies, the cookies that are categorized as necessary are stored on your browser as they as essential for the working of basic functionalities of the website. </p><p>We also use third-party cookies that help us analyze and understand how you use this website, to store user preferences and provide them with content and advertisements that are relevant to you. These cookies will only be stored on your browser with your consent to do so. You also have the option to opt-out of these cookies.But opting out of some of these cookies may have an effect on your browsing experience.</p>",
+        de: "<p>Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern, w\u00e4hrend Sie durch die Website navigieren. Von diesen Cookies werden die nach Bedarf kategorisierten Cookies in Ihrem Browser gespeichert, da sie f\u00fcr das Funktionieren der Grundfunktionen der Website von wesentlicher Bedeutung sind.</p><p>Wir verwenden auch Cookies von Drittanbietern, mit denen wir analysieren und nachvollziehen k\u00f6nnen, wie Sie diese Website nutzen, um Benutzereinstellungen zu speichern und ihnen f\u00fcr Sie relevante Inhalte und Anzeigen bereitzustellen.</p><p>Diese Cookies werden nur mit Ihrer Zustimmung in Ihrem Browser gespeichert. Sie haben auch die M\u00f6glichkeit, diese Cookies zu deaktivieren. Das Deaktivieren einiger dieser Cookies kann sich jedoch auf Ihr Surferlebnis auswirken.</p>",
+        fr: "<p>Ce site utilise des cookies pour am\u00e9liorer votre exp\u00e9rience de navigation sur le site. Hors de ces cookies, les cookies class\u00e9s comme n\u00e9cessaires sont stock\u00e9s dans votre navigateur car ils sont essentiels au fonctionnement des fonctionnalit\u00e9s de base du site. Nous utilisons \u00e9galement des cookies tiers qui nous aident \u00e0 analyser et \u00e0 comprendre comment vous utilisez ce site Web, \u00e0 stocker les pr\u00e9f\u00e9rences de l'utilisateur et \u00e0 lui fournir un contenu et des publicit\u00e9s pertinents pour vous.</p><p>Ces cookies ne seront stock\u00e9s sur votre navigateur qu'avec votre consentement.Vous avez \u00e9galement la possibilit\u00e9 de d\u00e9sactiver ces cookies.Toutefois, la d\u00e9sactivation de certains de ces cookies peut avoir une incidence sur votre exp\u00e9rience de navigation.</p>",
         it: "<p>Questo sito Web utilizza i cookie per migliorare la tua esperienza durante la navigazione nel sito Web. Di questi cookie, i cookie classificati come necessari vengono memorizzati nel browser in quanto essenziali per il funzionamento delle funzionalit\u00e0 di base del sito Web. Utilizziamo anche cookie di terze parti che ci aiutano ad analizzare e comprendere come utilizzi questo sito Web, per memorizzare le preferenze degli utenti e fornire loro contenuti e pubblicit\u00e0 pertinenti per te.</p><p>Questi cookie verranno memorizzati sul tuo browser solo con il tuo consenso. Hai anche la possibilit\u00e0 di disattivare questi cookie. La disattivazione di alcuni di questi cookie pu\u00f2 influire sulla tua esperienza di navigazione.</p>",
         es: "<p>Este sitio web utiliza cookies para mejorar su experiencia mientras navega por el sitio web. Fuera de estas cookies, las cookies que se clasifican como necesarias se almacenan en su navegador, ya que son esenciales para el funcionamiento de las funcionalidades b\u00e1sicas del sitio web. Tambi\u00e9n utilizamos cookies de terceros que nos ayudan a analizar y comprender c\u00f3mo utiliza este sitio web para almacenar las preferencias de los usuarios y proporcionarles contenido y anuncios que sean relevantes para usted.</p><p>Estas cookies solo se almacenar\u00e1n en su navegador con su consentimiento para hacerlo. Tambi\u00e9n tiene la opci\u00f3n de optar por no recibir estas cookies. Sin embargo, la exclusi\u00f3n de algunas de estas cookies puede afectar su experiencia de navegaci\u00f3n.</p>",
         nl: "<p>Deze website maakt gebruik van cookies om uw ervaring te verbeteren terwijl u door de website navigeert. Van deze cookies worden de cookies die als noodzakelijk zijn gecategoriseerd, in uw browser opgeslagen omdat ze essentieel zijn voor de werking van de basisfuncties van de website. We gebruiken ook cookies van derden die ons helpen analyseren en begrijpen hoe u deze website gebruikt, om gebruikersvoorkeuren op te slaan en hen te voorzien van inhoud en advertenties die voor u relevant zijn.</p><p>Deze cookies worden alleen in uw browser opgeslagen met uw toestemming om dit te doen. U hebt ook de optie om u af te melden voor deze cookies.</p><p>Het afmelden voor sommige van deze cookies kan echter een effect hebben op uw browse-ervaring.</p>",
@@ -779,28 +780,27 @@ var cliConfig = {
         pt: "<p>Este site usa cookies para melhorar sua experi\u00eancia enquanto voc\u00ea navega pelo site. Destes cookies, os cookies que s\u00e3o categorizados como necess\u00e1rios s\u00e3o armazenados no seu navegador, pois s\u00e3o essenciais para o funcionamento das funcionalidades b\u00e1sicas do site.</p><p>Tamb\u00e9m usamos cookies de terceiros que nos ajudam a analisar e entender como voc\u00ea usa este site, para armazenar as prefer\u00eancias do usu\u00e1rio e fornecer-lhes conte\u00fado e an\u00fancios relevantes para voc\u00ea. Esses cookies s\u00f3 ser\u00e3o armazenados em seu navegador com o seu consentimento para faz\u00ea-lo. Voc\u00ea tamb\u00e9m tem a op\u00e7\u00e3o de cancelar o recebimento desses cookies. Mas o cancelamento de alguns desses cookies pode afetar sua experi\u00eancia de navega\u00e7\u00e3o.</p>",
         ca: "<p>Aquest lloc web utilitza cookies per millorar la vostra experi\u00e8ncia mentre navegueu pel lloc web. D\u2019aquestes cookies, les cookies que es classifiquen com a necess\u00e0ries s\u2019emmagatzemen al vostre navegador, ja que s\u00f3n essencials per al funcionament de les funcionalitats b\u00e0siques del lloc web.</p><p>Tamb\u00e9 fem servir cookies de tercers que ens ajuden a analitzar i entendre com utilitzeu aquest lloc web, per emmagatzemar les prefer\u00e8ncies dels usuaris i proporcionar-los contingut i anuncis que siguin rellevants per a vosaltres. Aquestes cookies nom\u00e9s s\u2019emmagatzemaran al vostre navegador amb el vostre consentiment. Tamb\u00e9 teniu l\u2019opci\u00f3 de desactivar aquestes cookies, per\u00f2 desactivar algunes d\u2019aquestes cookies pot afectar la vostra experi\u00e8ncia de navegaci\u00f3.</p>",
         hu: "<p>Ez a weboldal s\u00fctiket haszn\u00e1l az \u00d6n \u00e9lm\u00e9ny\u00e9nek jav\u00edt\u00e1sa \u00e9rdek\u00e9ben, mik\u00f6zben \u00d6n a webhelyen navig\u00e1l. Ezen cookie-k k\u00f6z\u00fcl a sz\u00fcks\u00e9g szerint kategoriz\u00e1lt s\u00fctiket az \u00d6n b\u00f6ng\u00e9sz\u0151je t\u00e1rolja, mivel elengedhetetlenek a weboldal alapvet\u0151 funkci\u00f3inak m\u0171k\u00f6d\u00e9s\u00e9hez.</p><p>Harmadik f\u00e9lt\u0151l sz\u00e1rmaz\u00f3 s\u00fctiket is haszn\u00e1lunk, amelyek seg\u00edtenek elemezni \u00e9s meg\u00e9rteni, hogyan haszn\u00e1lja ezt a weboldalt, a felhaszn\u00e1l\u00f3i preferenci\u00e1k t\u00e1rol\u00e1s\u00e1hoz, valamint az \u00d6n sz\u00e1m\u00e1ra relev\u00e1ns tartalom \u00e9s hirdet\u00e9sek biztos\u00edt\u00e1s\u00e1hoz. Ezeket a s\u00fctiket csak az \u00d6n b\u00f6ng\u00e9sz\u0151j\u00e9ben t\u00e1roljuk az \u00d6n beleegyez\u00e9s\u00e9vel. \u00d6nnek lehet\u0151s\u00e9ge van ezekr\u0151l a s\u00fctikr\u0151l is lemondani. De ezeknek a s\u00fctiknek a kikapcsol\u00e1sa hat\u00e1ssal lehet a b\u00f6ng\u00e9sz\u00e9si \u00e9lm\u00e9ny\u00e9re.</p>",
-        sv: "<p>Denna webbplats anv\u00e4nder cookies f\u00f6r att f\u00f6rb\u00e4ttra din upplevelse medan du navigerar genom webbplatsen. Av dessa cookies lagras de cookies som kategoriseras som n\u00f6dv\u00e4ndiga i din webbl\u00e4sare eftersom de \u00e4r v\u00e4sentliga f\u00f6r att de grundl\u00e4ggande funktionerna p\u00e5 webbplatsen ska fungera.</p><p>Vi anv\u00e4nder ocks\u00e5 cookies fr\u00e5n tredje part som hj\u00e4lper oss att analysera och f\u00f6rst\u00e5 hur du anv\u00e4nder denna webbplats, f\u00f6r att lagra anv\u00e4ndarinst\u00e4llningar och f\u00f6rse dem med inneh\u00e5ll och annonser som \u00e4r relevanta f\u00f6r dig. Dessa cookies lagras endast i din webbl\u00e4sare med ditt samtycke till att g\u00f6ra det. Du har ocks\u00e5 m\u00f6jlighet att v\u00e4lja bort dessa cookies. Men att v\u00e4lja bort vissa av dessa cookies kan ha en inverkan p\u00e5 din surfupplevelse.</p>",
+        se: "<p>Denna webbplats anv\u00e4nder cookies f\u00f6r att f\u00f6rb\u00e4ttra din upplevelse medan du navigerar genom webbplatsen. Av dessa cookies lagras de cookies som kategoriseras som n\u00f6dv\u00e4ndiga i din webbl\u00e4sare eftersom de \u00e4r v\u00e4sentliga f\u00f6r att de grundl\u00e4ggande funktionerna p\u00e5 webbplatsen ska fungera.</p><p>Vi anv\u00e4nder ocks\u00e5 cookies fr\u00e5n tredje part som hj\u00e4lper oss att analysera och f\u00f6rst\u00e5 hur du anv\u00e4nder denna webbplats, f\u00f6r att lagra anv\u00e4ndarinst\u00e4llningar och f\u00f6rse dem med inneh\u00e5ll och annonser som \u00e4r relevanta f\u00f6r dig. Dessa cookies lagras endast i din webbl\u00e4sare med ditt samtycke till att g\u00f6ra det. Du har ocks\u00e5 m\u00f6jlighet att v\u00e4lja bort dessa cookies. Men att v\u00e4lja bort vissa av dessa cookies kan ha en inverkan p\u00e5 din surfupplevelse.</p>",
         cr: "<p>Ova web stranica koristi kola\u010di\u0107e za pobolj\u0161anje va\u0161eg iskustva tijekom navigacije web stranicom. Od ovih kola\u010di\u0107a, kola\u010di\u0107i koji su kategorizirani prema potrebi pohranjuju se u va\u0161em pregledniku jer su neophodni za rad osnovnih funkcija web mjesta.</p><p>Tako\u0111er koristimo kola\u010di\u0107e tre\u0107ih strana koji nam poma\u017eu analizirati i razumjeti kako upotrebljavate ovu web stranicu, za pohranu korisni\u010dkih postavki i pru\u017eanje sadr\u017eaja i reklama koji su za vas relevantni. Ovi \u0107e se kola\u010di\u0107i pohraniti u va\u0161 preglednik samo uz va\u0161 pristanak za to. Tako\u0111er imate mogu\u0107nost odjave od ovih kola\u010di\u0107a. Ali isklju\u010divanje nekih od tih kola\u010di\u0107a mo\u017ee utjecati na va\u0161e iskustvo pregledavanja.</p>",
         zh: "<p>\u5f53\u60a8\u6d4f\u89c8\u7f51\u7ad9\u65f6\uff0c\u8be5\u7f51\u7ad9\u4f7f\u7528cookie\u6765\u6539\u5584\u60a8\u7684\u4f53\u9a8c\u3002 \u5728\u8fd9\u4e9bCookie\u4e2d\uff0c\u6839\u636e\u9700\u8981\u5206\u7c7b\u7684Cookie\u4f1a\u5b58\u50a8\u5728\u60a8\u7684\u6d4f\u89c8\u5668\u4e2d\uff0c\u56e0\u4e3a\u5b83\u4eec\u662f\u7f51\u7ad9\u57fa\u672c\u529f\u80fd\u6b63\u5e38\u8fd0\u884c\u6240\u5fc5\u9700\u7684\u3002 </ p> <p>\u6211\u4eec\u8fd8\u4f7f\u7528\u7b2c\u4e09\u65b9cookie\uff0c\u4ee5\u5e2e\u52a9\u6211\u4eec\u5206\u6790\u548c\u4e86\u89e3\u60a8\u5982\u4f55\u4f7f\u7528\u672c\u7f51\u7ad9\uff0c\u5b58\u50a8\u7528\u6237\u504f\u597d\u5e76\u4e3a\u4ed6\u4eec\u63d0\u4f9b\u4e0e\u60a8\u76f8\u5173\u7684\u5185\u5bb9\u548c\u5e7f\u544a\u3002 \u8fd9\u4e9bCookie\u4ec5\u5728\u60a8\u540c\u610f\u7684\u60c5\u51b5\u4e0b\u5b58\u50a8\u5728\u6d4f\u89c8\u5668\u4e2d\u3002 \u60a8\u8fd8\u53ef\u4ee5\u9009\u62e9\u4e0d\u4f7f\u7528\u8fd9\u4e9bcookie\u3002\u4f46\u662f\uff0c\u9009\u62e9\u4e0d\u4f7f\u7528\u5176\u4e2d\u7684\u4e00\u4e9bcookie\u53ef\u80fd\u4f1a\u5f71\u54cd\u60a8\u7684\u6d4f\u89c8\u4f53\u9a8c\u3002</ p>",
         uk: "<p>\u0426\u0435\u0439 \u0432\u0435\u0431-\u0441\u0430\u0439\u0442 \u0432\u0438\u043a\u043e\u0440\u0438\u0441\u0442\u043e\u0432\u0443\u0454 \u0444\u0430\u0439\u043b\u0438 cookie \u0434\u043b\u044f \u043f\u043e\u043a\u0440\u0430\u0449\u0435\u043d\u043d\u044f \u0432\u0430\u0448\u043e\u0433\u043e \u0434\u043e\u0441\u0432\u0456\u0434\u0443 \u043f\u0456\u0434 \u0447\u0430\u0441 \u043f\u0435\u0440\u0435\u0445\u043e\u0434\u0443 \u043f\u043e \u0432\u0435\u0431-\u0441\u0430\u0439\u0442\u0443. \u0417 \u0446\u0438\u0445 \u0444\u0430\u0439\u043b\u0456\u0432 cookie \u0444\u0430\u0439\u043b\u0438 cookie, \u043a\u043b\u0430\u0441\u0438\u0444\u0456\u043a\u043e\u0432\u0430\u043d\u0456 \u0437\u0430 \u043d\u0435\u043e\u0431\u0445\u0456\u0434\u043d\u0456\u0441\u0442\u044e, \u0437\u0431\u0435\u0440\u0456\u0433\u0430\u044e\u0442\u044c\u0441\u044f \u0443 \u0432\u0430\u0448\u043e\u043c\u0443 \u0431\u0440\u0430\u0443\u0437\u0435\u0440\u0456, \u043e\u0441\u043a\u0456\u043b\u044c\u043a\u0438 \u0432\u043e\u043d\u0438 \u0454 \u0432\u0430\u0436\u043b\u0438\u0432\u0438\u043c\u0438 \u0434\u043b\u044f \u0440\u043e\u0431\u043e\u0442\u0438 \u043e\u0441\u043d\u043e\u0432\u043d\u0438\u0445 \u0444\u0443\u043d\u043a\u0446\u0456\u0439 \u0432\u0435\u0431-\u0441\u0430\u0439\u0442\u0443. </p><p>\u041c\u0438 \u0442\u0430\u043a\u043e\u0436 \u0432\u0438\u043a\u043e\u0440\u0438\u0441\u0442\u043e\u0432\u0443\u0454\u043c\u043e \u0441\u0442\u043e\u0440\u043e\u043d\u043d\u0456 \u0444\u0430\u0439\u043b\u0438 cookie, \u044f\u043a\u0456 \u0434\u043e\u043f\u043e\u043c\u0430\u0433\u0430\u044e\u0442\u044c \u043d\u0430\u043c \u0430\u043d\u0430\u043b\u0456\u0437\u0443\u0432\u0430\u0442\u0438 \u0442\u0430 \u0440\u043e\u0437\u0443\u043c\u0456\u0442\u0438, \u044f\u043a \u0432\u0438 \u0432\u0438\u043a\u043e\u0440\u0438\u0441\u0442\u043e\u0432\u0443\u0454\u0442\u0435 \u0446\u0435\u0439 \u0432\u0435\u0431-\u0441\u0430\u0439\u0442, \u0434\u043b\u044f \u0437\u0431\u0435\u0440\u0456\u0433\u0430\u043d\u043d\u044f \u043d\u0430\u043b\u0430\u0448\u0442\u0443\u0432\u0430\u043d\u044c \u043a\u043e\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0447\u0456\u0432 \u0442\u0430 \u043d\u0430\u0434\u0430\u043d\u043d\u044f \u0457\u043c \u0432\u0456\u0434\u043f\u043e\u0432\u0456\u0434\u043d\u043e\u0433\u043e \u0434\u043b\u044f \u0432\u0430\u0441 \u0432\u043c\u0456\u0441\u0442\u0443 \u0442\u0430 \u0440\u0435\u043a\u043b\u0430\u043c\u0438. \u0426\u0456 \u0444\u0430\u0439\u043b\u0438 cookie \u0437\u0431\u0435\u0440\u0456\u0433\u0430\u0442\u0438\u043c\u0443\u0442\u044c\u0441\u044f \u0443 \u0432\u0430\u0448\u043e\u043c\u0443 \u0431\u0440\u0430\u0443\u0437\u0435\u0440\u0456 \u043b\u0438\u0448\u0435 \u0437 \u0432\u0430\u0448\u043e\u0457 \u0437\u0433\u043e\u0434\u0438 \u043d\u0430 \u0446\u0435. \u0412\u0438 \u0442\u0430\u043a\u043e\u0436 \u043c\u043e\u0436\u0435\u0442\u0435 \u0432\u0456\u0434\u043c\u043e\u0432\u0438\u0442\u0438\u0441\u044c \u0432\u0456\u0434 \u0432\u0438\u043a\u043e\u0440\u0438\u0441\u0442\u0430\u043d\u043d\u044f \u0446\u0438\u0445 \u0444\u0430\u0439\u043b\u0456\u0432 cookie, \u0430\u043b\u0435 \u0432\u0456\u0434\u043c\u043e\u0432\u0430 \u0432\u0456\u0434 \u0432\u0438\u043a\u043e\u0440\u0438\u0441\u0442\u0430\u043d\u043d\u044f \u0446\u0438\u0445 \u0444\u0430\u0439\u043b\u0456\u0432 cookie \u043c\u043e\u0436\u0435 \u0432\u043f\u043b\u0438\u043d\u0443\u0442\u0438 \u043d\u0430 \u0432\u0430\u0448 \u043f\u0435\u0440\u0435\u0433\u043b\u044f\u0434 \u0432\u0435\u0431-\u0441\u0442\u043e\u0440\u0456\u043d\u043e\u043a.</p>",
         sk: "<p>T\u00e1to webov\u00e1 str\u00e1nka pou\u017e\u00edva s\u00fabory cookie na zlep\u0161enie v\u00e1\u0161ho z\u00e1\u017eitku pri prech\u00e1dzan\u00ed webovou str\u00e1nkou. Z t\u00fdchto s\u00faborov cookie sa vo va\u0161om prehliada\u010di ukladaj\u00fa s\u00fabory cookie, ktor\u00e9 s\u00fa kategorizovan\u00e9 pod\u013ea potreby, preto\u017ee s\u00fa nevyhnutn\u00e9 pre fungovanie z\u00e1kladn\u00fdch funkci\u00ed webovej str\u00e1nky. </p><p>Pou\u017e\u00edvame tie\u017e s\u00fabory cookie tret\u00edch str\u00e1n, ktor\u00e9 n\u00e1m pom\u00e1haj\u00fa analyzova\u0165 a porozumie\u0165 tomu, ako pou\u017e\u00edvate t\u00fato webov\u00fa str\u00e1nku, na ukladanie preferenci\u00ed pou\u017e\u00edvate\u013eov a na poskytovanie obsahu a rekl\u00e1m, ktor\u00e9 s\u00fa pre v\u00e1s relevantn\u00e9. Tieto s\u00fabory cookie sa vo va\u0161om prehliada\u010di ulo\u017eia iba s va\u0161\u00edm s\u00fahlasom. M\u00e1te tie\u017e mo\u017enos\u0165 deaktivova\u0165 tieto s\u00fabory cookie. Deaktiv\u00e1cia niektor\u00fdch z t\u00fdchto s\u00faborov cookie v\u0161ak m\u00f4\u017ee ma\u0165 vplyv na va\u0161u sk\u00fasenos\u0165 s prehliadan\u00edm.</p>",
-        tr: "<p>Bu web sitesi, web sitesinde gezinirken deneyiminizi iyile\u015ftirmek i\u00e7in tan\u0131mlama bilgileri kullan\u0131r. Bu \u00e7erezlerin d\u0131\u015f\u0131nda, gerekli \u015fekilde kategorize edilen \u00e7erezler, web sitesinin temel i\u015flevlerinin \u00e7al\u0131\u015fmas\u0131 i\u00e7in gerekli olduklar\u0131 i\u00e7in taray\u0131c\u0131n\u0131zda saklan\u0131r.</p><p>Ayr\u0131ca, bu web sitesini nas\u0131l kulland\u0131\u011f\u0131n\u0131z\u0131 analiz etmemize ve anlamam\u0131za, kullan\u0131c\u0131 tercihlerini saklamam\u0131za ve onlara sizinle alakal\u0131 i\u00e7erik ve reklamlar sunmam\u0131za yard\u0131mc\u0131 olan \u00fc\u00e7\u00fcnc\u00fc taraf \u00e7erezleri de kullan\u0131yoruz. Bu \u00e7erezler, yaln\u0131zca sizin izninizle taray\u0131c\u0131n\u0131zda saklanacakt\u0131r. Ayr\u0131ca, bu \u00e7erezleri devre d\u0131\u015f\u0131 b\u0131rakma se\u00e7ene\u011finiz de vard\u0131r, ancak bu \u00e7erezlerden baz\u0131lar\u0131n\u0131 devre d\u0131\u015f\u0131 b\u0131rakman\u0131z, tarama deneyiminizi etkileyebilir.</p>",
+        ts: "<p>Bu web sitesi, web sitesinde gezinirken deneyiminizi iyile\u015ftirmek i\u00e7in tan\u0131mlama bilgileri kullan\u0131r. Bu \u00e7erezlerin d\u0131\u015f\u0131nda, gerekli \u015fekilde kategorize edilen \u00e7erezler, web sitesinin temel i\u015flevlerinin \u00e7al\u0131\u015fmas\u0131 i\u00e7in gerekli olduklar\u0131 i\u00e7in taray\u0131c\u0131n\u0131zda saklan\u0131r.</p><p>Ayr\u0131ca, bu web sitesini nas\u0131l kulland\u0131\u011f\u0131n\u0131z\u0131 analiz etmemize ve anlamam\u0131za, kullan\u0131c\u0131 tercihlerini saklamam\u0131za ve onlara sizinle alakal\u0131 i\u00e7erik ve reklamlar sunmam\u0131za yard\u0131mc\u0131 olan \u00fc\u00e7\u00fcnc\u00fc taraf \u00e7erezleri de kullan\u0131yoruz. Bu \u00e7erezler, yaln\u0131zca sizin izninizle taray\u0131c\u0131n\u0131zda saklanacakt\u0131r. Ayr\u0131ca, bu \u00e7erezleri devre d\u0131\u015f\u0131 b\u0131rakma se\u00e7ene\u011finiz de vard\u0131r, ancak bu \u00e7erezlerden baz\u0131lar\u0131n\u0131 devre d\u0131\u015f\u0131 b\u0131rakman\u0131z, tarama deneyiminizi etkileyebilir.</p>",
         lt: "<p>\u0160i svetain\u0117 naudoja slapukus, kad pagerint\u0173 j\u016bs\u0173 patirt\u012f nar\u0161ant svetain\u0117je. I\u0161 \u0161i\u0173 slapuk\u0173 slapukai, kurie yra priskirti reikiamoms kategorijoms, yra saugomi j\u016bs\u0173 nar\u0161ykl\u0117je, nes jie yra b\u016btini norint atlikti pagrindines svetain\u0117s funkcijas. </p><p>Mes taip pat naudojame tre\u010di\u0173j\u0173 \u0161ali\u0173 slapukus, kurie padeda mums i\u0161analizuoti ir suprasti, kaip naudojat\u0117s \u0161ia svetaine, kad i\u0161saugotume vartotoj\u0173 nuostatas ir pateikt\u0173 jums aktual\u0173 turin\u012f ir reklam\u0105. \u0160ie slapukai bus saugomi j\u016bs\u0173 nar\u0161ykl\u0117je tik gavus j\u016bs\u0173 sutikim\u0105. J\u016bs taip pat turite galimyb\u0119 atsisakyti \u0161i\u0173 slapuk\u0173. Ta\u010diau atsisakymas kai kuri\u0173 i\u0161 \u0161i\u0173 slapuk\u0173 gali tur\u0117ti \u012ftakos j\u016bs\u0173 nar\u0161ymo patir\u010diai.</p>",
         cs: "<p>Tento web pou\u017e\u00edv\u00e1 soubory cookie k vylep\u0161en\u00ed va\u0161eho z\u00e1\u017eitku p\u0159i proch\u00e1zen\u00ed webem. Z t\u011bchto soubor\u016f cookie jsou soubory cookie, kter\u00e9 jsou podle pot\u0159eby kategorizov\u00e1ny, ulo\u017eeny ve va\u0161em prohl\u00ed\u017ee\u010di, proto\u017ee jsou nezbytn\u00e9 pro fungov\u00e1n\u00ed z\u00e1kladn\u00edch funkc\u00ed webu. </p> <p> Pou\u017e\u00edv\u00e1me tak\u00e9 soubory cookie t\u0159et\u00edch stran, kter\u00e9 n\u00e1m pom\u00e1haj\u00ed analyzovat a porozum\u011bt tomu, jak pou\u017e\u00edv\u00e1te tento web, abychom ukl\u00e1dali preference u\u017eivatel\u016f a poskytovali jim obsah a reklamy, kter\u00e9 jsou pro v\u00e1s relevantn\u00ed. Tyto cookies budou ulo\u017eeny ve va\u0161em prohl\u00ed\u017ee\u010di pouze s va\u0161\u00edm souhlasem. M\u00e1te tak\u00e9 mo\u017enost se z t\u011bchto soubor\u016f cookie odhl\u00e1sit. Odhl\u00e1\u0161en\u00ed z n\u011bkter\u00fdch z t\u011bchto soubor\u016f cookie v\u0161ak m\u016f\u017ee m\u00edt vliv na va\u0161e proch\u00e1zen\u00ed.</p>",
         fi: "<p>T\u00e4m\u00e4 verkkosivusto k\u00e4ytt\u00e4\u00e4 ev\u00e4steit\u00e4 k\u00e4ytt\u00f6kokemuksen parantamiseen selatessasi verkkosivustoa. N\u00e4ist\u00e4 ev\u00e4steist\u00e4 tarpeelliseksi luokitellut ev\u00e4steet tallennetaan selaimeesi, koska ne ovat v\u00e4ltt\u00e4m\u00e4tt\u00f6mi\u00e4 verkkosivuston perustoimintojen toiminnalle. </p><p>K\u00e4yt\u00e4mme my\u00f6s kolmansien osapuolten ev\u00e4steit\u00e4, jotka auttavat meit\u00e4 analysoimaan ja ymm\u00e4rt\u00e4m\u00e4\u00e4n, miten k\u00e4yt\u00e4t t\u00e4t\u00e4 verkkosivustoa, tallentamaan k\u00e4ytt\u00e4jien mieltymykset ja tarjoamaan heille sinulle merkityksellist\u00e4 sis\u00e4lt\u00f6\u00e4 ja mainoksia. N\u00e4m\u00e4 ev\u00e4steet tallennetaan selaimeesi vain suostumuksellasi siihen. Sinulla on my\u00f6s mahdollisuus kielt\u00e4yty\u00e4 n\u00e4ist\u00e4 ev\u00e4steist\u00e4, mutta joistakin n\u00e4ist\u00e4 ev\u00e4steist\u00e4 poistaminen voi vaikuttaa selauskokemukseesi.</p>",
         no: "<p>Dette nettstedet bruker informasjonskapsler for \u00e5 forbedre opplevelsen din mens du navigerer gjennom nettstedet. Ut av disse informasjonskapslene lagres informasjonskapslene som er kategorisert som n\u00f8dvendige i nettleseren din, da de er avgj\u00f8rende for \u00e5 fungere med grunnleggende funksjoner p\u00e5 nettstedet. </p> <p> Vi bruker ogs\u00e5 tredjeparts informasjonskapsler som hjelper oss med \u00e5 analysere og forst\u00e5 hvordan du bruker dette nettstedet, for \u00e5 lagre brukerinnstillinger og gi dem innhold og annonser som er relevante for deg. Disse informasjonskapslene lagres bare i nettleseren din med ditt samtykke til \u00e5 gj\u00f8re det. Du har ogs\u00e5 muligheten til \u00e5 velge bort disse informasjonskapslene, men \u00e5 velge bort noen av disse informasjonskapslene kan ha en innvirkning p\u00e5 nettleseropplevelsen din.</p>",
-        "pt-br":
-          "<p>Este site usa cookies para melhorar sua experi\u00eancia enquanto voc\u00ea navega pelo site. Desses cookies, os cookies categorizados conforme necess\u00e1rio s\u00e3o armazenados no seu navegador, pois s\u00e3o essenciais para o funcionamento das funcionalidades b\u00e1sicas do site. </p><p>Tamb\u00e9m usamos cookies de terceiros que nos ajudam a analisar e entender como voc\u00ea usa este site, para armazenar as prefer\u00eancias do usu\u00e1rio e fornecer-lhes conte\u00fado e an\u00fancios que s\u00e3o relevantes para voc\u00ea. Esses cookies s\u00f3 ser\u00e3o armazenados no seu navegador com o seu consentimento para faz\u00ea-lo. Voc\u00ea tamb\u00e9m tem a op\u00e7\u00e3o de desativar esses cookies. Mas optar por alguns desses cookies pode ter um efeito na sua experi\u00eancia de navega\u00e7\u00e3o.</p>",
+        br: "<p>Este site usa cookies para melhorar sua experi\u00eancia enquanto voc\u00ea navega pelo site. Desses cookies, os cookies categorizados conforme necess\u00e1rio s\u00e3o armazenados no seu navegador, pois s\u00e3o essenciais para o funcionamento das funcionalidades b\u00e1sicas do site. </p><p>Tamb\u00e9m usamos cookies de terceiros que nos ajudam a analisar e entender como voc\u00ea usa este site, para armazenar as prefer\u00eancias do usu\u00e1rio e fornecer-lhes conte\u00fado e an\u00fancios que s\u00e3o relevantes para voc\u00ea. Esses cookies s\u00f3 ser\u00e3o armazenados no seu navegador com o seu consentimento para faz\u00ea-lo. Voc\u00ea tamb\u00e9m tem a op\u00e7\u00e3o de desativar esses cookies. Mas optar por alguns desses cookies pode ter um efeito na sua experi\u00eancia de navega\u00e7\u00e3o.</p>",
         sl: "<p>Ta spletna stran uporablja pi\u0161kotke za izbolj\u0161anje va\u0161e izku\u0161nje med navigacijo po spletni strani. Od teh pi\u0161kotkov so pi\u0161kotki, ki so po potrebi kategorizirani, shranjeni v va\u0161em brskalniku, saj so bistveni za delovanje osnovnih funkcionalnosti spletnega mesta.</p><p>Uporabljamo tudi pi\u0161kotke tretjih oseb, ki nam pomagajo analizirati in razumeti, kako uporabljate to spletno mesto, shranjujemo uporabni\u0161ke nastavitve in jim posredujemo vsebine in oglase, ki so pomembni za vas. Ti pi\u0161kotki bodo shranjeni samo v va\u0161em brskalniku z va\u0161o privolijo, da to storite. Prav tako imate mo\u017enost, da umaknete te pi\u0161kotke. Toda umik iz nekaterih od teh pi\u0161kotkov lahko vpliva na va\u0161o izku\u0161njo brskanja.</p>",
-        ro: "<p>Acest site web folose\u0219te cookie-uri pentru a v\u0103 \u00eembun\u0103t\u0103\u021bi experien\u021ba \u00een timp ce naviga\u021bi pe site. Dintre aceste cookie-uri, cookie-urile clasificate ca fiind necesare sunt stocate \u00een browserul dvs., deoarece sunt esen\u021biale pentru func\u021bionalit\u0103\u021bile de baz\u0103 ale site-ului web.</p><p>De asemenea, folosim module cookie de la ter\u021bi care ne ajut\u0103 s\u0103 analiz\u0103m \u0219i s\u0103 \u00een\u021belegem modul \u00een care utiliza\u021bi acest site web, pentru a stoca preferin\u021bele utilizatorilor \u0219i a le oferi con\u021binut \u0219i reclame relevante pentru dvs. Aceste module cookie vor fi stocate \u00een browser-ul dvs. numai cu acordul dvs. de a face acest lucru. Ave\u021bi, de asemenea, op\u021biunea de a renun\u021ba la aceste cookie-uri, dar renun\u021barea la unele dintre aceste cookie-uri poate avea un efect asupra experien\u021bei dvs. de navigare.</p>",
-        th: "<p>\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c\u0e19\u0e35\u0e49\u0e43\u0e0a\u0e49\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\u0e1b\u0e23\u0e30\u0e2a\u0e1a\u0e01\u0e32\u0e23\u0e13\u0e4c\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13\u0e43\u0e19\u0e02\u0e13\u0e30\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c \u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e40\u0e2b\u0e25\u0e48\u0e32\u0e19\u0e35\u0e49\u0e08\u0e30\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e2b\u0e21\u0e27\u0e14\u0e2b\u0e21\u0e39\u0e48\u0e15\u0e32\u0e21\u0e04\u0e27\u0e32\u0e21\u0e08\u0e33\u0e40\u0e1b\u0e47\u0e19\u0e41\u0e25\u0e49\u0e27\u0e08\u0e31\u0e14\u0e40\u0e01\u0e47\u0e1a\u0e44\u0e27\u0e49\u0e43\u0e19\u0e40\u0e1a\u0e23\u0e32\u0e27\u0e4c\u0e40\u0e0b\u0e2d\u0e23\u0e4c\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13 \u0e40\u0e19\u0e37\u0e48\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e40\u0e2b\u0e25\u0e48\u0e32\u0e19\u0e35\u0e49\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e08\u0e33\u0e40\u0e1b\u0e47\u0e19\u0e15\u0e48\u0e2d\u0e01\u0e32\u0e23\u0e17\u0e33\u0e07\u0e32\u0e19\u0e02\u0e2d\u0e07\u0e1f\u0e31\u0e07\u0e01\u0e4c\u0e0a\u0e31\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e10\u0e32\u0e19\u0e02\u0e2d\u0e07\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c</p><p>\u0e40\u0e23\u0e32\u0e22\u0e31\u0e07\u0e43\u0e0a\u0e49\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e02\u0e2d\u0e07\u0e1a\u0e38\u0e04\u0e04\u0e25\u0e17\u0e35\u0e48\u0e2a\u0e32\u0e21\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e23\u0e32\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\u0e41\u0e25\u0e30\u0e17\u0e33\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e27\u0e48\u0e32\u0e04\u0e38\u0e13\u0e43\u0e0a\u0e49\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e44\u0e23 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e08\u0e31\u0e14\u0e40\u0e01\u0e47\u0e1a\u0e01\u0e32\u0e23\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e02\u0e2d\u0e07\u0e1c\u0e39\u0e49\u0e43\u0e0a\u0e49\u0e41\u0e25\u0e30\u0e21\u0e2d\u0e1a\u0e40\u0e19\u0e37\u0e49\u0e2d\u0e2b\u0e32\u0e41\u0e25\u0e30\u0e42\u0e06\u0e29\u0e13\u0e32\u0e17\u0e35\u0e48\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e02\u0e49\u0e2d\u0e07\u0e01\u0e31\u0e1a\u0e04\u0e38\u0e13 \u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e40\u0e2b\u0e25\u0e48\u0e32\u0e19\u0e35\u0e49\u0e08\u0e30\u0e16\u0e39\u0e01\u0e40\u0e01\u0e47\u0e1a\u0e44\u0e27\u0e49\u0e43\u0e19\u0e40\u0e1a\u0e23\u0e32\u0e27\u0e4c\u0e40\u0e0b\u0e2d\u0e23\u0e4c\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e04\u0e27\u0e32\u0e21\u0e22\u0e34\u0e19\u0e22\u0e2d\u0e21\u0e08\u0e32\u0e01\u0e04\u0e38\u0e13\u0e41\u0e25\u0e49\u0e27\u0e40\u0e17\u0e48\u0e32\u0e19\u0e31\u0e49\u0e19 \u0e04\u0e38\u0e13\u0e22\u0e31\u0e07\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e17\u0e35\u0e48\u0e08\u0e30\u0e44\u0e21\u0e48\u0e43\u0e0a\u0e49\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e40\u0e2b\u0e25\u0e48\u0e32\u0e19\u0e35\u0e49\u0e44\u0e14\u0e49\u0e14\u0e49\u0e27\u0e22 \u0e41\u0e15\u0e48\u0e01\u0e32\u0e23\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e44\u0e21\u0e48\u0e43\u0e0a\u0e49\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e40\u0e2b\u0e25\u0e48\u0e32\u0e19\u0e35\u0e49\u0e1a\u0e32\u0e07\u0e2a\u0e48\u0e27\u0e19\u0e2d\u0e32\u0e08\u0e2a\u0e48\u0e07\u0e1c\u0e25\u0e15\u0e48\u0e2d\u0e1b\u0e23\u0e30\u0e2a\u0e1a\u0e01\u0e32\u0e23\u0e13\u0e4c\u0e01\u0e32\u0e23\u0e17\u0e48\u0e2d\u0e07\u0e40\u0e27\u0e47\u0e1a\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13</p>",
       },
     },
     categories: [
       {
-        id: 16612,
+        id: 16037,
         name: {
           en: "Necessary",
+          de: "Notwendige",
+          fr: "N\u00e9cessaire",
           it: "Necessaria",
           es: "Necesaria",
           nl: "Noodzakelijk",
@@ -812,23 +812,23 @@ var cliConfig = {
           pt: "Necess\u00e1rio",
           ca: "Necessari",
           hu: "Sz\u00fcks\u00e9ges",
-          sv: "N\u00f6dv\u00e4ndig",
+          se: "N\u00f6dv\u00e4ndig",
           cr: "Potrebno",
           zh: "\u5fc5\u8981\u7684",
           uk: "\u041d\u0435\u043e\u0431\u0445\u0456\u0434\u043d\u043e",
           sk: "Nevyhnutn\u00e9",
-          tr: "Gerekli",
+          ts: "Gerekli",
           lt: "B\u016btinas",
           cs: "Nezbytn\u00e9",
           fi: "V\u00e4ltt\u00e4m\u00e4t\u00f6n",
           no: "N\u00f8dvendig",
-          "pt-br": "Necess\u00e1rio",
+          br: "Necess\u00e1rio",
           sl: "Potrebno",
-          ro: "Necesare",
-          th: "\u0e08\u0e33\u0e40\u0e1b\u0e47\u0e19",
         },
         description: {
           en: "<p>Necessary cookies are crucial for the basic functions of the website and the website will not work in its intended way without them.</p> <p>These cookies do not store any personally identifiable data.</p>",
+          de: "<p>Notwendige Cookies sind f\u00fcr die Grundfunktionen der Website von entscheidender Bedeutung. Ohne sie kann die Website nicht in der vorgesehenen Weise funktionieren.</p><p>Diese Cookies speichern keine personenbezogenen Daten.</p>",
+          fr: "<p>Les cookies n\u00e9cessaires sont cruciaux pour les fonctions de base du site Web et celui-ci ne fonctionnera pas comme pr\u00e9vu sans eux.</p><p>Ces cookies ne stockent aucune donn\u00e9e personnellement identifiable.</p>",
           it: "<p>I cookie necessari sono fondamentali per le funzioni di base del sito Web e il sito Web non funzioner\u00e0 nel modo previsto senza di essi.</p><p>Questi cookie non memorizzano dati identificativi personali.</p>",
           es: "<p>Las cookies necesarias son cruciales para las funciones b\u00e1sicas del sitio web y el sitio web no funcionar\u00e1 de la forma prevista sin ellas.</p><p>Estas cookies no almacenan ning\u00fan dato de identificaci\u00f3n personal.</p>",
           nl: "<p>Noodzakelijke cookies zijn cruciaal voor de basisfuncties van de website en zonder deze werkt de website niet op de beoogde manier.</p><p>Deze cookies slaan geen persoonlijk identificeerbare gegevens op.</p>",
@@ -840,457 +840,37 @@ var cliConfig = {
           pt: "<p>Os cookies necess\u00e1rios s\u00e3o cruciais para as fun\u00e7\u00f5es b\u00e1sicas do site e o site n\u00e3o funcionar\u00e1 da maneira pretendida sem eles.</p> <p>Esses cookies n\u00e3o armazenam nenhum dado de identifica\u00e7\u00e3o pessoal.</p>",
           ca: "<p>Les cookies necess\u00e0ries s\u00f3n crucials per a les funcions b\u00e0siques del lloc web i el lloc web no funcionar\u00e0 de la manera prevista sense elles.</p> <p>Aquestes cookies no emmagatzemen cap dada d\u2019identificaci\u00f3 personal.</p>",
           hu: "<p>A sz\u00fcks\u00e9ges s\u00fctik d\u00f6nt\u0151 fontoss\u00e1g\u00faak a weboldal alapvet\u0151 funkci\u00f3i szempontj\u00e1b\u00f3l, \u00e9s a weboldal ezek n\u00e9lk\u00fcl nem fog megfelel\u0151en m\u0171k\u00f6dni.</p> <p>Ezek a s\u00fctik nem t\u00e1rolnak szem\u00e9lyazonos\u00edt\u00e1sra alkalmas adatokat.</p>",
-          sv: "<p>N\u00f6dv\u00e4ndiga cookies \u00e4r avg\u00f6rande f\u00f6r webbplatsens grundl\u00e4ggande funktioner och webbplatsen fungerar inte p\u00e5 det avsedda s\u00e4ttet utan dem.</p> <p>Dessa cookies lagrar inga personligt identifierbara uppgifter.</p>",
+          se: "<p>N\u00f6dv\u00e4ndiga cookies \u00e4r avg\u00f6rande f\u00f6r webbplatsens grundl\u00e4ggande funktioner och webbplatsen fungerar inte p\u00e5 det avsedda s\u00e4ttet utan dem.</p> <p>Dessa cookies lagrar inga personligt identifierbara uppgifter.</p>",
           cr: "<p>Potrebni kola\u010di\u0107i presudni su za osnovne funkcije web stranice i web stranica bez njih ne\u0107e raditi na predvi\u0111eni na\u010din.</p> <p>Ovi kola\u010di\u0107i ne pohranjuju nikakve osobne podatke.</p>",
           zh: "<p>\u5fc5\u8981\u7684cookie\u5bf9\u4e8e\u7f51\u7ad9\u7684\u57fa\u672c\u529f\u80fd\u81f3\u5173\u91cd\u8981\uff0c\u6ca1\u6709\u5b83\u4eec\uff0c\u7f51\u7ad9\u5c06\u65e0\u6cd5\u6b63\u5e38\u5de5\u4f5c\u3002</ p> <p>\u8fd9\u4e9bcookie\u4e0d\u4f1a\u5b58\u50a8\u4efb\u4f55\u4e2a\u4eba\u8eab\u4efd\u6570\u636e\u3002</p>",
           uk: "<p>\u041d\u0435\u043e\u0431\u0445\u0456\u0434\u043d\u0456 \u0444\u0430\u0439\u043b\u0438 cookie \u043c\u0430\u044e\u0442\u044c \u0432\u0438\u0440\u0456\u0448\u0430\u043b\u044c\u043d\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u043d\u044f \u0434\u043b\u044f \u043e\u0441\u043d\u043e\u0432\u043d\u0438\u0445 \u0444\u0443\u043d\u043a\u0446\u0456\u0439 \u0432\u0435\u0431-\u0441\u0430\u0439\u0442\u0443, \u0456 \u0432\u0435\u0431-\u0441\u0430\u0439\u0442 \u0431\u0435\u0437 \u043d\u0438\u0445 \u043d\u0435 \u043f\u0440\u0430\u0446\u044e\u0432\u0430\u0442\u0438\u043c\u0435 \u043d\u0430\u043b\u0435\u0436\u043d\u0438\u043c \u0447\u0438\u043d\u043e\u043c. </p> <p> \u0426\u0456 \u0444\u0430\u0439\u043b\u0438 cookie \u043d\u0435 \u0437\u0431\u0435\u0440\u0456\u0433\u0430\u044e\u0442\u044c \u0436\u043e\u0434\u043d\u0438\u0445 \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u0438\u0445 \u0434\u0430\u043d\u0438\u0445.</p>",
           sk: "<p>Potrebn\u00e9 s\u00fabory cookie s\u00fa pre z\u00e1kladn\u00e9 funkcie webov\u00fdch str\u00e1nok z\u00e1sadn\u00e9 a webov\u00e9 str\u00e1nky bez nich nebud\u00fa fungova\u0165 zam\u00fd\u0161\u013ean\u00fdm sp\u00f4sobom. </p> <p> Tieto s\u00fabory cookie neukladaj\u00fa \u017eiadne osobn\u00e9 identifika\u010dn\u00e9 \u00fadaje.</p>",
-          tr: "<p>Gerekli \u00e7erezler, web sitesinin temel i\u015flevleri i\u00e7in \u00e7ok \u00f6nemlidir ve web sitesi bunlar olmadan ama\u00e7land\u0131\u011f\u0131 \u015fekilde \u00e7al\u0131\u015fmayacakt\u0131r. </p> <p> Bu \u00e7erezler ki\u015fisel olarak tan\u0131mlanabilecek herhangi bir veriyi saklamaz.</p>",
+          ts: "<p>Gerekli \u00e7erezler, web sitesinin temel i\u015flevleri i\u00e7in \u00e7ok \u00f6nemlidir ve web sitesi bunlar olmadan ama\u00e7land\u0131\u011f\u0131 \u015fekilde \u00e7al\u0131\u015fmayacakt\u0131r. </p> <p> Bu \u00e7erezler ki\u015fisel olarak tan\u0131mlanabilecek herhangi bir veriyi saklamaz.</p>",
           lt: "<p>B\u016btini slapukai yra labai svarb\u016bs pagrindin\u0117ms svetain\u0117s funkcijoms atlikti, o svetain\u0117 be j\u0173 neveiks numatytu b\u016bdu.</p> <p>\u0160ie slapukai nesaugo asmens identifikavimo duomen\u0173.</p>",
           cs: "<p>Nezbytn\u00e9 soubory cookie jsou z\u00e1sadn\u00ed pro z\u00e1kladn\u00ed funkce webu a web bez nich nebude fungovat zam\u00fd\u0161len\u00fdm zp\u016fsobem. </p> <p> Tyto soubory cookie neukl\u00e1daj\u00ed \u017e\u00e1dn\u00e1 osobn\u00ed identifika\u010dn\u00ed data.</p>",
           fi: "<p>Tarvittavat ev\u00e4steet ovat ratkaisevan t\u00e4rkeit\u00e4 verkkosivuston perustoiminnoille, eik\u00e4 verkkosivusto toimi tarkoitetulla tavalla ilman niit\u00e4.</p> <p>N\u00e4m\u00e4 ev\u00e4steet eiv\u00e4t tallenna henkil\u00f6kohtaisia tietoja.</p>",
           no: "<p>N\u00f8dvendige cookies er avgj\u00f8rende for grunnleggende funksjoner p\u00e5 nettstedet, og nettstedet fungerer ikke p\u00e5 den tiltenkte m\u00e5ten uten dem. </p> <p> Disse cookies lagrer ikke personlig identifiserbare data.</p>",
-          "pt-br":
-            "<p>Os cookies necess\u00e1rios s\u00e3o cruciais para as fun\u00e7\u00f5es b\u00e1sicas do site e o site n\u00e3o funcionar\u00e1 como pretendido sem eles.</p> <p>Esses cookies n\u00e3o armazenam nenhum dado pessoalmente identific\u00e1vel.</p>",
+          br: "<p>Os cookies necess\u00e1rios s\u00e3o cruciais para as fun\u00e7\u00f5es b\u00e1sicas do site e o site n\u00e3o funcionar\u00e1 como pretendido sem eles.</p> <p>Esses cookies n\u00e3o armazenam nenhum dado pessoalmente identific\u00e1vel.</p>",
           sl: "<p>Potrebni pi\u0161kotki so klju\u010dni za osnovne funkcije spletne strani in spletna stran brez njih ne bo delovala na svoj predviden na\u010din.</p> <p>Ti pi\u0161kotki ne shranjujejo nobenih osebnih podatkov, ki bi jih bilo mogo\u010de identificirati.</p>",
-          ro: "<p>Cookie-urile necesare sunt esen\u021biale pentru func\u021biile de baz\u0103 ale site-ului web, iar site-ul web nu va func\u021biona \u00een modul dorit f\u0103r\u0103 ele.</p> <p>Aceste cookie-uri nu stocheaz\u0103 date de identificare personal\u0103.</p>",
-          th: "<p>\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e17\u0e35\u0e48\u0e08\u0e33\u0e40\u0e1b\u0e47\u0e19\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e33\u0e04\u0e31\u0e0d\u0e15\u0e48\u0e2d\u0e1f\u0e31\u0e07\u0e01\u0e4c\u0e0a\u0e31\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e10\u0e32\u0e19\u0e02\u0e2d\u0e07\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c \u0e41\u0e25\u0e30\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c\u0e08\u0e30\u0e44\u0e21\u0e48\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e17\u0e33\u0e07\u0e32\u0e19\u0e44\u0e14\u0e49\u0e15\u0e32\u0e21\u0e27\u0e31\u0e15\u0e16\u0e38\u0e1b\u0e23\u0e30\u0e2a\u0e07\u0e04\u0e4c\u0e2b\u0e32\u0e01\u0e44\u0e21\u0e48\u0e21\u0e35\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e40\u0e2b\u0e25\u0e48\u0e32\u0e19\u0e35\u0e49</p> <p>\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e40\u0e2b\u0e25\u0e48\u0e32\u0e19\u0e35\u0e49\u0e44\u0e21\u0e48\u0e08\u0e31\u0e14\u0e40\u0e01\u0e47\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e23\u0e30\u0e1a\u0e38\u0e15\u0e31\u0e27\u0e1a\u0e38\u0e04\u0e04\u0e25\u0e44\u0e14\u0e49</p>",
         },
         slug: "necessary",
         type: 1,
         status: 1,
         active: 1,
         order: 1,
-        website_id: 8839,
+        website_id: 8729,
         settings: null,
-        created_at: "2021-06-10 07:48:53",
-        updated_at: "2021-06-10 08:03:19",
-        cookies: [
-          {
-            id: 7502,
-            cookie_id: "cky-consent",
-            description: {
-              en: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              it: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              es: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              nl: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              bg: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              da: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              ru: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              ar: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              pl: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              pt: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              ca: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              hu: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              sv: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              cr: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              zh: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              uk: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              sk: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              tr: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              lt: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              cs: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              fi: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              no: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              "pt-br":
-                "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              sl: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              ro: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-              th: "The cookie is set by CookieYes to remember the user's consent to the use of cookies on the website.",
-            },
-            type: 1,
-            category_id: 16612,
-            duration: "1 year",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "cookieyes.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7503,
-            cookie_id: "cookieyes-necessary",
-            description: {
-              en: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              it: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              es: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              nl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              bg: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              da: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              ru: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              ar: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              pl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              pt: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              ca: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              hu: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              sv: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              cr: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              zh: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              uk: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              sk: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              tr: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              lt: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              cs: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              fi: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              no: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              "pt-br":
-                "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              sl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              ro: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-              th: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Necessary' category.",
-            },
-            type: 1,
-            category_id: 16612,
-            duration: "1 year",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "cookieyes.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7504,
-            cookie_id: "cookieyes-new-1",
-            description: {
-              en: "This cookie is set by the CookieYes which is used for consent solution management.",
-              it: "This cookie is set by the CookieYes which is used for consent solution management.",
-              es: "This cookie is set by the CookieYes which is used for consent solution management.",
-              nl: "This cookie is set by the CookieYes which is used for consent solution management.",
-              bg: "This cookie is set by the CookieYes which is used for consent solution management.",
-              da: "This cookie is set by the CookieYes which is used for consent solution management.",
-              ru: "This cookie is set by the CookieYes which is used for consent solution management.",
-              ar: "This cookie is set by the CookieYes which is used for consent solution management.",
-              pl: "This cookie is set by the CookieYes which is used for consent solution management.",
-              pt: "This cookie is set by the CookieYes which is used for consent solution management.",
-              ca: "This cookie is set by the CookieYes which is used for consent solution management.",
-              hu: "This cookie is set by the CookieYes which is used for consent solution management.",
-              sv: "This cookie is set by the CookieYes which is used for consent solution management.",
-              cr: "This cookie is set by the CookieYes which is used for consent solution management.",
-              zh: "This cookie is set by the CookieYes which is used for consent solution management.",
-              uk: "This cookie is set by the CookieYes which is used for consent solution management.",
-              sk: "This cookie is set by the CookieYes which is used for consent solution management.",
-              tr: "This cookie is set by the CookieYes which is used for consent solution management.",
-              lt: "This cookie is set by the CookieYes which is used for consent solution management.",
-              cs: "This cookie is set by the CookieYes which is used for consent solution management.",
-              fi: "This cookie is set by the CookieYes which is used for consent solution management.",
-              no: "This cookie is set by the CookieYes which is used for consent solution management.",
-              "pt-br":
-                "This cookie is set by the CookieYes which is used for consent solution management.",
-              sl: "This cookie is set by the CookieYes which is used for consent solution management.",
-              ro: "This cookie is set by the CookieYes which is used for consent solution management.",
-              th: "This cookie is set by the CookieYes which is used for consent solution management.",
-            },
-            type: 1,
-            category_id: 16612,
-            duration: "1 year",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "cookieyes.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7505,
-            cookie_id: "cookieyes-functional",
-            description: {
-              en: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              it: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              es: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              nl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              bg: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              da: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              ru: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              ar: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              pl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              pt: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              ca: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              hu: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              sv: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              cr: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              zh: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              uk: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              sk: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              tr: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              lt: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              cs: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              fi: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              no: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              "pt-br":
-                "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              sl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              ro: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-              th: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Functional' category.",
-            },
-            type: 1,
-            category_id: 16612,
-            duration: "1 year",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "cookieyes.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7506,
-            cookie_id: "cookieyes-analytics",
-            description: {
-              en: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              it: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              es: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              nl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              bg: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              da: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              ru: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              ar: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              pl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              pt: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              ca: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              hu: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              sv: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              cr: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              zh: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              uk: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              sk: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              tr: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              lt: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              cs: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              fi: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              no: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              "pt-br":
-                "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              sl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              ro: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-              th: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Analytics' category.",
-            },
-            type: 1,
-            category_id: 16612,
-            duration: "1 year",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "cookieyes.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7507,
-            cookie_id: "cookieyes-performance",
-            description: {
-              en: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              it: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              es: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              nl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              bg: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              da: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              ru: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              ar: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              pl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              pt: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              ca: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              hu: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              sv: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              cr: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              zh: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              uk: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              sk: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              tr: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              lt: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              cs: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              fi: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              no: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              "pt-br":
-                "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              sl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              ro: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-              th: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Performance' category.",
-            },
-            type: 1,
-            category_id: 16612,
-            duration: "1 year",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "cookieyes.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7508,
-            cookie_id: "cookieyes-advertisement",
-            description: {
-              en: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              it: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              es: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              nl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              bg: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              da: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              ru: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              ar: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              pl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              pt: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              ca: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              hu: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              sv: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              cr: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              zh: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              uk: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              sk: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              tr: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              lt: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              cs: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              fi: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              no: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              "pt-br":
-                "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              sl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              ro: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-              th: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies in the 'Advertisement' category.",
-            },
-            type: 1,
-            category_id: 16612,
-            duration: "1 year",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "cookieyes.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7509,
-            cookie_id: "cookieyes-other",
-            description: {
-              en: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              it: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              es: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              nl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              bg: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              da: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              ru: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              ar: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              pl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              pt: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              ca: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              hu: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              sv: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              cr: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              zh: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              uk: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              sk: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              tr: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              lt: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              cs: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              fi: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              no: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              "pt-br":
-                "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              sl: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              ro: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-              th: "This cookie is set by CookieYes and is used to remember the consent of the users for the use of cookies categorized as 'Other'.",
-            },
-            type: 1,
-            category_id: 16612,
-            duration: "1 year",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "cookieyes.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7510,
-            cookie_id: "cky-action",
-            description: {
-              en: "No description available.",
-              it: "No description available.",
-              es: "No description available.",
-              nl: "No description available.",
-              bg: "No description available.",
-              da: "No description available.",
-              ru: "No description available.",
-              ar: "No description available.",
-              pl: "No description available.",
-              pt: "No description available.",
-              ca: "No description available.",
-              hu: "No description available.",
-              sv: "No description available.",
-              cr: "No description available.",
-              zh: "No description available.",
-              uk: "No description available.",
-              sk: "No description available.",
-              tr: "No description available.",
-              lt: "No description available.",
-              cs: "No description available.",
-              fi: "No description available.",
-              no: "No description available.",
-              "pt-br": "No description available.",
-              sl: "No description available.",
-              ro: "No description available.",
-              th: "No description available.",
-            },
-            type: 1,
-            category_id: 16612,
-            duration: "1 year",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "cookieyes.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7521,
-            cookie_id: "123",
-            description: {
-              en: "abcd is the new cookie id",
-              it: "abcd is the new cookie id",
-              es: "abcd is the new cookie id",
-              nl: "abcd is the new cookie id",
-              bg: "abcd is the new cookie id",
-              da: "abcd is the new cookie id",
-              ru: "abcd is the new cookie id",
-              ar: "abcd is the new cookie id",
-              pl: "abcd is the new cookie id",
-              pt: "abcd is the new cookie id",
-              ca: "abcd is the new cookie id",
-              hu: "abcd is the new cookie id",
-              sv: "abcd is the new cookie id",
-              cr: "abcd is the new cookie id",
-              zh: "abcd is the new cookie id",
-              uk: "abcd is the new cookie id",
-              sk: "abcd is the new cookie id",
-              tr: "abcd is the new cookie id",
-              lt: "abcd is the new cookie id",
-              cs: "abcd is the new cookie id",
-              fi: "abcd is the new cookie id",
-              no: "abcd is the new cookie id",
-              "pt-br": "abcd is the new cookie id",
-              sl: "abcd is the new cookie id",
-              ro: "abcd is the new cookie id",
-              th: "abcd is the new cookie id",
-            },
-            type: 0,
-            category_id: 16612,
-            duration: "365",
-            domain: "abcd.com",
-            website_id: 8839,
-            url_pattern: "abcd.com",
-            created_from_scan: 0,
-            created_at: "2021-06-10 07:55:53",
-            updated_at: "2021-06-10 07:55:53",
-          },
-        ],
+        created_at: "2021-06-24 12:24:51",
+        updated_at: "2021-06-24 12:24:51",
+        cookies: [],
         scripts: [],
       },
       {
-        id: 16613,
+        id: 16038,
         name: {
           en: "Functional",
+          de: "Funktionale",
+          fr: "Fonctionnelle",
           it: "Funzionale",
           es: "Funcional",
           nl: "functioneel",
@@ -1302,23 +882,23 @@ var cliConfig = {
           pt: "Funcional",
           ca: "Funcional",
           hu: "Funkcion\u00e1lis",
-          sv: "Funktionell",
+          se: "Funktionell",
           cr: "Funcional",
           zh: "\u529f\u80fd\u6027",
           uk: "\u0424\u0443\u043d\u043a\u0446\u0456\u043e\u043d\u0430\u043b\u044c\u043d\u0438\u0439",
           sk: "Funk\u010dn\u00e9",
-          tr: "\u0130\u015flevsel",
+          ts: "\u0130\u015flevsel",
           lt: "Funkcinis",
           cs: "Funk\u010dn\u00ed",
           fi: "Toimiva",
           no: "Funksjonell",
-          "pt-br": "Funcional",
+          br: "Funcional",
           sl: "Funkcionalno",
-          ro: "Func\u0163ionalitate",
-          th: "\u0e1f\u0e31\u0e07\u0e01\u0e4c\u0e0a\u0e31\u0e19\u0e19\u0e2d\u0e25",
         },
         description: {
           en: "<p>Functional cookies help to perform certain functionalities like sharing the content of the website on social media platforms, collect feedbacks, and other third-party features.</p>",
+          de: "<p>Funktionale Cookies unterst\u00fctzen bei der Ausf\u00fchrung bestimmter Funktionen, z. B. beim Teilen des Inhalts der Website auf Social Media-Plattformen, beim Sammeln von Feedbacks und anderen Funktionen von Drittanbietern.</p>",
+          fr: "<p>Les cookies fonctionnels permettent d'ex\u00e9cuter certaines fonctionnalit\u00e9s telles que le partage du contenu du site Web sur des plateformes de m\u00e9dias sociaux, la collecte de commentaires et d'autres fonctionnalit\u00e9s tierces.</p>",
           it: "<p>I cookie funzionali aiutano a svolgere determinate funzionalit\u00e0 come la condivisione del contenuto del sito Web su piattaforme di social media, la raccolta di feedback e altre funzionalit\u00e0 di terze parti.</p>",
           es: "<p>Las cookies funcionales ayudan a realizar ciertas funcionalidades, como compartir el contenido del sitio web en plataformas de redes sociales, recopilar comentarios y otras caracter\u00edsticas de terceros.</p>",
           nl: "<p>Functionele cookies helpen bepaalde functionaliteiten uit te voeren, zoals het delen van de inhoud van de website op sociale mediaplatforms, het verzamelen van feedback en andere functies van derden.</p>",
@@ -1330,123 +910,37 @@ var cliConfig = {
           pt: "<p>Os cookies funcionais ajudam a realizar certas funcionalidades, como compartilhar o conte\u00fado do site em plataformas de m\u00eddia social, coletar feedbacks e outros recursos de terceiros.</p>",
           ca: "<p>Les cookies funcionals ajuden a realitzar determinades funcionalitats com compartir el contingut del lloc web a les plataformes de xarxes socials, recopilar comentaris i altres funcions de tercers.</p>",
           hu: "<p>A funkcion\u00e1lis s\u00fctik seg\u00edtenek bizonyos funkci\u00f3k v\u00e9grehajt\u00e1s\u00e1ban, p\u00e9ld\u00e1ul a weboldal tartalm\u00e1nak megoszt\u00e1s\u00e1ban a k\u00f6z\u00f6ss\u00e9gi m\u00e9dia platformokon, visszajelz\u00e9sek gy\u0171jt\u00e9s\u00e9ben \u00e9s m\u00e1s, harmadik f\u00e9lt\u0151l sz\u00e1rmaz\u00f3 funkci\u00f3kban.</p>",
-          sv: "<p>Funktionella cookies hj\u00e4lper till att utf\u00f6ra vissa funktioner som att dela inneh\u00e5llet p\u00e5 webbplatsen p\u00e5 sociala medieplattformar, samla in feedback och andra tredjepartsfunktioner.</p>",
+          se: "<p>Funktionella cookies hj\u00e4lper till att utf\u00f6ra vissa funktioner som att dela inneh\u00e5llet p\u00e5 webbplatsen p\u00e5 sociala medieplattformar, samla in feedback och andra tredjepartsfunktioner.</p>",
           cr: "<p>Funkcionalni kola\u010di\u0107i poma\u017eu u izvo\u0111enju odre\u0111enih funkcionalnosti poput dijeljenja sadr\u017eaja web mjesta na platformama dru\u0161tvenih medija, prikupljanja povratnih informacija i ostalih zna\u010dajki tre\u0107ih strana.</p>",
           zh: "<p>\u529f\u80fdcookie\u6709\u52a9\u4e8e\u6267\u884c\u67d0\u4e9b\u529f\u80fd\uff0c\u4f8b\u5982\u5728\u793e\u4ea4\u5a92\u4f53\u5e73\u53f0\u4e0a\u5171\u4eab\u7f51\u7ad9\u7684\u5185\u5bb9\uff0c\u6536\u96c6\u53cd\u9988\u548c\u5176\u4ed6\u7b2c\u4e09\u65b9\u529f\u80fd\u3002</p>",
           uk: "<p>\u0424\u0443\u043d\u043a\u0446\u0456\u043e\u043d\u0430\u043b\u044c\u043d\u0456 \u0444\u0430\u0439\u043b\u0438 cookie \u0434\u043e\u043f\u043e\u043c\u0430\u0433\u0430\u044e\u0442\u044c \u0432\u0438\u043a\u043e\u043d\u0443\u0432\u0430\u0442\u0438 \u043f\u0435\u0432\u043d\u0456 \u0444\u0443\u043d\u043a\u0446\u0456\u043e\u043d\u0430\u043b\u044c\u043d\u0456 \u043c\u043e\u0436\u043b\u0438\u0432\u043e\u0441\u0442\u0456, \u0442\u0430\u043a\u0456 \u044f\u043a \u043e\u0431\u043c\u0456\u043d \u0432\u043c\u0456\u0441\u0442\u043e\u043c \u0432\u0435\u0431-\u0441\u0430\u0439\u0442\u0443 \u043d\u0430 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0430\u0445 \u0441\u043e\u0446\u0456\u0430\u043b\u044c\u043d\u0438\u0445 \u043c\u0435\u0434\u0456\u0430, \u0437\u0431\u0456\u0440 \u0432\u0456\u0434\u0433\u0443\u043a\u0456\u0432 \u0442\u0430 \u0456\u043d\u0448\u0456 \u0441\u0442\u043e\u0440\u043e\u043d\u043d\u0456 \u0444\u0443\u043d\u043a\u0446\u0456\u0457.</p>",
           sk: "<p>Funk\u010dn\u00e9 s\u00fabory cookie pom\u00e1haj\u00fa vykon\u00e1va\u0165 ur\u010dit\u00e9 funkcie, ako je zdie\u013eanie obsahu webov\u00fdch str\u00e1nok na platform\u00e1ch soci\u00e1lnych m\u00e9di\u00ed, zhroma\u017e\u010fovanie sp\u00e4tn\u00fdch v\u00e4zieb a \u010fal\u0161ie funkcie tret\u00edch str\u00e1n.</p>",
-          tr: "<p>\u0130\u015flevsel \u00e7erezler, web sitesinin i\u00e7eri\u011fini sosyal medya platformlar\u0131nda payla\u015fmak, geri bildirim toplamak ve di\u011fer \u00fc\u00e7\u00fcnc\u00fc taraf \u00f6zellikleri gibi belirli i\u015flevlerin ger\u00e7ekle\u015ftirilmesine yard\u0131mc\u0131 olur.</p>",
+          ts: "<p>\u0130\u015flevsel \u00e7erezler, web sitesinin i\u00e7eri\u011fini sosyal medya platformlar\u0131nda payla\u015fmak, geri bildirim toplamak ve di\u011fer \u00fc\u00e7\u00fcnc\u00fc taraf \u00f6zellikleri gibi belirli i\u015flevlerin ger\u00e7ekle\u015ftirilmesine yard\u0131mc\u0131 olur.</p>",
           lt: "<p>Funkciniai cookies padeda atlikti tam tikras funkcijas, pavyzd\u017eiui, dalytis svetain\u0117s turiniu socialin\u0117s \u017einiasklaidos platformose, rinkti atsiliepimus ir kitas tre\u010di\u0173j\u0173 \u0161ali\u0173 funkcijas.</p>",
           cs: "<p>Funk\u010dn\u00ed soubory cookie pom\u00e1haj\u00ed prov\u00e1d\u011bt ur\u010dit\u00e9 funkce, jako je sd\u00edlen\u00ed obsahu webov\u00fdch str\u00e1nek na platform\u00e1ch soci\u00e1ln\u00edch m\u00e9di\u00ed, shroma\u017e\u010fov\u00e1n\u00ed zp\u011btn\u00fdch vazeb a dal\u0161\u00ed funkce t\u0159et\u00edch stran.</p>",
           fi: "<p>Toiminnalliset ev\u00e4steet auttavat suorittamaan tiettyj\u00e4 toimintoja, kuten verkkosivuston sis\u00e4ll\u00f6n jakamista sosiaalisen median alustoilla, palautteiden ker\u00e4\u00e4mist\u00e4 ja muita kolmannen osapuolen ominaisuuksia.</p>",
           no: "<p>Funksjonelle cookies hjelper deg med \u00e5 utf\u00f8re visse funksjoner som \u00e5 dele innholdet p\u00e5 nettstedet p\u00e5 sosiale medieplattformer, samle tilbakemeldinger og andre tredjepartsfunksjoner.</p>",
-          "pt-br":
-            "<p>Cookies funcionais ajudam a executar certas funcionalidades, como compartilhar o conte\u00fado do site em plataformas de m\u00eddia social, coletar feedbacks e outros recursos de terceiros.</p>",
+          br: "<p>Cookies funcionais ajudam a executar certas funcionalidades, como compartilhar o conte\u00fado do site em plataformas de m\u00eddia social, coletar feedbacks e outros recursos de terceiros.</p>",
           sl: "<p>Funkcionalni pi\u0161kotki pomagajo izvajati dolo\u010dene funkcionalnosti, kot so skupna raba vsebine spletnega mesta na platformah dru\u017ebenih medijev, zbiranje povratnih informacij in druge funkcije tretjih oseb.</p>",
-          ro: "<p>Cookie-urile de func\u021bionalitate ajut\u0103 la realizarea anumitor func\u021bionalit\u0103\u021bi, cum ar fi partajarea con\u021binutului site-ului web pe platformele de socializare, colectarea de feedback \u0219i alte caracteristici ale ter\u021bilor.</p>",
-          th: "<p>\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e41\u0e1a\u0e1a\u0e1f\u0e31\u0e07\u0e01\u0e4c\u0e0a\u0e31\u0e19\u0e19\u0e2d\u0e25\u0e0a\u0e48\u0e27\u0e22\u0e17\u0e33\u0e2b\u0e19\u0e49\u0e32\u0e17\u0e35\u0e48\u0e1a\u0e32\u0e07\u0e2d\u0e22\u0e48\u0e32\u0e07 \u0e40\u0e0a\u0e48\u0e19 \u0e41\u0e1a\u0e48\u0e07\u0e1b\u0e31\u0e19\u0e40\u0e19\u0e37\u0e49\u0e2d\u0e2b\u0e32\u0e02\u0e2d\u0e07\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c\u0e1a\u0e19\u0e41\u0e1e\u0e25\u0e15\u0e1f\u0e2d\u0e23\u0e4c\u0e21\u0e42\u0e0b\u0e40\u0e0a\u0e35\u0e22\u0e25\u0e21\u0e35\u0e40\u0e14\u0e35\u0e22 \u0e23\u0e27\u0e1a\u0e23\u0e27\u0e21\u0e04\u0e27\u0e32\u0e21\u0e04\u0e34\u0e14\u0e40\u0e2b\u0e47\u0e19 \u0e41\u0e25\u0e30\u0e1f\u0e35\u0e40\u0e08\u0e2d\u0e23\u0e4c\u0e2d\u0e37\u0e48\u0e19\u0e46 \u0e02\u0e2d\u0e07\u0e1a\u0e38\u0e04\u0e04\u0e25\u0e17\u0e35\u0e48\u0e2a\u0e32\u0e21 </p>",
         },
         slug: "functional",
-        type: 1,
+        type: 2,
         status: 0,
         active: 1,
         order: 2,
-        website_id: 8839,
+        website_id: 8729,
         settings: null,
-        created_at: "2021-06-10 07:48:53",
-        updated_at: "2021-06-10 07:48:58",
-        cookies: [
-          {
-            id: 7517,
-            cookie_id: "TawkConnectionTime",
-            description: {
-              en: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              it: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              es: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              nl: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              bg: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              da: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              ru: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              ar: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              pl: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              pt: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              ca: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              hu: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              sv: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              cr: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              zh: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              uk: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              sk: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              tr: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              lt: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              cs: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              fi: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              no: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              "pt-br":
-                "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              sl: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              ro: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-              th: "This cookie is set by Tawk.to which is a live chat functionality. The cookie is used to remember users so that previous chats can be linked together to provide better and improved service.",
-            },
-            type: 1,
-            category_id: 16613,
-            duration: "session",
-            domain: "jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "tawk.to",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7518,
-            cookie_id: "ss",
-            description: {
-              en: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              it: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              es: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              nl: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              bg: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              da: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              ru: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              ar: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              pl: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              pt: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              ca: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              hu: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              sv: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              cr: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              zh: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              uk: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              sk: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              tr: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              lt: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              cs: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              fi: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              no: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              "pt-br":
-                "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              sl: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              ro: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-              th: "This cookie is set by the provider Eventbrite. This cookie is used for the functionality of website chat-box function.",
-            },
-            type: 1,
-            category_id: 16613,
-            duration: "session",
-            domain: "va.tawk.to",
-            website_id: 8839,
-            url_pattern: "tawk.to",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-        ],
+        created_at: "2021-06-24 12:24:51",
+        updated_at: "2021-06-24 12:25:02",
+        cookies: [],
         scripts: [],
       },
       {
-        id: 16614,
+        id: 16039,
         name: {
           en: "Analytics",
+          de: "Analyse",
+          fr: "Analytique",
           it: "analitica",
           es: "Anal\u00edtica",
           nl: "Analytics",
@@ -1458,23 +952,23 @@ var cliConfig = {
           pt: "Analytics",
           ca: "Anal\u00edtica",
           hu: "Analitika",
-          sv: "Analytics",
+          se: "Analytics",
           cr: "Analitika",
           zh: "\u5206\u6790\u5de5\u5177",
           uk: "\u0410\u043d\u0430\u043b\u0456\u0442\u0438\u043a\u0430",
           sk: "Analytika",
-          tr: "Analitik",
+          ts: "Analitik",
           lt: "Analytics",
           cs: "Analytics",
           fi: "Analytics",
           no: "Analytics",
-          "pt-br": "Anal\u00edticos",
+          br: "Anal\u00edticos",
           sl: "Analytics",
-          ro: "Analitice",
-          th: "\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c",
         },
         description: {
           en: "<p>Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics the number of visitors, bounce rate, traffic source, etc.</p>",
+          de: "<p>Analyse-Cookies werden verwendet um zu verstehen, wie Besucher mit der Website interagieren. Diese Cookies dienen zu Aussagen \u00fcber die Anzahl der Besucher, Absprungrate, Herkunft der Besucher usw.</p>",
+          fr: "<p>Les cookies analytiques sont utilis\u00e9s pour comprendre comment les visiteurs interagissent avec le site Web. Ces cookies aident \u00e0 fournir des informations sur le nombre de visiteurs, le taux de rebond, la source de trafic, etc.</p>",
           it: "<p>I cookie analitici vengono utilizzati per comprendere come i visitatori interagiscono con il sito Web. Questi cookie aiutano a fornire informazioni sulle metriche di numero di visitatori, frequenza di rimbalzo, fonte di traffico, ecc.</p>",
           es: "<p>Las cookies anal\u00edticas se utilizan para comprender c\u00f3mo interact\u00faan los visitantes con el sitio web. Estas cookies ayudan a proporcionar informaci\u00f3n sobre m\u00e9tricas el n\u00famero de visitantes, el porcentaje de rebote, la fuente de tr\u00e1fico, etc.</p>",
           nl: "<p>Analytische cookies worden gebruikt om te begrijpen hoe bezoekers omgaan met de website. Deze cookies helpen informatie te verstrekken over de statistieken van het aantal bezoekers, het bouncepercentage, de verkeersbron, enz.</p>",
@@ -1486,249 +980,37 @@ var cliConfig = {
           pt: "<p>Cookies anal\u00edticos s\u00e3o usados para entender como os visitantes interagem com o site. Esses cookies ajudam a fornecer informa\u00e7\u00f5es sobre as m\u00e9tricas do n\u00famero de visitantes, taxa de rejei\u00e7\u00e3o, origem do tr\u00e1fego, etc.</p>",
           ca: "<p>Les cookies anal\u00edtiques s\u2019utilitzen per entendre com interactuen els visitants amb el lloc web. Aquestes cookies ajuden a proporcionar informaci\u00f3 sobre m\u00e8triques, el nombre de visitants, el percentatge de rebots, la font de tr\u00e0nsit, etc.</p>",
           hu: "<p>Analitikai s\u00fctiket haszn\u00e1lnak annak meg\u00e9rt\u00e9s\u00e9re, hogy a l\u00e1togat\u00f3k hogyan l\u00e9pnek kapcsolatba a weboldallal. Ezek a cookie-k seg\u00edts\u00e9get ny\u00fajtanak a l\u00e1togat\u00f3k sz\u00e1m\u00e1r\u00f3l, a visszafordul\u00e1si ar\u00e1nyr\u00f3l, a forgalmi forr\u00e1sr\u00f3l stb.</p>",
-          sv: "<p>Analytiska cookies anv\u00e4nds f\u00f6r att f\u00f6rst\u00e5 hur bes\u00f6kare interagerar med webbplatsen. Dessa cookies hj\u00e4lper till att ge information om m\u00e4tv\u00e4rden, antal bes\u00f6kare, avvisningsfrekvens, trafikk\u00e4lla etc.</p>",
+          se: "<p>Analytiska cookies anv\u00e4nds f\u00f6r att f\u00f6rst\u00e5 hur bes\u00f6kare interagerar med webbplatsen. Dessa cookies hj\u00e4lper till att ge information om m\u00e4tv\u00e4rden, antal bes\u00f6kare, avvisningsfrekvens, trafikk\u00e4lla etc.</p>",
           cr: "<p>Analiti\u010dki kola\u010di\u0107i koriste se za razumijevanje na\u010dina na koji posjetitelji komuniciraju s web stranicom. Ovi kola\u010di\u0107i poma\u017eu u pru\u017eanju podataka o metri\u010dkim podacima o broju posjetitelja, stopi napu\u0161tanja po\u010detne stranice, izvoru prometa itd.</p>",
           zh: "<p>\u5206\u6790\u6027Cookie\u7528\u4e8e\u4e86\u89e3\u8bbf\u95ee\u8005\u5982\u4f55\u4e0e\u7f51\u7ad9\u4e92\u52a8\u3002 \u8fd9\u4e9bCookie\u6709\u52a9\u4e8e\u63d0\u4f9b\u6709\u5173\u8bbf\u95ee\u8005\u6570\u91cf\uff0c\u8df3\u51fa\u7387\uff0c\u6d41\u91cf\u6765\u6e90\u7b49\u6307\u6807\u7684\u4fe1\u606f\u3002</p>",
           uk: "<p>\u0410\u043d\u0430\u043b\u0456\u0442\u0438\u0447\u043d\u0456 \u0444\u0430\u0439\u043b\u0438 cookie \u0432\u0438\u043a\u043e\u0440\u0438\u0441\u0442\u043e\u0432\u0443\u044e\u0442\u044c\u0441\u044f \u0434\u043b\u044f \u0440\u043e\u0437\u0443\u043c\u0456\u043d\u043d\u044f \u0432\u0437\u0430\u0454\u043c\u043e\u0434\u0456\u0457 \u0432\u0456\u0434\u0432\u0456\u0434\u0443\u0432\u0430\u0447\u0456\u0432 \u0456\u0437 \u0432\u0435\u0431-\u0441\u0430\u0439\u0442\u043e\u043c. \u0426\u0456 \u0444\u0430\u0439\u043b\u0438 cookie \u0434\u043e\u043f\u043e\u043c\u0430\u0433\u0430\u044e\u0442\u044c \u043d\u0430\u0434\u0430\u0432\u0430\u0442\u0438 \u0456\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0456\u044e \u043f\u0440\u043e \u043f\u043e\u043a\u0430\u0437\u043d\u0438\u043a\u0438, \u043a\u0456\u043b\u044c\u043a\u0456\u0441\u0442\u044c \u0432\u0456\u0434\u0432\u0456\u0434\u0443\u0432\u0430\u0447\u0456\u0432, \u043f\u043e\u043a\u0430\u0437\u043d\u0438\u043a \u0432\u0456\u0434\u043c\u043e\u0432, \u0434\u0436\u0435\u0440\u0435\u043b\u043e \u0442\u0440\u0430\u0444\u0456\u043a\u0443 \u0442\u043e\u0449\u043e.</p>",
           sk: "<p>Analytick\u00e9 cookies sa pou\u017e\u00edvaj\u00fa na pochopenie toho, ako n\u00e1v\u0161tevn\u00edci interaguj\u00fa s webovou str\u00e1nkou. Tieto s\u00fabory cookie pom\u00e1haj\u00fa poskytova\u0165 inform\u00e1cie o metrik\u00e1ch po\u010dtu n\u00e1v\u0161tevn\u00edkov, miere okam\u017eit\u00fdch odchodov, zdroji n\u00e1v\u0161tevnosti at\u010f.</p>",
-          tr: "<p>Analitik \u00e7erezler, ziyaret\u00e7ilerin web sitesiyle nas\u0131l etkile\u015fime girdi\u011fini anlamak i\u00e7in kullan\u0131l\u0131r. Bu \u00e7erezler, ziyaret\u00e7i say\u0131s\u0131, hemen \u00e7\u0131kma oran\u0131, trafik kayna\u011f\u0131 vb. Gibi \u00f6l\u00e7\u00fcmler hakk\u0131nda bilgi sa\u011flamaya yard\u0131mc\u0131 olur.</p>",
+          ts: "<p>Analitik \u00e7erezler, ziyaret\u00e7ilerin web sitesiyle nas\u0131l etkile\u015fime girdi\u011fini anlamak i\u00e7in kullan\u0131l\u0131r. Bu \u00e7erezler, ziyaret\u00e7i say\u0131s\u0131, hemen \u00e7\u0131kma oran\u0131, trafik kayna\u011f\u0131 vb. Gibi \u00f6l\u00e7\u00fcmler hakk\u0131nda bilgi sa\u011flamaya yard\u0131mc\u0131 olur.</p>",
           lt: "<p>Analitiniai cookies naudojami norint suprasti, kaip lankytojai s\u0105veikauja su svetaine. \u0160ie slapukai padeda pateikti informacij\u0105 apie lankytoj\u0173 skai\u010diaus metrik\u0105, atmetimo rodikl\u012f, srauto \u0161altin\u012f ir kt.</p>",
           cs: "<p>Analytick\u00e9 soubory cookie se pou\u017e\u00edvaj\u00ed k pochopen\u00ed interakce n\u00e1v\u0161t\u011bvn\u00edk\u016f s webem. Tyto soubory cookie pom\u00e1haj\u00ed poskytovat informace o metrik\u00e1ch po\u010det n\u00e1v\u0161t\u011bvn\u00edk\u016f, m\u00edru okam\u017eit\u00e9ho opu\u0161t\u011bn\u00ed, zdroj provozu atd.</p>",
           fi: "<p>Analyyttisi\u00e4 ev\u00e4steit\u00e4 k\u00e4ytet\u00e4\u00e4n ymm\u00e4rt\u00e4m\u00e4\u00e4n, miten k\u00e4vij\u00e4t ovat vuorovaikutuksessa verkkosivuston kanssa. N\u00e4m\u00e4 ev\u00e4steet auttavat tarjoamaan tietoa k\u00e4vij\u00f6iden lukum\u00e4\u00e4r\u00e4st\u00e4, poistumisprosentista, liikenteen l\u00e4hteest\u00e4 jne.</p>",
           no: "<p>Analytiske cookies brukes til \u00e5 forst\u00e5 hvordan bes\u00f8kende samhandler med nettstedet. Disse cookies hjelper deg med \u00e5 gi informasjon om beregningene antall bes\u00f8kende, fluktfrekvens, trafikkilde osv.</p>",
-          "pt-br":
-            "<p>Cookies anal\u00edticos s\u00e3o usados para entender como os visitantes interagem com o site. Esses cookies ajudam a fornecer informa\u00e7\u00f5es sobre m\u00e9tricas o n\u00famero de visitantes, taxa de rejei\u00e7\u00e3o, fonte de tr\u00e1fego, etc.</p>",
+          br: "<p>Cookies anal\u00edticos s\u00e3o usados para entender como os visitantes interagem com o site. Esses cookies ajudam a fornecer informa\u00e7\u00f5es sobre m\u00e9tricas o n\u00famero de visitantes, taxa de rejei\u00e7\u00e3o, fonte de tr\u00e1fego, etc.</p>",
           sl: "<p>Analiti\u010dni pi\u0161kotki se uporabljajo za razumevanje interakcije obiskovalcev s spletno stranjo. Ti pi\u0161kotki pomagajo zagotoviti informacije o meritvi \u0161tevilo obiskovalcev, hitrost odskoka, prometni vir itd.</p>",
-          ro: "<p>Cookie-urile analitice sunt utilizate pentru a \u00een\u021belege modul \u00een care vizitatorii interac\u021bioneaz\u0103 cu site-ul web. Aceste cookie-uri ajut\u0103 la furnizarea de informa\u021bii cu privire la valori, cum ar fi num\u0103rul de vizitatori, rata de respingere, sursa de trafic etc.</p>",
-          th: "<p>\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\u0e43\u0e0a\u0e49\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e17\u0e33\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e27\u0e34\u0e18\u0e35\u0e01\u0e32\u0e23\u0e17\u0e35\u0e48\u0e1c\u0e39\u0e49\u0e40\u0e22\u0e35\u0e48\u0e22\u0e21\u0e0a\u0e21\u0e42\u0e15\u0e49\u0e15\u0e2d\u0e1a\u0e01\u0e31\u0e1a\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c \u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e40\u0e2b\u0e25\u0e48\u0e32\u0e19\u0e35\u0e49\u0e0a\u0e48\u0e27\u0e22\u0e43\u0e2b\u0e49\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e01\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e0a\u0e35\u0e49\u0e27\u0e31\u0e14 \u0e40\u0e0a\u0e48\u0e19 \u0e08\u0e33\u0e19\u0e27\u0e19\u0e1c\u0e39\u0e49\u0e40\u0e02\u0e49\u0e32\u0e0a\u0e21 \u0e2d\u0e31\u0e15\u0e23\u0e32\u0e15\u0e35\u0e01\u0e25\u0e31\u0e1a \u0e41\u0e2b\u0e25\u0e48\u0e07\u0e17\u0e35\u0e48\u0e21\u0e32\u0e02\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e40\u0e02\u0e49\u0e32\u0e0a\u0e21 \u0e2f\u0e25\u0e2f</p>",
         },
         slug: "analytics",
         type: 2,
         status: 0,
         active: 1,
         order: 3,
-        website_id: 8839,
+        website_id: 8729,
         settings: null,
-        created_at: "2021-06-10 07:48:53",
-        updated_at: "2021-06-10 07:48:58",
-        cookies: [
-          {
-            id: 7512,
-            cookie_id: "_ga",
-            description: {
-              en: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              it: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              es: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              nl: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              bg: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              da: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              ru: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              ar: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              pl: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              pt: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              ca: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              hu: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              sv: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              cr: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              zh: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              uk: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              sk: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              tr: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              lt: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              cs: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              fi: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              no: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              "pt-br":
-                "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              sl: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              ro: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-              th: "This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site's analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.",
-            },
-            type: 1,
-            category_id: 16614,
-            duration: "2 years",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "google-analytics.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7513,
-            cookie_id: "_gid",
-            description: {
-              en: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              it: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              es: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              nl: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              bg: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              da: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              ru: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              ar: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              pl: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              pt: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              ca: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              hu: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              sv: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              cr: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              zh: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              uk: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              sk: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              tr: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              lt: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              cs: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              fi: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              no: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              "pt-br":
-                "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              sl: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              ro: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-              th: "This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visted in an anonymous form.",
-            },
-            type: 1,
-            category_id: 16614,
-            duration: "1 day",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "google-analytics.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7514,
-            cookie_id: "_hjid",
-            description: {
-              en: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              it: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              es: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              nl: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              bg: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              da: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              ru: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              ar: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              pl: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              pt: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              ca: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              hu: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              sv: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              cr: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              zh: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              uk: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              sk: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              tr: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              lt: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              cs: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              fi: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              no: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              "pt-br":
-                "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              sl: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              ro: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-              th: "This cookie is set by Hotjar. This cookie is set when the customer first lands on a page with the Hotjar script. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.",
-            },
-            type: 1,
-            category_id: 16614,
-            duration: "1 year",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "hotjar.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7515,
-            cookie_id: "_hjFirstSeen",
-            description: {
-              en: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              it: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              es: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              nl: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              bg: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              da: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              ru: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              ar: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              pl: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              pt: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              ca: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              hu: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              sv: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              cr: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              zh: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              uk: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              sk: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              tr: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              lt: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              cs: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              fi: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              no: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              "pt-br":
-                "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              sl: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              ro: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-              th: "This is set by Hotjar to identify a new user\u2019s first session. It stores a true/false value, indicating whether this was the first time Hotjar saw this user. It is used by Recording filters to identify new user sessions.",
-            },
-            type: 1,
-            category_id: 16614,
-            duration: "30 minutes",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "hotjar.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7516,
-            cookie_id: "vuid",
-            description: {
-              en: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              it: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              es: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              nl: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              bg: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              da: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              ru: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              ar: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              pl: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              pt: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              ca: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              hu: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              sv: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              cr: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              zh: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              uk: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              sk: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              tr: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              lt: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              cs: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              fi: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              no: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              "pt-br":
-                "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              sl: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              ro: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-              th: "This domain of this cookie is owned by Vimeo. This cookie is used by vimeo to collect tracking information. It sets a unique ID to embed videos to the website. ",
-            },
-            type: 1,
-            category_id: 16614,
-            duration: "2 years",
-            domain: ".vimeo.com",
-            website_id: 8839,
-            url_pattern: "vimeo.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-        ],
+        created_at: "2021-06-24 12:24:51",
+        updated_at: "2021-06-24 12:25:02",
+        cookies: [],
         scripts: [],
       },
       {
-        id: 16615,
+        id: 16040,
         name: {
           en: "Performance",
+          de: "Leistungs",
+          fr: "les r\u00e9sultats",
           it: "il rendimento",
           es: "el rendimiento",
           nl: "Prestatie",
@@ -1740,23 +1022,23 @@ var cliConfig = {
           pt: "Desempenho",
           ca: "Rendiment",
           hu: "Teljes\u00edtm\u00e9ny",
-          sv: "Prestanda",
+          se: "Prestanda",
           cr: "Izvo\u0111enje",
           zh: "\u8868\u73b0",
           uk: "\u041f\u0440\u043e\u0434\u0443\u043a\u0442\u0438\u0432\u043d\u0456\u0441\u0442\u044c",
           sk: "V\u00fdkon",
-          tr: "Performans",
+          ts: "Performans",
           lt: "Spektaklis",
           cs: "V\u00fdkon",
           fi: "Suorituskyky\u00e4",
           no: "Ytelse",
-          "pt-br": "Desempenho",
+          br: "Desempenho",
           sl: "Uspe\u0161nosti",
-          ro: "Performan\u0163\u0103",
-          th: "\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e",
         },
         description: {
           en: "<p>Performance cookies are used to understand and analyze the key performance indexes of the website which helps in delivering a better user experience for the visitors.</p>",
+          de: "<p>Leistungs-Cookies werden verwendet, um die wichtigsten Leistungsindizes der Website zu verstehen und zu analysieren. Dies tr\u00e4gt dazu bei, den Besuchern ein besseres Nutzererlebnis zu bieten.</p>",
+          fr: "<p>Les cookies de performance sont utilis\u00e9s pour comprendre et analyser les indices de performance cl\u00e9s du site Web, ce qui permet de fournir une meilleure exp\u00e9rience utilisateur aux visiteurs.</p>",
           it: "<p>I cookie per le prestazioni vengono utilizzati per comprendere e analizzare gli indici di prestazione chiave del sito Web che aiutano a fornire ai visitatori un'esperienza utente migliore.</p>",
           es: "<p>Las cookies de rendimiento se utilizan para comprender y analizar los \u00edndices de rendimiento clave del sitio web, lo que ayuda a proporcionar una mejor experiencia de usuario para los visitantes.</p>",
           nl: "<p>Prestatiecookies worden gebruikt om de belangrijkste prestatie-indexen van de website te begrijpen en te analyseren, wat helpt bij het leveren van een betere gebruikerservaring voor de bezoekers.</p>",
@@ -1768,123 +1050,37 @@ var cliConfig = {
           pt: "<p>Os cookies de desempenho s\u00e3o usados para compreender e analisar os principais \u00edndices de desempenho do site, o que ajuda a oferecer uma melhor experi\u00eancia do usu\u00e1rio aos visitantes.</p>",
           ca: "<p>Les galetes de rendiment s\u2019utilitzen per comprendre i analitzar els \u00edndexs de rendiment clau del lloc web que ajuden a oferir una millor experi\u00e8ncia d\u2019usuari als visitants.</p>",
           hu: "<p>A teljes\u00edtm\u00e9ny-s\u00fctiket a weboldal kulcsfontoss\u00e1g\u00fa teljes\u00edtm\u00e9nymutat\u00f3inak meg\u00e9rt\u00e9s\u00e9re \u00e9s elemz\u00e9s\u00e9re haszn\u00e1lj\u00e1k, amelyek hozz\u00e1j\u00e1rulnak a l\u00e1togat\u00f3k jobb felhaszn\u00e1l\u00f3i \u00e9lm\u00e9ny\u00e9nek biztos\u00edt\u00e1s\u00e1hoz.</p>",
-          sv: "<p>Prestanda cookies anv\u00e4nds f\u00f6r att f\u00f6rst\u00e5 och analysera de viktigaste prestandaindexen p\u00e5 webbplatsen som hj\u00e4lper till att leverera en b\u00e4ttre anv\u00e4ndarupplevelse f\u00f6r bes\u00f6karna.</p>",
+          se: "<p>Prestanda cookies anv\u00e4nds f\u00f6r att f\u00f6rst\u00e5 och analysera de viktigaste prestandaindexen p\u00e5 webbplatsen som hj\u00e4lper till att leverera en b\u00e4ttre anv\u00e4ndarupplevelse f\u00f6r bes\u00f6karna.</p>",
           cr: "<p>Kola\u010di\u0107i izvedbe koriste se za razumijevanje i analizu klju\u010dnih indeksa izvedbe web stranice \u0161to poma\u017ee u pru\u017eanju boljeg korisni\u010dkog iskustva posjetiteljima.</p>",
           zh: "<p>\u6548\u679cCookie\u7528\u4e8e\u4e86\u89e3\u548c\u5206\u6790\u7f51\u7ad9\u7684\u5173\u952e\u6027\u80fd\u6307\u6807\uff0c\u8fd9\u6709\u52a9\u4e8e\u4e3a\u8bbf\u95ee\u8005\u63d0\u4f9b\u66f4\u597d\u7684\u7528\u6237\u4f53\u9a8c\u3002</p>",
           uk: "<p>\u0424\u0430\u0439\u043b\u0438 cookie \u0432\u0438\u043a\u043e\u0440\u0438\u0441\u0442\u043e\u0432\u0443\u044e\u0442\u044c\u0441\u044f \u0434\u043b\u044f \u0440\u043e\u0437\u0443\u043c\u0456\u043d\u043d\u044f \u0442\u0430 \u0430\u043d\u0430\u043b\u0456\u0437\u0443 \u043a\u043b\u044e\u0447\u043e\u0432\u0438\u0445 \u043f\u043e\u043a\u0430\u0437\u043d\u0438\u043a\u0456\u0432 \u0435\u0444\u0435\u043a\u0442\u0438\u0432\u043d\u043e\u0441\u0442\u0456 \u0432\u0435\u0431-\u0441\u0430\u0439\u0442\u0443, \u0449\u043e \u0434\u043e\u043f\u043e\u043c\u0430\u0433\u0430\u0454 \u0437\u0430\u0431\u0435\u0437\u043f\u0435\u0447\u0438\u0442\u0438 \u043a\u0440\u0430\u0449\u0438\u0439 \u0434\u043e\u0441\u0432\u0456\u0434 \u043a\u043e\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0447\u0456\u0432 \u0434\u043b\u044f \u0432\u0456\u0434\u0432\u0456\u0434\u0443\u0432\u0430\u0447\u0456\u0432.</p>",
           sk: "<p>V\u00fdkonnostn\u00e9 cookies sa pou\u017e\u00edvaj\u00fa na pochopenie a anal\u00fdzu k\u013e\u00fa\u010dov\u00fdch indexov v\u00fdkonnosti webov\u00fdch str\u00e1nok, \u010do pom\u00e1ha zlep\u0161ova\u0165 u\u017e\u00edvate\u013esk\u00fa sk\u00fasenos\u0165 pre n\u00e1v\u0161tevn\u00edkov.</p>",
-          tr: "<p>Performans \u00e7erezleri, ziyaret\u00e7ilere daha iyi bir kullan\u0131c\u0131 deneyimi sunmaya yard\u0131mc\u0131 olan web sitesinin temel performans indekslerini anlamak ve analiz etmek i\u00e7in kullan\u0131l\u0131r.</p>",
+          ts: "<p>Performans \u00e7erezleri, ziyaret\u00e7ilere daha iyi bir kullan\u0131c\u0131 deneyimi sunmaya yard\u0131mc\u0131 olan web sitesinin temel performans indekslerini anlamak ve analiz etmek i\u00e7in kullan\u0131l\u0131r.</p>",
           lt: "<p>Na\u0161umo cookies naudojami norint suprasti ir i\u0161analizuoti pagrindinius svetain\u0117s na\u0161umo indeksus, kurie padeda lankytojams suteikti geresn\u0119 vartotojo patirt\u012f.</p>",
           cs: "<p>V\u00fdkonnostn\u00ed cookies se pou\u017e\u00edvaj\u00ed k pochopen\u00ed a anal\u00fdze kl\u00ed\u010dov\u00fdch index\u016f v\u00fdkonu webu, co\u017e pom\u00e1h\u00e1 zajistit lep\u0161\u00ed u\u017eivatelsk\u00fd komfort pro n\u00e1v\u0161t\u011bvn\u00edky.</p>",
           fi: "<p>Suorituskykyev\u00e4steit\u00e4 k\u00e4ytet\u00e4\u00e4n verkkosivuston t\u00e4rkeimpien suorituskykyindeksien ymm\u00e4rt\u00e4miseen ja analysointiin, mik\u00e4 auttaa tarjoamaan vierailijoille paremman k\u00e4ytt\u00f6kokemuksen.</p>",
           no: "<p>Ytelsescookies cookies til \u00e5 forst\u00e5 og analysere de viktigste ytelsesindeksene til nettstedet som hjelper til med \u00e5 gi en bedre brukeropplevelse for de bes\u00f8kende.</p>",
-          "pt-br":
-            "<p>Os cookies de desempenho s\u00e3o usados para entender e analisar os principais \u00edndices de desempenho do site, o que ajuda a oferecer uma melhor experi\u00eancia do usu\u00e1rio para os visitantes.</p>",
+          br: "<p>Os cookies de desempenho s\u00e3o usados para entender e analisar os principais \u00edndices de desempenho do site, o que ajuda a oferecer uma melhor experi\u00eancia do usu\u00e1rio para os visitantes.</p>",
           sl: "<p>Pi\u0161kotki uspe\u0161nosti se uporabljajo za razumevanje in analizo klju\u010dnih kazal uspe\u0161nosti spletne strani, ki pomagajo pri zagotavljanju bolj\u0161e uporabni\u0161ke izku\u0161nje za obiskovalce.</p>",
-          ro: "<p>Cookie-urile de performan\u021b\u0103 sunt utilizate pentru a \u00een\u021belege \u0219i analiza indicii cheie de performan\u021b\u0103 al site-ului web, ceea ce ajut\u0103 la oferirea unei experien\u021be de utilizare mai bun\u0103 pentru vizitatori.</p>",
-          th: "<p>\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e\u0e43\u0e0a\u0e49\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e17\u0e33\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e41\u0e25\u0e30\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\u0e14\u0e31\u0e0a\u0e19\u0e35\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e\u0e2b\u0e25\u0e31\u0e01\u0e02\u0e2d\u0e07\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c\u0e0b\u0e36\u0e48\u0e07\u0e08\u0e30\u0e0a\u0e48\u0e27\u0e22\u0e43\u0e2b\u0e49\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e21\u0e2d\u0e1a\u0e1b\u0e23\u0e30\u0e2a\u0e1a\u0e01\u0e32\u0e23\u0e13\u0e4c\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19\u0e17\u0e35\u0e48\u0e14\u0e35\u0e02\u0e36\u0e49\u0e19\u0e41\u0e01\u0e48\u0e1c\u0e39\u0e49\u0e40\u0e22\u0e35\u0e48\u0e22\u0e21\u0e0a\u0e21</p>",
         },
         slug: "performance",
         type: 2,
         status: 0,
         active: 1,
         order: 4,
-        website_id: 8839,
+        website_id: 8729,
         settings: null,
-        created_at: "2021-06-10 07:48:53",
-        updated_at: "2021-06-10 07:48:58",
-        cookies: [
-          {
-            id: 7519,
-            cookie_id: "_gat",
-            description: {
-              en: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              it: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              es: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              nl: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              bg: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              da: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              ru: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              ar: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              pl: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              pt: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              ca: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              hu: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              sv: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              cr: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              zh: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              uk: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              sk: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              tr: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              lt: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              cs: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              fi: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              no: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              "pt-br":
-                "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              sl: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              ro: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-              th: "This cookies is installed by Google Universal Analytics to throttle the request rate to limit the colllection of data on high traffic sites.",
-            },
-            type: 1,
-            category_id: 16615,
-            duration: "1 minute",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: "google-analytics.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7520,
-            cookie_id: "YSC",
-            description: {
-              en: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              it: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              es: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              nl: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              bg: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              da: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              ru: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              ar: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              pl: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              pt: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              ca: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              hu: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              sv: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              cr: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              zh: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              uk: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              sk: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              tr: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              lt: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              cs: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              fi: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              no: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              "pt-br":
-                "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              sl: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              ro: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-              th: "This cookies is set by Youtube and is used to track the views of embedded videos.",
-            },
-            type: 1,
-            category_id: 16615,
-            duration: "session",
-            domain: ".youtube.com",
-            website_id: 8839,
-            url_pattern: "youtube.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-        ],
+        created_at: "2021-06-24 12:24:51",
+        updated_at: "2021-06-24 12:25:02",
+        cookies: [],
         scripts: [],
       },
       {
-        id: 16616,
+        id: 16041,
         name: {
           en: "Advertisement",
+          de: "Werbe",
+          fr: "Publicit\u00e9",
           it: "la pubblicit\u00e0",
           es: "Anuncio",
           nl: "Advertentie",
@@ -1896,23 +1092,23 @@ var cliConfig = {
           pt: "An\u00fancio",
           ca: "Anunci",
           hu: "Hirdet\u00e9s",
-          sv: "Annons",
+          se: "Annons",
           cr: "Oglas",
           zh: "\u5e7f\u544a",
           uk: "\u0420\u0435\u043a\u043b\u0430\u043c\u0430",
           sk: "Reklama",
-          tr: "Reklam",
+          ts: "Reklam",
           lt: "Reklama",
           cs: "Reklama",
           fi: "Mainos",
           no: "Annonse",
-          "pt-br": "An\u00fancio",
+          br: "An\u00fancio",
           sl: "Oglas",
-          ro: "Publicitate",
-          th: "\u0e42\u0e06\u0e29\u0e13\u0e32",
         },
         description: {
           en: "<p>Advertisement cookies are used to deliver visitors with customized advertisements based on the pages they visited before and analyze the effectiveness of the ad campaign.</p>",
+          de: "<p>Werbe-Cookies werden verwendet, um Besuchern auf der Grundlage der von ihnen zuvor besuchten Seiten ma\u00dfgeschneiderte Werbung zu liefern und die Wirksamkeit von Werbekampagne nzu analysieren.</p>",
+          fr: "<p>Les cookies de publicit\u00e9 sont utilis\u00e9s pour fournir aux visiteurs des publicit\u00e9s personnalis\u00e9es bas\u00e9es sur les pages visit\u00e9es pr\u00e9c\u00e9demment et analyser l'efficacit\u00e9 de la campagne publicitaire.</p>",
           it: "<p>I cookie pubblicitari vengono utilizzati per fornire ai visitatori annunci pubblicitari personalizzati in base alle pagine visitate in precedenza e per analizzare l'efficacia della campagna pubblicitaria.</p>",
           es: "<p>Las cookies publicitarias se utilizan para entregar a los visitantes anuncios personalizados basados \u200b\u200ben las p\u00e1ginas que visitaron antes y analizar la efectividad de la campa\u00f1a publicitaria.</p>",
           nl: "<p>Advertentiecookies worden gebruikt om bezoekers gepersonaliseerde advertenties te bezorgen op basis van de eerder bezochte pagina's en om de effectiviteit van de advertentiecampagne te analyseren.</p>",
@@ -1924,229 +1120,29 @@ var cliConfig = {
           pt: "<p>Os cookies de publicidade s\u00e3o usados para entregar aos visitantes an\u00fancios personalizados com base nas p\u00e1ginas que eles visitaram antes e analisar a efic\u00e1cia da campanha publicit\u00e1ria.</p>",
           ca: "<p>Les galetes publicit\u00e0ries s\u2019utilitzen per oferir als visitants anuncis personalitzats en funci\u00f3 de les p\u00e0gines que van visitar abans i analitzar l\u2019efic\u00e0cia de la campanya publicit\u00e0ria.</p>",
           hu: "<p>A hirdet\u00e9si s\u00fctiket arra haszn\u00e1lj\u00e1k, hogy a l\u00e1togat\u00f3kat szem\u00e9lyre szabott hirdet\u00e9sekkel juttass\u00e1k el a kor\u00e1bban megl\u00e1togatott oldalak alapj\u00e1n, \u00e9s elemezz\u00e9k a hirdet\u00e9si kamp\u00e1ny hat\u00e9konys\u00e1g\u00e1t.</p>",
-          sv: "<p>Annonscookies anv\u00e4nds f\u00f6r att leverera bes\u00f6kare med anpassade annonser baserat p\u00e5 de sidor de bes\u00f6kte tidigare och analysera effektiviteten i annonskampanjen.</p>",
+          se: "<p>Annonscookies anv\u00e4nds f\u00f6r att leverera bes\u00f6kare med anpassade annonser baserat p\u00e5 de sidor de bes\u00f6kte tidigare och analysera effektiviteten i annonskampanjen.</p>",
           cr: "<p>Reklamni kola\u010di\u0107i koriste se za prikazivanje posjetitelja s prilago\u0111enim oglasima na temelju stranica koje su prije posjetili i za analizu u\u010dinkovitosti oglasne kampanje.</p>",
           zh: "<p>\u5e7f\u544aCookie\u7528\u4e8e\u6839\u636e\u8bbf\u95ee\u8005\u4e4b\u524d\u8bbf\u95ee\u7684\u9875\u9762\u5411\u8bbf\u95ee\u8005\u63d0\u4f9b\u81ea\u5b9a\u4e49\u5e7f\u544a\uff0c\u5e76\u5206\u6790\u5e7f\u544a\u6d3b\u52a8\u7684\u6709\u6548\u6027\u3002</p>",
           uk: "<p>\u0420\u0435\u043a\u043b\u0430\u043c\u043d\u0456 \u0444\u0430\u0439\u043b\u0438 cookie \u0432\u0438\u043a\u043e\u0440\u0438\u0441\u0442\u043e\u0432\u0443\u044e\u0442\u044c\u0441\u044f \u0434\u043b\u044f \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0438 \u0432\u0456\u0434\u0432\u0456\u0434\u0443\u0432\u0430\u0447\u0456\u0432 \u0437 \u0456\u043d\u0434\u0438\u0432\u0456\u0434\u0443\u0430\u043b\u044c\u043d\u043e\u044e \u0440\u0435\u043a\u043b\u0430\u043c\u043e\u044e \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0456 \u0441\u0442\u043e\u0440\u0456\u043d\u043e\u043a, \u044f\u043a\u0456 \u0432\u043e\u043d\u0438 \u0432\u0456\u0434\u0432\u0456\u0434\u0443\u0432\u0430\u043b\u0438 \u0440\u0430\u043d\u0456\u0448\u0435, \u0442\u0430 \u0430\u043d\u0430\u043b\u0456\u0437\u0443 \u0435\u0444\u0435\u043a\u0442\u0438\u0432\u043d\u043e\u0441\u0442\u0456 \u0440\u0435\u043a\u043b\u0430\u043c\u043d\u043e\u0457 \u043a\u0430\u043c\u043f\u0430\u043d\u0456\u0457.</p>",
           sk: "<p>S\u00fabory cookie reklamy sa pou\u017e\u00edvaj\u00fa na doru\u010denie n\u00e1v\u0161tevn\u00edkom prisp\u00f4soben\u00fdch rekl\u00e1m na z\u00e1klade str\u00e1nok, ktor\u00e9 nav\u0161t\u00edvili predt\u00fdm, a na anal\u00fdzu efekt\u00edvnosti reklamnej kampane.</p>",
-          tr: "<p>Reklam \u00e7erezleri, ziyaret\u00e7ilere daha \u00f6nce ziyaret ettikleri sayfalara g\u00f6re \u00f6zelle\u015ftirilmi\u015f reklamlar sunmak ve reklam kampanyas\u0131n\u0131n etkinli\u011fini analiz etmek i\u00e7in kullan\u0131l\u0131r.</p>",
+          ts: "<p>Reklam \u00e7erezleri, ziyaret\u00e7ilere daha \u00f6nce ziyaret ettikleri sayfalara g\u00f6re \u00f6zelle\u015ftirilmi\u015f reklamlar sunmak ve reklam kampanyas\u0131n\u0131n etkinli\u011fini analiz etmek i\u00e7in kullan\u0131l\u0131r.</p>",
           lt: "<p>Reklaminiai cookies naudojami norint pateikti lankytojams pritaikyt\u0105 reklam\u0105 pagal puslapius, kuriuose jie anks\u010diau lank\u0117si, ir analizuoti reklamos kampanijos efektyvum\u0105.</p>",
           cs: "<p>Soubory cookie reklamy se pou\u017e\u00edvaj\u00ed k doru\u010dov\u00e1n\u00ed n\u00e1v\u0161t\u011bvn\u00edk\u016f p\u0159izp\u016fsoben\u00fdmi reklamami na z\u00e1klad\u011b str\u00e1nek, kter\u00e9 nav\u0161t\u00edvili d\u0159\u00edve, a k anal\u00fdze \u00fa\u010dinnosti reklamn\u00ed kampan\u011b.</p>",
           fi: "<p>Mainosev\u00e4steit\u00e4 k\u00e4ytet\u00e4\u00e4n tarjoamaan k\u00e4vij\u00f6ille r\u00e4\u00e4t\u00e4l\u00f6ityj\u00e4 mainoksia sivujen perusteella, joilla he ovat k\u00e4yneet aiemmin, ja analysoimaan mainoskampanjan tehokkuutta.</p>",
           no: "<p>Annonsecookies brukes til \u00e5 levere bes\u00f8kende med tilpassede annonser basert p\u00e5 sidene de bes\u00f8kte f\u00f8r og analysere effektiviteten av annonsekampanjen.</p>",
-          "pt-br":
-            "<p>Os cookies de an\u00fancios s\u00e3o usados para entregar aos visitantes an\u00fancios personalizados com base nas p\u00e1ginas que visitaram antes e analisar a efic\u00e1cia da campanha publicit\u00e1ria.</p>",
+          br: "<p>Os cookies de an\u00fancios s\u00e3o usados para entregar aos visitantes an\u00fancios personalizados com base nas p\u00e1ginas que visitaram antes e analisar a efic\u00e1cia da campanha publicit\u00e1ria.</p>",
           sl: "<p>Ogla\u0161evalski pi\u0161kotki se uporabljajo za zagotavljanje obiskovalcev s prilagojenimi oglasi na podlagi strani, ki so jih obiskali prej, in za analizo u\u010dinkovitosti ogla\u0161evalske akcije.</p>",
-          ro: "<p>Cookie-urile publicitare sunt utilizate pentru a oferi vizitatorilor reclame personalizate pe baza paginilor pe care le-au vizitat anterior \u0219i pentru a analiza eficien\u021ba campaniei publicitare.</p>",
-          th: "<p>\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e42\u0e06\u0e29\u0e13\u0e32\u0e43\u0e0a\u0e49\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e2a\u0e48\u0e07\u0e42\u0e06\u0e29\u0e13\u0e32\u0e17\u0e35\u0e48\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e41\u0e15\u0e48\u0e07\u0e15\u0e32\u0e21\u0e01\u0e32\u0e23\u0e40\u0e02\u0e49\u0e32\u0e0a\u0e21\u0e01\u0e48\u0e2d\u0e19\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49 \u0e41\u0e25\u0e30\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e\u0e02\u0e2d\u0e07\u0e41\u0e04\u0e21\u0e40\u0e1b\u0e0d\u0e42\u0e06\u0e29\u0e13\u0e32</p>",
         },
         slug: "advertisement",
         type: 2,
         status: 0,
         active: 1,
         order: 5,
-        website_id: 8839,
+        website_id: 8729,
         settings: null,
-        created_at: "2021-06-10 07:48:53",
-        updated_at: "2021-06-10 07:48:58",
-        cookies: [
-          {
-            id: 7511,
-            cookie_id: "VISITOR_INFO1_LIVE",
-            description: {
-              en: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              it: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              es: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              nl: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              bg: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              da: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              ru: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              ar: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              pl: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              pt: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              ca: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              hu: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              sv: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              cr: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              zh: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              uk: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              sk: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              tr: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              lt: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              cs: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              fi: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              no: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              "pt-br":
-                "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              sl: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              ro: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-              th: "This cookie is set by Youtube. Used to track the information of the embedded YouTube videos on a website.",
-            },
-            type: 1,
-            category_id: 16616,
-            duration: "5 months 27 days",
-            domain: ".youtube.com",
-            website_id: 8839,
-            url_pattern: "youtube.com",
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-        ],
-        scripts: [],
-      },
-      {
-        id: 16617,
-        name: {
-          en: "Unclassified",
-          it: "Altri",
-          es: "otros",
-          nl: "anderen",
-          bg: "\u0414\u0440\u0443\u0433\u0438",
-          da: "Andre",
-          ru: "\u0434\u0440\u0443\u0433\u0438\u0435",
-          ar: "\u0627\u0644\u0622\u062e\u0631\u064a\u0646",
-          pl: "Innych",
-          pt: "Outros",
-          ca: "altres",
-          hu: "m\u00e1sok",
-          sv: "andra",
-          cr: "Drugi",
-          zh: "\u5176\u4ed6",
-          uk: "\u0456\u043d\u0448\u0456",
-          sk: "Ostatn\u00e9",
-          tr: "Di\u011ferleri",
-          lt: "Kiti",
-          cs: "Ostatn\u00ed",
-          fi: "Muut",
-          no: "Andre",
-          "pt-br": "Outros",
-          sl: "Drugi",
-          ro: "Altele",
-          th: "\u0e2d\u0e37\u0e48\u0e19 \u0e46",
-        },
-        description: {
-          en: "<p>Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.</p>",
-          it: "<p>Altri cookie non categorizzati sono quelli che vengono analizzati e non sono stati ancora classificati in una categoria.</p>",
-          es: "<p>Otras cookies no categorizadas son las que se est\u00e1n analizando y a\u00fan no se han clasificado en una categor\u00eda.</p>",
-          nl: "<p>Andere niet-gecategoriseerde cookies zijn cookies die worden geanalyseerd en die nog niet in een categorie zijn ingedeeld.</p>",
-          bg: "<p>\u0414\u0440\u0443\u0433\u0438 \u043d\u0435\u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0437\u0438\u0440\u0430\u043d\u0438 \u0431\u0438\u0441\u043a\u0432\u0438\u0442\u043a\u0438 \u0441\u0430 \u0442\u0435\u0437\u0438, \u043a\u043e\u0438\u0442\u043e \u0441\u0435 \u0430\u043d\u0430\u043b\u0438\u0437\u0438\u0440\u0430\u0442 \u0438 \u0432\u0441\u0435 \u043e\u0449\u0435 \u043d\u0435 \u0441\u0430 \u043a\u043b\u0430\u0441\u0438\u0444\u0438\u0446\u0438\u0440\u0430\u043d\u0438 \u0432 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f.</p>",
-          da: "<p>Andre ukategoriserede cookies er dem, der analyseres og endnu ikke er klassificeret i en kategori.</p>",
-          ru: "<p>\u0414\u0440\u0443\u0433\u0438\u0435 \u0444\u0430\u0439\u043b\u044b cookie \u0431\u0435\u0437 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0439 - \u044d\u0442\u043e \u0442\u0435, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0430\u043d\u0430\u043b\u0438\u0437\u0438\u0440\u0443\u044e\u0442\u0441\u044f \u0438 \u0435\u0449\u0435 \u043d\u0435 \u0431\u044b\u043b\u0438 \u043e\u0442\u043d\u0435\u0441\u0435\u043d\u044b \u043a \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438.</p>",
-          ar: "<p>\u0645\u0644\u0641\u0627\u062a \u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0627\u0631\u062a\u0628\u0627\u0637 \u0627\u0644\u0623\u062e\u0631\u0649 \u063a\u064a\u0631 \u0627\u0644\u0645\u0635\u0646\u0641\u0629 \u0647\u064a \u062a\u0644\u0643 \u0627\u0644\u062a\u064a \u064a\u062a\u0645 \u062a\u062d\u0644\u064a\u0644\u0647\u0627 \u0648\u0644\u0645 \u064a\u062a\u0645 \u062a\u0635\u0646\u064a\u0641\u0647\u0627 \u0641\u064a \u0641\u0626\u0629 \u062d\u062a\u0649 \u0627\u0644\u0622\u0646.</p>",
-          pl: "<p>Inne pliki cookie bez kategorii to te, kt\u00f3re s\u0105 analizowane i nie zosta\u0142y jeszcze sklasyfikowane w \u017cadnej kategorii.</p>",
-          pt: "<p>Outros cookies n\u00e3o categorizados s\u00e3o aqueles que est\u00e3o a ser analisados e ainda n\u00e3o foram classificados numa categoria.</p>",
-          ca: "<p>Altres cookies sense categoria s\u00f3n aquelles que s\u2019estan analitzant i que encara no s\u2019han classificat en cap categoria.</p>",
-          hu: "<p>Egy\u00e9b kategoriz\u00e1latlan s\u00fctik azok, amelyeket elemeznek, \u00e9s amelyeket m\u00e9g nem soroltak be kateg\u00f3ri\u00e1ba.</p>",
-          sv: "<p>Andra okategoriserade kakor \u00e4r de som analyseras och som \u00e4nnu inte har klassificerats i en kategori.</p>",
-          cr: "<p>Ostali nekategorizirani kola\u010di\u0107i su oni koji se analiziraju i jo\u0161 nisu klasificirani u kategoriju.</p>",
-          zh: "<p>\u5176\u4ed6\u672a\u5206\u7c7b\u7684\u997c\u5e72\u662f\u90a3\u4e9b\u6b63\u5728\u5206\u6790\u4f46\u5c1a\u672a\u5206\u7c7b\u7684\u997c\u5e72</p>",
-          uk: "<p>\u0406\u043d\u0448\u0456 \u043d\u0435\u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u0456 \u0444\u0430\u0439\u043b\u0438 cookie - \u0446\u0435 \u0442\u0456, \u044f\u043a\u0456 \u0430\u043d\u0430\u043b\u0456\u0437\u0443\u044e\u0442\u044c\u0441\u044f \u0456 \u0434\u043e\u0441\u0456 \u043d\u0435 \u043a\u043b\u0430\u0441\u0438\u0444\u0456\u043a\u043e\u0432\u0430\u043d\u0456 \u0432 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0456\u044e.</p>",
-          sk: "<p>Ostatn\u00e9 nekategorizovan\u00e9 s\u00fabory cookie s\u00fa tie, ktor\u00e9 sa analyzuj\u00fa a zatia\u013e neboli zatrieden\u00e9 do kateg\u00f3rie.</p>",
-          tr: "<p>Di\u011fer kategorize edilmemi\u015f \u00e7erezler, analiz edilmekte olan ve hen\u00fcz bir kategoriye ayr\u0131lmam\u0131\u015f olan \u00e7erezlerdir.</p>",
-          lt: "<p>Kiti kategorijai nepriskiriami slapukai yra tie, kurie yra analizuojami ir dar n\u0117ra klasifikuojami \u012f kategorij\u0105.</p>",
-          cs: "<p>Jin\u00e9 neza\u0159azen\u00e9 soubory cookie jsou ty, kter\u00e9 jsou analyzov\u00e1ny a dosud nebyly za\u0159azeny do \u017e\u00e1dn\u00e9 kategorie.</p>",
-          fi: "<p>Muut luokittelemattomat ev\u00e4steet ovat analysoitavia ev\u00e4steit\u00e4, joita ei ole viel\u00e4 luokiteltu luokkaan.</p>",
-          no: "<p>Andre ukategoriserte informasjonskapsler er de som blir analysert og som forel\u00f8pig ikke er klassifisert i en kategori.</p>",
-          "pt-br":
-            "<p>Outros cookies n\u00e3o categorizados s\u00e3o aqueles que est\u00e3o sendo analisados e ainda n\u00e3o foram classificados em uma categoria.</p>",
-          sl: "<p>Drugi nekategorizirani pi\u0161kotki so tisti, ki se analizirajo in \u0161e niso uvr\u0161\u010deni v kategorijo.</p>",
-          ro: "<p>Alte cookie-uri necategorizate sunt cele care sunt analizate \u0219i nu au fost \u00eenc\u0103 clasificate \u00eentr-o categorie \u00eenc\u0103.</p>",
-          th: "<p>\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e17\u0e35\u0e48\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e08\u0e31\u0e14\u0e1b\u0e23\u0e30\u0e40\u0e20\u0e17\u0e2d\u0e37\u0e48\u0e19 \u0e46 \u0e04\u0e37\u0e2d\u0e04\u0e38\u0e01\u0e01\u0e35\u0e49\u0e17\u0e35\u0e48\u0e40\u0e23\u0e32\u0e01\u0e33\u0e25\u0e31\u0e07\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\u0e2d\u0e22\u0e39\u0e48\u0e08\u0e36\u0e07\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e1b\u0e23\u0e30\u0e40\u0e20\u0e17\u0e40\u0e1b\u0e47\u0e19\u0e2b\u0e21\u0e27\u0e14\u0e2b\u0e21\u0e39\u0e48</p>",
-        },
-        slug: "other",
-        type: 2,
-        status: 0,
-        active: 1,
-        order: 6,
-        website_id: 8839,
-        settings: null,
-        created_at: "2021-06-10 07:52:07",
-        updated_at: "2021-06-10 08:03:06",
-        cookies: [
-          {
-            id: 7498,
-            cookie_id: "cookieyes-test",
-            description: {
-              en: "No description available.",
-              it: "No description available.",
-              es: "No description available.",
-              nl: "No description available.",
-              bg: "No description available.",
-              da: "No description available.",
-              ru: "No description available.",
-              ar: "No description available.",
-              pl: "No description available.",
-              pt: "No description available.",
-              ca: "No description available.",
-              hu: "No description available.",
-              sv: "No description available.",
-              cr: "No description available.",
-              zh: "No description available.",
-              uk: "No description available.",
-              sk: "No description available.",
-              tr: "No description available.",
-              lt: "No description available.",
-              cs: "No description available.",
-              fi: "No description available.",
-              no: "No description available.",
-              "pt-br": "No description available.",
-              sl: "No description available.",
-              ro: "No description available.",
-              th: "No description available.",
-            },
-            type: 1,
-            category_id: 16617,
-            duration: "1 year",
-            domain: ".jithinmozilor.github.io",
-            website_id: 8839,
-            url_pattern: null,
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-          {
-            id: 7499,
-            cookie_id: "CONSENT",
-            description: {
-              en: "No description",
-              it: "No description",
-              es: "No description",
-              nl: "No description",
-              bg: "No description",
-              da: "No description",
-              ru: "No description",
-              ar: "No description",
-              pl: "No description",
-              pt: "No description",
-              ca: "No description",
-              hu: "No description",
-              sv: "No description",
-              cr: "No description",
-              zh: "No description",
-              uk: "No description",
-              sk: "No description",
-              tr: "No description",
-              lt: "No description",
-              cs: "No description",
-              fi: "No description",
-              no: "No description",
-              "pt-br": "No description",
-              sl: "No description",
-              ro: "No description",
-              th: "No description",
-            },
-            type: 0,
-            category_id: 16617,
-            duration: "16 years 6 months 21 days 16 hours 8 minutes",
-            domain: ".youtube.com",
-            website_id: 8839,
-            url_pattern: null,
-            created_from_scan: 1,
-            created_at: "2021-06-10 07:52:07",
-            updated_at: "2021-06-10 07:52:07",
-          },
-        ],
+        created_at: "2021-06-24 12:24:51",
+        updated_at: "2021-06-24 12:25:02",
+        cookies: [],
         scripts: [],
       },
     ],
@@ -2154,6 +1150,7 @@ var cliConfig = {
 };
 var cookieyesID = btoa(randomString(32)); //btoa(+new Date);
 let loadAnalyticsByDefault = false;
+let isBannerLoadedOnce = false;
 cliConfig.info.categories.forEach(function (category) {
   if (
     category.slug === "analytics" &&
@@ -2164,10 +1161,14 @@ cliConfig.info.categories.forEach(function (category) {
   }
 });
 window.addEventListener("load", function () {
+  if (isBannerLoadedOnce) return;
+  isBannerLoadedOnce = true;
   var createBannerOnLoad = function createBannerOnLoad(ckyActiveLaw) {
-    Element.prototype.remove = function () {
-      this.parentElement.removeChild(this);
-    };
+    Element.prototype.remove =
+      Element.prototype.remove ||
+      function () {
+        this.parentElement.removeChild(this);
+      };
     NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
       for (var i = this.length - 1; i >= 0; i--) {
         if (this[i] && this[i].parentElement) {
@@ -2187,18 +1188,8 @@ window.addEventListener("load", function () {
     var selectedLanguage = behaviour.selectedLanguage;
     selectedLanguage = checkSelectedLanguage(selectedLanguage, ckyActiveLaw);
     var position = options.position;
-    var head = document.head || document.getElementsByTagName("head")[0];
     var body = document.body || document.getElementsByTagName("body")[0];
-    var css = template.css + options.customCss;
-    var style = document.createElement("style");
-    head.appendChild(style);
-    style.type = "text/css";
-    style.setAttribute("id", "cky-style");
-    if (style.styleSheet) {
-      style.styleSheet.cssText = css;
-    } else {
-      style.appendChild(document.createTextNode(css));
-    }
+    appendStyle();
     var cookieExpiry =
       options.cookieExpiry === undefined ? 365 : options.cookieExpiry;
     var cookie = {
@@ -2328,17 +1319,17 @@ window.addEventListener("load", function () {
       if (!!content[ckyActiveLaw].customLogoUrl) {
         consentBar =
           '<div class="cky-consent-bar" id="cky-consent">\
-                                    <div class="cky-content-logo-outer-wrapper" id="cky-content-logo">\
-                                        <divs id="cky-content-logo-inner-wrapper">\
-                                            <div class="cky-content-wrapper"></div>\
-                                        </div>\
-                                    </div>\
-                                </div>';
+                                  <div class="cky-content-logo-outer-wrapper" id="cky-content-logo">\
+                                      <divs id="cky-content-logo-inner-wrapper">\
+                                          <div class="cky-content-wrapper"></div>\
+                                      </div>\
+                                  </div>\
+                              </div>';
       } else {
         consentBar =
           '<div class="cky-consent-bar" id="cky-consent">\
-                                    <div class="cky-content-wrapper"></div>\
-                                </div>';
+                                  <div class="cky-content-wrapper"></div>\
+                              </div>';
       }
       body.insertAdjacentHTML("beforeend", consentBar);
       document.getElementById("cky-consent").style.display = "block";
@@ -2516,16 +1507,16 @@ window.addEventListener("load", function () {
     function attachButtonStyles(btnName) {
       document.querySelector("#cky-consent #cky-btn-" + btnName + "").style =
         "\
-                color: " +
+              color: " +
         colors[ckyActiveLaw].buttons[btnName].textColor +
         ";\
-                background-color: " +
+              background-color: " +
         colors[ckyActiveLaw].buttons[btnName].bg +
         ";\
-                border-color: " +
+              border-color: " +
         colors[ckyActiveLaw].buttons[btnName].borderColor +
         ";\
-            ";
+          ";
     }
     function switchStickyOrPopup() {
       switch (template.detailType) {
@@ -2561,16 +1552,16 @@ window.addEventListener("load", function () {
         '<div class="cky-detail-wrapper" id="cky-detail-wrapper" style="border-color:' +
         colors[ckyActiveLaw].notice.borderColor +
         '">\
-                                            <div class="cky-tab">\
-                                                <div class="cky-tab-menu" id="cky-tab-menu" style="background-color:' +
+                                          <div class="cky-tab">\
+                                              <div class="cky-tab-menu" id="cky-tab-menu" style="background-color:' +
         colors[ckyActiveLaw].popup.pills.bg +
         '"></div>\
-                                                    <div class="cky-tab-content" id="cky-tab-content" style="background-color:' +
+                                                  <div class="cky-tab-content" id="cky-tab-content" style="background-color:' +
         colors[ckyActiveLaw].notice.bg +
         '">\
-                                                    </div>\
-                                                </div>\
-                                        </div>';
+                                                  </div>\
+                                              </div>\
+                                      </div>';
       getById("cky-consent").insertAdjacentHTML("beforeend", ckyDetailWrapper);
       if (behaviour.showLogo) {
         var ckyPoweredLink =
@@ -2590,17 +1581,17 @@ window.addEventListener("load", function () {
             "</div>";
           var ckyTabContentItem =
             '<div class="cky-tab-content-item cky-tab-content-active" id="cky-tab-content-privacy">\
-                                                    <div class="cky-tab-title" style="color:' +
+                                                  <div class="cky-tab-title" style="color:' +
             colors[ckyActiveLaw].notice.textColor +
             '">' +
             privacyPolicy.title[selectedLanguage] +
             '</div>\
-                                                    <div class="cky-tab-desc" style="color:' +
+                                                  <div class="cky-tab-desc" style="color:' +
             colors[ckyActiveLaw].notice.textColor +
             '">' +
             privacyPolicy.text[selectedLanguage] +
             "</div>\
-                                                </div>";
+                                              </div>";
           document
             .querySelector("#cky-consent #cky-tab-menu")
             .insertAdjacentHTML("beforeend", ckyTabItem);
@@ -2626,19 +1617,19 @@ window.addEventListener("load", function () {
             '<div class="cky-tab-content-item" id="cky-tab-content-' +
             category.name[selectedLanguage] +
             '">\
-                                                    <div class="cky-tab-title" id="cky-tab-title-' +
+                                                  <div class="cky-tab-title" id="cky-tab-title-' +
             category.name[selectedLanguage] +
             '" style="color:' +
             colors[ckyActiveLaw].notice.textColor +
             '">' +
             category.name[selectedLanguage] +
             '</div>\
-                                                    <div class="cky-tab-desc" style="color:' +
+                                                  <div class="cky-tab-desc" style="color:' +
             colors[ckyActiveLaw].notice.textColor +
             '">' +
             category.description[selectedLanguage] +
             "</div>\
-                                                </div>";
+                                              </div>";
           document
             .querySelector("#cky-consent #cky-tab-content")
             .insertAdjacentHTML("beforeend", ckyTabContentItem);
@@ -2646,7 +1637,7 @@ window.addEventListener("load", function () {
             createSwitches(category);
           }
           if (behaviour.showAuditTable) {
-            renderAuditTable(true, category);
+            renderAuditTable(true, category, ckyActiveLaw, selectedLanguage);
           }
         }
       }
@@ -2667,18 +1658,18 @@ window.addEventListener("load", function () {
       }
       var customAcceptButton =
         '<button class="cky-btn cky-btn-custom-accept"\
-            style = "\
-                            color: ' +
+          style = "\
+                          color: ' +
         colors[ckyActiveLaw].popup.acceptCustomButton.textColor +
         ";\
-                            background-color: " +
+                          background-color: " +
         colors[ckyActiveLaw].popup.acceptCustomButton.bg +
         ";\
-                            border-color: " +
+                          border-color: " +
         colors[ckyActiveLaw].popup.acceptCustomButton.borderColor +
         ';\
-                        "\
-            id="cky-btn-custom-accept">' +
+                      "\
+          id="cky-btn-custom-accept">' +
         content[ckyActiveLaw].customAcceptButton[selectedLanguage] +
         "</button>";
       if (options.showCategoryDirectly) {
@@ -2700,50 +1691,50 @@ window.addEventListener("load", function () {
         '<div class="cky-modal-backdrop cky-fade" id="cky-ccpa-modal-backdrop"></div>';
       let ccpaDetailPopup =
         '<div class="cky-modal cky-fade ccpa" id="cky-ccpa-settings-popup">\
-                                    <div class="cky-modal-dialog" style="background-color:' +
+                                  <div class="cky-modal-dialog" style="background-color:' +
         colors[ckyActiveLaw].notice.bg +
         '">\
-                                        <div class="cky-modal-content" id="cky-modal-content">\
-                                        <div class="cky-opt-out-text" style="color:' +
+                                      <div class="cky-modal-content" id="cky-modal-content">\
+                                      <div class="cky-opt-out-text" style="color:' +
         colors[ckyActiveLaw].notice.textColor +
         ';">' +
         content[ckyActiveLaw].confirmation.text[selectedLanguage] +
         '</div>\
-                                            <div class="cky-button-wrapper">\
-                                                <button type="button" class="cky-btn cky-btn-cancel" id="cky-btn-cancel"\
-                                                style="color:' +
+                                          <div class="cky-button-wrapper">\
+                                              <button type="button" class="cky-btn cky-btn-cancel" id="cky-btn-cancel"\
+                                              style="color:' +
         colors[ckyActiveLaw].buttons["cancel"].textColor +
         ";\
-                                                border-color:" +
+                                              border-color:" +
         colors[ckyActiveLaw].buttons["cancel"].borderColor +
         ";\
-                                                background-color:" +
+                                              background-color:" +
         colors[ckyActiveLaw].buttons["cancel"].bg +
         ';\
-                                                ">\
-                                                ' +
+                                              ">\
+                                              ' +
         content[ckyActiveLaw].buttons.cancel[selectedLanguage] +
         '\
-                                                </button>\
-                                                <button type="button" class="cky-btn cky-btn-confirm" id="cky-btn-confirm"\
-                                                style="color:' +
+                                              </button>\
+                                              <button type="button" class="cky-btn cky-btn-confirm" id="cky-btn-confirm"\
+                                              style="color:' +
         colors[ckyActiveLaw].buttons["confirm"].textColor +
         ";\
-                                                border-color:" +
+                                              border-color:" +
         colors[ckyActiveLaw].buttons["confirm"].borderColor +
         ";\
-                                                background-color:" +
+                                              background-color:" +
         colors[ckyActiveLaw].buttons["confirm"].bg +
         ';\
-                                                ">\
-                                                ' +
+                                              ">\
+                                              ' +
         content[ckyActiveLaw].buttons.confirm[selectedLanguage] +
         "\
-                                                </button>\
-                                            </div>\
-                                        </div>\
-                                    </div>\
-                                </div>";
+                                              </button>\
+                                          </div>\
+                                      </div>\
+                                  </div>\
+                              </div>";
       body.insertAdjacentHTML("beforeend", ccpaDetailPopupOverlay);
       body.insertAdjacentHTML("beforeend", ccpaDetailPopup);
       if (behaviour.showLogo) {
@@ -2785,16 +1776,16 @@ window.addEventListener("load", function () {
       }
       var categoryCheckbox =
         '\
-                    <label class="cky-switch" for="cky-checkbox-category' +
+                  <label class="cky-switch" for="cky-checkbox-category' +
         category.name[selectedLanguage] +
         '" onclick="event.stopPropagation();">\
-                        <input type="checkbox" id="cky-checkbox-category' +
+                      <input type="checkbox" id="cky-checkbox-category' +
         category.name[selectedLanguage] +
         '" ' +
         ckySwitchStatus +
         '/>\
-                        <div class="cky-slider"></div>\
-                    </label>';
+                      <div class="cky-slider"></div>\
+                  </label>';
       if (options.showCategoryDirectly) {
         getById(
           "cky-category-direct-" + category.name[selectedLanguage] + ""
@@ -2832,27 +1823,27 @@ window.addEventListener("load", function () {
         '<div class="cky-modal-backdrop cky-fade" id="cky-modal-backdrop"></div>';
       var detailPopup =
         '<div class="cky-modal cky-fade" id="cky-settings-popup">\
-                                    <div class="cky-modal-dialog" style="background-color:' +
+                                  <div class="cky-modal-dialog" style="background-color:' +
         colors[ckyActiveLaw].notice.bg +
         '">\
-                                    <div class="cky-modal-content" id="cky-modal-content" style="border:1px solid' +
+                                  <div class="cky-modal-content" id="cky-modal-content" style="border:1px solid' +
         colors[ckyActiveLaw].notice.borderColor +
         '">\
-                                            <div class="cky-tab">\
-                                                <div class="cky-tab-menu" id="cky-tab-menu" style="background-color:' +
+                                          <div class="cky-tab">\
+                                              <div class="cky-tab-menu" id="cky-tab-menu" style="background-color:' +
         colors[ckyActiveLaw].popup.pills.bg +
         '"></div>\
-                                                <div class="cky-tab-content" id="cky-tab-content" style="background-color:' +
+                                              <div class="cky-tab-content" id="cky-tab-content" style="background-color:' +
         colors[ckyActiveLaw].notice.bg +
         '">\
-                                                    <button type="button" class="cky-modal-close" id="ckyModalClose">\
-                                                        <img src="https://cdn-cookieyes.com/assets/images/icons/close.svg" style="width: 9px" alt="modal-close-icon">\
-                                                    </button>\
-                                                </div>\
-                                            </div>\
-                                        </div>\
-                                    </div>\
-                                </div>';
+                                                  <button type="button" class="cky-modal-close" id="ckyModalClose">\
+                                                      <img src="https://cdn-cookieyes.com/assets/images/icons/close.svg" style="width: 9px" alt="modal-close-icon">\
+                                                  </button>\
+                                              </div>\
+                                          </div>\
+                                      </div>\
+                                  </div>\
+                              </div>';
       body.insertAdjacentHTML("beforeend", detailPopupOverlay);
       body.insertAdjacentHTML("beforeend", detailPopup);
       if (behaviour.showLogo) {
@@ -2872,17 +1863,17 @@ window.addEventListener("load", function () {
             "</div>";
           var ckyTabContentItem =
             '<div class="cky-tab-content-item cky-tab-content-active" id="cky-tab-content-privacy">\
-                                                    <div class="cky-tab-title" style="color:' +
+                                                  <div class="cky-tab-title" style="color:' +
             colors[ckyActiveLaw].notice.textColor +
             '">' +
             privacyPolicy.title[selectedLanguage] +
             '</div>\
-                                                    <div class="cky-tab-desc" style="color:' +
+                                                  <div class="cky-tab-desc" style="color:' +
             colors[ckyActiveLaw].notice.textColor +
             '">' +
             privacyPolicy.text[selectedLanguage] +
             "</div>\
-                                                </div>";
+                                              </div>";
           document
             .querySelector("#cky-settings-popup #cky-tab-menu")
             .insertAdjacentHTML("beforeend", ckyTabItem);
@@ -2905,19 +1896,19 @@ window.addEventListener("load", function () {
             '<div class="cky-tab-content-item" id="cky-tab-content-' +
             category.name[selectedLanguage] +
             '">\
-                                                    <div class="cky-tab-title" id="cky-tab-title-' +
+                                                  <div class="cky-tab-title" id="cky-tab-title-' +
             category.name[selectedLanguage] +
             '" style="color:' +
             colors[ckyActiveLaw].notice.textColor +
             '">' +
             category.name[selectedLanguage] +
             '</div>\
-                                                    <div class="cky-tab-desc" style="color:' +
+                                                  <div class="cky-tab-desc" style="color:' +
             colors[ckyActiveLaw].notice.textColor +
             '">' +
             category.description[selectedLanguage] +
             "</>\
-                                                </div>";
+                                              </div>";
           document
             .querySelector("#cky-settings-popup #cky-tab-menu")
             .insertAdjacentHTML("beforeend", ckyTabItem);
@@ -2928,7 +1919,7 @@ window.addEventListener("load", function () {
             createSwitches(category);
           }
           if (behaviour.showAuditTable) {
-            renderAuditTable(true, category);
+            renderAuditTable(true, category, ckyActiveLaw, selectedLanguage);
           }
         }
       }
@@ -2949,18 +1940,18 @@ window.addEventListener("load", function () {
       }
       var customAcceptButton =
         '<button class="cky-btn cky-btn-custom-accept"\
-            style = "\
-                            color: ' +
+          style = "\
+                          color: ' +
         colors[ckyActiveLaw].popup.acceptCustomButton.textColor +
         ";\
-                            background-color: " +
+                          background-color: " +
         colors[ckyActiveLaw].popup.acceptCustomButton.bg +
         ";\
-                            border-color: " +
+                          border-color: " +
         colors[ckyActiveLaw].popup.acceptCustomButton.borderColor +
         ';\
-                        "\
-            id="cky-btn-custom-accept">' +
+                      "\
+          id="cky-btn-custom-accept">' +
         content[ckyActiveLaw].customAcceptButton[selectedLanguage] +
         "</button>";
       if (options.showCategoryDirectly) {
@@ -3211,28 +2202,28 @@ window.addEventListener("load", function () {
       if (JSON.parse(display[ckyActiveLaw].noticeToggler)) {
         var cliConsentBarTrigger =
           '<div class="cky-consent-bar-trigger" id="cky-consent-toggler" onclick="revisitCkyConsent()" style="\
-                    background: ' +
+                  background: ' +
           colors[ckyActiveLaw].notice.bg +
           ";\
-                    color: " +
+                  color: " +
           colors[ckyActiveLaw].notice.textColor +
           ";\
-                    border: 1px solid " +
+                  border: 1px solid " +
           colors[ckyActiveLaw].notice.borderColor +
           ";\
-                    top: " +
+                  top: " +
           positionValue[position].top +
           ";\
-                    right: " +
+                  right: " +
           positionValue[position].right +
           ";\
-                    bottom: " +
+                  bottom: " +
           positionValue[position].bottom +
           ";\
-                    left: " +
+                  left: " +
           positionValue[position].left +
           '\
-                    ">' +
+                  ">' +
           content[ckyActiveLaw].noticeToggler[selectedLanguage] +
           "</div>";
         body.insertAdjacentHTML("beforeend", cliConsentBarTrigger);
@@ -3276,93 +2267,6 @@ window.addEventListener("load", function () {
         }
       }
     }
-    function renderAuditTable(inBanner, category) {
-      if (typeof category.cookies !== "undefined") {
-        if (inBanner) {
-          var auditTableId = "cky-cookie-audit-table";
-        } else {
-          var auditTableId = "cky-anywhere-cookie-audit-table";
-          var auditTableCategoryName =
-            "<h5>" + category.name[selectedLanguage] + "</h5>";
-          var elems = document.getElementsByClassName(
-            "cky-audit-table-element"
-          );
-          for (var i = 0; i < elems.length; i++) {
-            elems[i].insertAdjacentHTML("beforeend", auditTableCategoryName);
-          }
-        }
-        var auditTable =
-          '\
-                    <div class="cky-table-wrapper">\
-                        <table id="' +
-          auditTableId +
-          category.id +
-          '" class="cky-cookie-audit-table">\
-                            <thead>\
-                                <tr>\
-                                    <th>' +
-          content[ckyActiveLaw].auditTable.cookie[selectedLanguage] +
-          "</th>\
-                                    <th>" +
-          content[ckyActiveLaw].auditTable.type[selectedLanguage] +
-          "</th>\
-                                    <th>" +
-          content[ckyActiveLaw].auditTable.duration[selectedLanguage] +
-          "</th>\
-                                    <th>" +
-          content[ckyActiveLaw].auditTable.description[selectedLanguage] +
-          "</th>\
-                                </tr>\
-                            </thead>\
-                            <tbody>\
-                            </tbody>\
-                        </table>\
-                    </div>";
-        if (inBanner) {
-          getById("cky-tab-content-" + category.name[selectedLanguage] + "")
-            .getElementsByClassName("cky-tab-desc")[0]
-            .insertAdjacentHTML("beforeend", auditTable);
-        } else {
-          var elems = document.getElementsByClassName(
-            "cky-audit-table-element"
-          );
-          for (var i = 0; i < elems.length; i++) {
-            elems[i].insertAdjacentHTML("beforeend", auditTable);
-          }
-        }
-        for (var k = 0; k < category.cookies.length; k++) {
-          var cookies = category.cookies[k];
-          var auditTableRow =
-            "<tr>\
-                                                <td>" +
-            cookies.cookie_id +
-            "</td>\
-                                                <td>" +
-            cookies.type +
-            "</td>\
-                                                <td>" +
-            cookies.duration +
-            "</td>\
-                                                <td>" +
-            cookies.description[selectedLanguage] +
-            "</td>\
-                                            </tr>";
-          if (inBanner) {
-            document
-              .getElementById("cky-cookie-audit-table" + category.id + "")
-              .getElementsByTagName("tbody")[0]
-              .insertAdjacentHTML("beforeend", auditTableRow);
-          } else {
-            document
-              .getElementById(
-                "cky-anywhere-cookie-audit-table" + category.id + ""
-              )
-              .getElementsByTagName("tbody")[0]
-              .insertAdjacentHTML("beforeend", auditTableRow);
-          }
-        }
-      }
-    }
     window.revisitCkyConsent = function () {
       const ckyBanner = document.getElementById("cky-consent");
       if (!ckyBanner) {
@@ -3383,15 +2287,6 @@ window.addEventListener("load", function () {
         }
       }
     };
-    var anywhereAuditTable = document.getElementsByClassName(
-      "cky-audit-table-element"
-    );
-    if (anywhereAuditTable.length) {
-      for (var i = 0; i < categories.length; i++) {
-        var category = categories[i];
-        renderAuditTable(false, category);
-      }
-    }
     if (JSON.parse(behaviour.acceptOnScroll)) {
       body.onscroll = function () {
         if (cookie.read("cky-consent") === "") {
@@ -3427,8 +2322,122 @@ window.addEventListener("load", function () {
     });
     langObserver.observe(document.querySelector("html"), { attributes: true });
   };
-  count(createBannerOnLoad);
+  var defaultLawGdpr = ckyActiveLaw ? ckyActiveLaw : "gdpr";
+  var anywhereAuditTable = document.getElementsByClassName(
+    "cky-audit-table-element"
+  );
+  if (anywhereAuditTable.length) {
+    for (var i = 0; i < cliConfig.info.categories.length; i++) {
+      var category = cliConfig.info.categories[i];
+      renderAuditTable(
+        false,
+        category,
+        defaultLawGdpr,
+        checkSelectedLanguage(
+          cliConfig.options.behaviour.selectedLanguage,
+          defaultLawGdpr
+        )
+      );
+    }
+  }
+  ckyCount(createBannerOnLoad);
 });
+function appendStyle() {
+  if (document.getElementById("cky-style")) return;
+  var css = cliConfig.options.template.css + cliConfig.options.customCss;
+  var style = document.createElement("style");
+  document.getElementsByTagName("head")[0].appendChild(style);
+  style.type = "text/css";
+  style.setAttribute("id", "cky-style");
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+function renderAuditTable(inBanner, category, law, language) {
+  appendStyle();
+  if (category.cookies.length) {
+    console.log("1");
+    if (inBanner) {
+      var auditTableId = "cky-cookie-audit-table";
+    } else {
+      var auditTableId = "cky-anywhere-cookie-audit-table";
+      var auditTableCategoryName = "<h5>" + category.name[language] + "</h5>";
+      var elems = document.getElementsByClassName("cky-audit-table-element");
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].insertAdjacentHTML("beforeend", auditTableCategoryName);
+      }
+    }
+    var auditTable =
+      '\
+          <div class="cky-table-wrapper">\
+              <table id="' +
+      auditTableId +
+      category.id +
+      '" class="cky-cookie-audit-table">\
+                  <thead>\
+                      <tr>\
+                          <th>' +
+      cliConfig.options.content[law].auditTable.cookie[language] +
+      "</th>\
+                          <th>" +
+      cliConfig.options.content[law].auditTable.type[language] +
+      "</th>\
+                          <th>" +
+      cliConfig.options.content[law].auditTable.duration[language] +
+      "</th>\
+                          <th>" +
+      cliConfig.options.content[law].auditTable.description[language] +
+      "</th>\
+                      </tr>\
+                  </thead>\
+                  <tbody>\
+                  </tbody>\
+              </table>\
+          </div>";
+    if (inBanner) {
+      document
+        .getElementById("cky-tab-content-" + category.name[language] + "")
+        .getElementsByClassName("cky-tab-desc")[0]
+        .insertAdjacentHTML("beforeend", auditTable);
+    } else {
+      var elems = document.getElementsByClassName("cky-audit-table-element");
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].insertAdjacentHTML("beforeend", auditTable);
+      }
+    }
+    for (var k = 0; k < category.cookies.length; k++) {
+      var cookies = category.cookies[k];
+      var auditTableRow =
+        "<tr>\
+                                      <td>" +
+        cookies.cookie_id +
+        "</td>\
+                                      <td>" +
+        cookies.type +
+        "</td>\
+                                      <td>" +
+        cookies.duration +
+        "</td>\
+                                      <td>" +
+        cookies.description[language] +
+        "</td>\
+                                  </tr>";
+      if (inBanner) {
+        document
+          .getElementById("cky-cookie-audit-table" + category.id + "")
+          .getElementsByTagName("tbody")[0]
+          .insertAdjacentHTML("beforeend", auditTableRow);
+      } else {
+        document
+          .getElementById("cky-anywhere-cookie-audit-table" + category.id + "")
+          .getElementsByTagName("tbody")[0]
+          .insertAdjacentHTML("beforeend", auditTableRow);
+      }
+    }
+  }
+}
 function checkSelectedLanguage(selectedLanguage, ckyActiveLaw) {
   let siteLanguage = document.documentElement.lang;
   if (cliConfig.options.plan === "free" || !siteLanguage) {
@@ -3445,13 +2454,7 @@ function checkSelectedLanguage(selectedLanguage, ckyActiveLaw) {
     ? siteLanguage
     : selectedLanguage;
 }
-const categoryScripts = [
-  { re: "tawk.to", categories: ["functional"] },
-  { re: "google-analytics.com", categories: ["analytics", "performance"] },
-  { re: "hotjar.com", categories: ["analytics"] },
-  { re: "vimeo.com", categories: ["analytics"] },
-  { re: "youtube.com", categories: ["performance", "advertisement"] },
-];
+const categoryScripts = [];
 function addPlaceholder(htmlElm) {
   var selectedLanguage = cliConfig.options.behaviour.selectedLanguage;
   let activeLawTemp = ckyActiveLaw
@@ -3600,6 +2603,14 @@ var observer = new MutationObserver(function (mutations) {
       ) {
         var src = node.src || "";
         if (node.hasAttribute("data-cookieyes")) {
+          for (let i = 0; i < cliConfig.info.categories.length; i++) {
+            if (
+              cliConfig.info.categories[i].type === 1 &&
+              node.getAttribute("data-cookieyes").replace("cookieyes-", "") ===
+                cliConfig.info.categories[i].slug
+            )
+              return;
+          }
           if (getCategoryCookie(node.getAttribute("data-cookieyes")) != "yes") {
             var cat = node.getAttribute("data-cookieyes");
             if (node.src !== "" && typeof node.src !== undefined) {
@@ -3616,6 +2627,18 @@ var observer = new MutationObserver(function (mutations) {
                   -1
                 ) {
                   category.categories.push(cat.replace("cookieyes-", ""));
+                }
+                if (!isOnBlacklist(src)) {
+                  Array.prototype.push.apply(window.CKY_BLACKLIST, [
+                    new RegExp(
+                      escapeRegExp(webdetail.hostname.replace(/^www./, ""))
+                    ),
+                  ]);
+                  Array.prototype.push.apply(patterns.blacklist, [
+                    new RegExp(
+                      escapeRegExp(webdetail.hostname.replace(/^www./, ""))
+                    ),
+                  ]);
                 }
               } else {
                 Array.prototype.push.apply(window.CKY_BLACKLIST, [
