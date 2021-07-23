@@ -3685,18 +3685,17 @@ function renderAuditTable(inBanner, category, law, language) {
 }
 function checkSelectedLanguage(selectedLanguage, ckyActiveLaw) {
   let siteLanguage = document.documentElement.lang;
-  let ckyTitleKeys = Object.keys(cliConfig.options.content[ckyActiveLaw].title)
   if (cliConfig.options.plan === 'free' || !siteLanguage) {
     return selectedLanguage
   }
-  if (ckyTitleKeys.includes(siteLanguage) !== -1) {
+  if (cliConfig.options.content[ckyActiveLaw].text[siteLanguage]) {
     return siteLanguage
   }
   const remove_after = siteLanguage.indexOf('-');
   if (remove_after >= 1) {
     siteLanguage = siteLanguage.substring(0, remove_after);
   }
-  return (ckyTitleKeys.includes(siteLanguage) !== -1 ? siteLanguage : selectedLanguage);
+  return (cliConfig.options.content[ckyActiveLaw].text[siteLanguage] ? siteLanguage : selectedLanguage);
 }
 const categoryScripts = [
   { re: "google-analytics.com", categories: ["analytics"] },
