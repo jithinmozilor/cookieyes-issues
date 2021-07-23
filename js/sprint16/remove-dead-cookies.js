@@ -7450,3 +7450,22 @@ var cookieYes = {
       document.createElement = createElementBackup;
   },
 };
+
+
+let ckyKeysArray = Object.keys(cliConfig.options.content[ckyActiveLaw].text);
+
+function checkSelectedLanguage(selectedLanguage, ckyActiveLaw) {
+    let siteLanguage = document.documentElement.lang;
+    if (cliConfig.options.plan === 'free' || !siteLanguage) {
+        return selectedLanguage
+    }
+
+    if (ckyKeysArray.indexOf(siteLanguage) !== -1) {
+        return siteLanguage
+    }
+    const remove_after = siteLanguage.indexOf('-');
+    if (remove_after >= 1) {
+        siteLanguage = siteLanguage.substring(0, remove_after);
+    }
+    return (ckyKeysArray.indexOf(siteLanguage) !== -1 ? siteLanguage : selectedLanguage);
+}
